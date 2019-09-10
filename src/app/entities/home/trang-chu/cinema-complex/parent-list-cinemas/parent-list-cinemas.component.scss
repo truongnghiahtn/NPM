@@ -1,0 +1,22 @@
+.listPCinemas {
+    height: 705px;
+    .nav {
+        &.nav-tabs {
+            float: left;
+            display: block;
+        }
+        .nav-item {
+            .nav-link {
+                padding: 20px;
+                img {
+                    width: 50px;
+                }
+            }
+        }
+    }
+    .tab-content {
+        float: left;
+        width: 20%;
+        height: 705px;
+    }
+}

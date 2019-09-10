@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-comming-soonitem',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comming-soonitem.component.scss']
 })
 export class CommingSoonitemComponent implements OnInit {
-
+  @Input() phim;
+  status: boolean = false;
   constructor() { }
 
   ngOnInit() {

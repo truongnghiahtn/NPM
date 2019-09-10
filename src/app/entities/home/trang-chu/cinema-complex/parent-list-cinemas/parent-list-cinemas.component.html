@@ -1,1 +1,27 @@
-<p>parent-list-cinemas works!</p>
+<div style="height: 50px"></div>
+<!-- Nav tabs -->
+<div class="container listPCinemas">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" *ngFor="let hethongrap of listHTRap; let i = index" (click)="changeEvent(i)">
+            <a class="nav-link" [ngClass]="{active: i == 0}" data-toggle="tab" [href]='"#"+ hethongrap.maHeThongRap' role="tab" aria-controls="home">
+                <img class="img-fluid" [src]="hethongrap.logo">
+            </a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <ng-container *ngFor="let item of listHTRap; let i = index">
+            <div class="tab-pane" [ngClass]="{active: i == 0}" [id]="item.maHeThongRap">
+                <app-list-cinemas [listHTRap]="item" (eventShow)="_showMovies($event)"></app-list-cinemas>
+            </div>
+        </ng-container>
+    </div>
+
+    <div class="listMovies">
+        <ng-container *ngFor="let item of listDSPhim">
+            <app-list-movies [movies]="item" [hidden]="!(item.maCumRap === event)"></app-list-movies>
+        </ng-container>
+    </div>
+</div>
+
+<!-- End Nav tabs -->

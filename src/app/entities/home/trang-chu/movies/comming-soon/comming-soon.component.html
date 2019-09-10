@@ -1,1 +1,23 @@
-<p>comming-soon works!</p>
+<div class="comingSoon">
+    <div class="container" style="padding-top: 75px">
+        <div class="row">
+            <div class="col-sm-12" style="position: static">
+                <h2 class="coming__title">coming soon</h2>
+                <ng-container *ngFor="let item of DanhSachPhimSapChieu">
+                    <app-comming-soonitem [phim]="item"></app-comming-soonitem>
+                </ng-container>
+                <div class="owl-carousel owl-theme documentation" id="myTab">
+                    <div class="carousel__item tablink" [ngClass]="{'active': item.maPhim === mp}" *ngFor="let item of DanhSachPhimSapChieu; let i = index" (click)="show(item.maPhim)">
+                        <a class="nav__img">
+                            <img class="myImg" [src]="item.hinhAnhMoTa">
+                        </a>
+                        <div class="nav__content text-center">
+                            <h5>{{item.tenPhim}}</h5>
+                            <span>{{item.ngayKhoiChieu}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
