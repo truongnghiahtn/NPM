@@ -29,12 +29,11 @@
                         ],
                         "styles": [
                             "node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
-                            "src/assets/css/bootstrap.min.css",
-                            "src/assets/css/animate.min.css",
+                            "src/assets/css/bootstrap.css",
                             "src/assets/css/materialize.css",
+                            "src/assets/css/animate.min.css",
                             "src/assets/css/venobox.css",
                             "src/styles.scss"
-
                         ],
                         "scripts": [
                             "node_modules/jquery/dist/jquery.min.js",
