@@ -96,7 +96,7 @@ export class CommingSoonComponent implements OnInit {
       hinhAnhMoTa: "assets/img/movie-15.jpg",
       moTa: "An astronaut becomes stranded on Mars after his team assume him dead, and must rely on his ingenuity to find a way to signal to Earth that he is alive.",
       ngayKhoiChieu: "01 December, 2018",
-      danhGia: 5
+      danhGia: 69
     }
   ]
 
