@@ -24,7 +24,7 @@ export class CommingSoonComponent implements OnInit {
       hinhAnhMoTa: "assets/img/movie-10.jpg",
       moTa: "A dramatization of the April 2010 disaster, when the offshore drilling rig Deepwater Horizon exploded and created the worst oil spill in U.S. history.",
       ngayKhoiChieu: "07 September, 2017",
-      danhGia: 5
+      danhGia: 6
     },
     {
       maPhim: 2,
