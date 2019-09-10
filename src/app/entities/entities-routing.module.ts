@@ -9,7 +9,7 @@ const routes: Routes = [
     component:EntitiesComponent,
     children:[
       {
-        path:"home",
+        path:"",
         loadChildren:"./home/home.module#HomeModule"
       },
       // trang Admin
