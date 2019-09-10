@@ -1,0 +1,101 @@
+@import "src/style/varibles.scss";
+.movie-footer {
+    .footer__content {
+        padding: $pd-3 * 3 0;
+        img {
+            width: 35%;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+            li {
+                line-height: 30px;
+                a {
+                    color: $color-gray-3;
+                    &:hover {
+                        color: $color-orange-0;
+                        transition: 0.3s;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+        color: gray;
+        background-image: url("../../../assets/img/footer_bg.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(29, 27, 27, 0.3);
+        }
+        .item {
+            p {
+                margin: $mg-1 * 2 0;
+            }
+            .head {
+                color: #fe7900;
+            }
+            .icons {
+                i {
+                    color: white;
+                    border-radius: 50%;
+                    background: $color-gray-3;
+                    width: 34px;
+                    height: 34px;
+                    line-height: 2;
+                    padding-left: $pd-1 - 1;
+                    margin: 0 $mg-0 - 2;
+                    cursor: pointer;
+                    &:hover {
+                        background: $color-orange-0;
+                        transition: 0.5s;
+                    }
+                }
+            }
+            .input-group {
+                .form-control {
+                    background: $color-gray-1;
+                    padding: $pd-1;
+                    border: none;
+                    color: $color-white-0;
+                    &::placeholder {
+                        color: $color-white-0;
+                    }
+                    &:focus::placeholder {
+                        opacity: 0;
+                    }
+                }
+                .input-group-append {
+                    &:hover {
+                        i {
+                            color: $color-orange-0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .footer__copyright {
+        padding: $pd-3 * 2 0;
+        background: rgb(0, 0, 0);
+        .copy {
+            color: $color-gray-3;
+        }
+        .policy {
+            a {
+                color: $color-gray-3;
+                &:hover {
+                    color: $color-orange-0;
+                    transition: 0.3s;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

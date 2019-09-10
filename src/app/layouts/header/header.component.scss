@@ -1,0 +1,41 @@
+.movie-header {
+    padding: 0 30px;
+    .navbar {
+        padding: 0;
+        .navbar-brand {
+            margin-right: 0;
+            img {
+                width: 50%;
+                display: block;
+                margin: auto;
+            }
+        }
+        #my-nav {
+            .navbar-nav {
+                .nav-item {
+                    .nav-link {
+                        padding-left: 20px;
+                        padding-right: 20px;
+                        color: #29303b;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+        .login {
+            color: gray;
+            .username,
+            .site {
+                a {
+                    margin: 0 10px;
+                    color: #29303b;
+                    &:hover {
+                        color: #fe7900;
+                        transition: 0.3s;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
