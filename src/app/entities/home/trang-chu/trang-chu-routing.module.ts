@@ -4,7 +4,11 @@ import { TrangChuComponent } from './trang-chu.component';
 
 
 const routes: Routes = [
+<<<<<<< HEAD
   {path:"", component: TrangChuComponent},
+=======
+  {path:"",component:TrangChuComponent}
+>>>>>>> carousel
 ];
 
 @NgModule({
