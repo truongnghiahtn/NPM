@@ -1,0 +1,215 @@
+.phongVe {
+    width: 100%;
+    .seat__Checkout {
+        width: 70%;
+        float: left;
+        padding-top: 30px;
+        .row {
+            max-width: 900px;
+            margin: auto;
+            .top__content {
+                width: 90%;
+                margin: auto;
+                justify-content: space-between;
+                .lefttitle {
+                    .logo__cinema {
+                        float: left;
+                        .logoRap {
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                        }
+                    }
+                    .info__logo {
+                        float: left;
+                        font-size: 14px;
+                        margin-left: 10px;
+                        p:first-child {
+                            margin-bottom: 0;
+                        }
+                        p:last-child {
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+                .righttitle {
+                    width: 120px;
+                    font-size: 14px;
+                    text-align: right;
+                    p:first-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            .seatmap {
+                margin-top: 10px;
+                width: 900px;
+                .panzoom {
+                    text-align: center;
+                    .screen {
+                        .logo {
+                            width: 90%;
+                        }
+                    }
+                    .listseat {}
+                }
+                .noteseat {}
+            }
+        }
+    }
+    .reset__ticker,
+    .success__buyticket {
+        width: 100%;
+        height: 100%;
+        display: none;
+        text-align: center;
+        position: fixed;
+        z-index: 999;
+        background-color: rgba(0, 0, 0, 0.85);
+        .content {
+            text-align: center;
+            border-radius: 4px;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 40px;
+            font-size: 20px;
+            background: #fff;
+            line-height: 1;
+            p {
+                line-height: 1.5;
+                font-size: 16px;
+                width: 80%;
+                margin: 20px auto;
+            }
+        }
+    }
+    .modal__Checkout {
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0.85);
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    .right__Checkout {
+        position: fixed;
+        right: 0;
+        // top: 56px;
+        top: 0;
+        width: 30%;
+        height: 100%;
+        z-index: 10;
+        background-color: #fff;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        .row {
+            border-bottom: 1px dashed #e9e9e9;
+        }
+        .thanh__tien {
+            margin-bottom: 15px;
+            font-size: 34px;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .thongtin__phim {
+            padding-bottom: 12.5px;
+        }
+        .ghe {
+            padding: 12.5px 0;
+        }
+        .combo {
+            padding: 12.5px 0;
+        }
+        p {
+            margin-bottom: 0;
+        }
+        .datve {
+            background-color: #afafaf;
+            font-size: 23px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 60px;
+            cursor: pointer;
+            font-size: 24px;
+            text-align: center;
+            color: #e9e9e9 !important;
+            border-radius: 0;
+            // background-image: linear-gradient(223deg,#b4ec51 0,#429321 100%);
+        }
+    }
+    .combo__Checkout {
+        overflow: auto;
+        position: fixed;
+        padding-top: 80px;
+        visibility: hidden;
+        right: 400px;
+        top: 0;
+        background-color: #fff;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        z-index: 2;
+        width: 465px;
+        height: 100%;
+        &.animated {
+            visibility: visible;
+            &.slideInRight {
+                animation-duration: .7s;
+            }
+        }
+        .combolist {
+            .imgCombo {}
+            .infoCombo {
+                .information {
+                    width: 18px;
+                    margin-right: 10px;
+                }
+                .money {
+                    padding-left: 29px;
+                }
+            }
+            .opnum {
+                .down {
+                    color: #fb4226 !important;
+                    margin-right: 5px;
+                    background: 0 0;
+                    border: transparent;
+                    color: #9b9b9b;
+                    transform: scaleX(3);
+                    font-size: 16px;
+                }
+                .number {
+                    font-size: 16px;
+                    border: 1px solid #e9e9e9;
+                    border-radius: 4px;
+                    height: 32px;
+                    width: 32px;
+                    text-align: center;
+                    display: inline-block;
+                    padding-top: 4px;
+                }
+                .up {
+                    color: #fb4226;
+                    background: 0 0;
+                    border: transparent;
+                    color: #fb4226 !important;
+                    transform: scale(1.5);
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+.row {
+    margin: 0;
+}
+
+button {
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}

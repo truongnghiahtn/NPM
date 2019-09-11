@@ -19,12 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-<<<<<<< HEAD
     BrowserAnimationsModule, HttpClientModule
-=======
-    BrowserAnimationsModule,
-    HttpClientModule
->>>>>>> carousel
   ],
   providers: [],
   bootstrap: [AppComponent]

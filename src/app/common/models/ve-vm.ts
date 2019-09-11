@@ -1,2 +1,4 @@
-export class VeVm {
+export class VeVM {
+    maGhe: number;
+    giaVe: number
 }

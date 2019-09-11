@@ -1,1 +1,9 @@
-<p>item-ghe works!</p>
+<ng-container *ngIf="Ghe">
+    <ng-container *ngIf="!Ghe.daDat; else gheDaDuocChon">
+        <button class="btn ghe m-2" [ngClass]="{'gheDangChon': trangThaiChon}" (click)="datGhe()">{{Ghe.tenGhe}}</button>
+    </ng-container>
+
+    <ng-template #gheDaDuocChon>
+        <button class="btn btn-danger m-2" style="cursor: not-allowed;" disabled>{{Ghe.tenGhe}}</button>
+    </ng-template>
+</ng-container>

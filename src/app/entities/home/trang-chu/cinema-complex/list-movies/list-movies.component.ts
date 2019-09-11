@@ -45,7 +45,7 @@ export class ListMoviesComponent implements OnInit {
   }
 
   _DatVe(maLichChieu) {
-    this.router.navigate(['/phong-ve/', maLichChieu], { queryParams: { movieId: this.moviesInDay.maPhim } });
+    this.router.navigate(['/dat-ve/', maLichChieu], { queryParams: { movieId: this.moviesInDay.maPhim } });
     // console.log(this.movies.maCumRap);
     // console.log(this.moviesInDay);
     // console.log(this.moviesToDay);

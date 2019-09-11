@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SharingDataService } from 'src/app/shared/share/sharing-data.service';
 
 @Component({
   selector: 'app-item-ghe',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item-ghe.component.scss']
 })
 export class ItemGheComponent implements OnInit {
+  trangThaiChon: boolean = false;
+  @Input() Ghe;
 
-  constructor() { }
+  constructor(private sharingDataService: SharingDataService) { }
 
   ngOnInit() {
   }
 
+  datGhe(){
+    this.trangThaiChon = !this.trangThaiChon;
+    this.sharingDataService.sharingDataStatusChair(this.trangThaiChon, this.Ghe);
+  }
 }

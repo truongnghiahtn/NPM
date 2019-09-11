@@ -6,16 +6,16 @@ import { EntitiesComponent } from './entities.component';
 const routes: Routes = [
   {
     path: "",
-    component:EntitiesComponent,
-    children:[
+    component: EntitiesComponent,
+    children: [
       {
-        path:"",
-        loadChildren:"./home/home.module#HomeModule"
+        path: "",
+        loadChildren: "./home/home.module#HomeModule"
       },
       // trang Admin
       {
-      path:"admin",
-      loadChildren:"./admin/admin.module#AdminModule"
+        path: "admin",
+        loadChildren: "./admin/admin.module#AdminModule"
       }
     ]
   }

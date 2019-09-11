@@ -1,1 +1,45 @@
-<p>danh-sach-ghe works!</p>
+<div class="container rowseat">
+    <div class="row text-center">
+        <div class="col-sm-12">
+            <ng-container *ngFor="let item of danhSachGhe; let i = index">
+                <!-- <app-item-ghe [Ghe]="item"></app-item-ghe>
+                <br *ngIf="(i + 1) % 15 === 0"> -->
+                <div *ngIf="i % 15 === 0 && 136 >= i" class="row">
+                    <app-item-ghe [Ghe]="danhSachGhe[i]"></app-item-ghe>
+                    <app-item-ghe [Ghe]="danhSachGhe[i + 1]"></app-item-ghe>
+                    <app-item-ghe [Ghe]="danhSachGhe[i + 2]" class="mr-4"></app-item-ghe>
+                    <app-item-ghe [Ghe]="danhSachGhe[i + 3]"></app-item-ghe>
+                    <app-item-ghe [Ghe]="danhSachGhe[i + 4]"></app-item-ghe>
+                    <app-item-ghe [Ghe]="danhSachGhe[i + 5]"></app-item-ghe>
+                    <app-item-ghe [Ghe]="danhSachGhe[i + 6]"></app-item-ghe>
+                    <app-item-ghe [Ghe]="danhSachGhe[i + 7]"></app-item-ghe>
+                    <app-item-ghe [Ghe]="danhSachGhe[i + 8]"></app-item-ghe>
+                    <app-item-ghe [Ghe]="danhSachGhe[i + 9]"></app-item-ghe>
+                    <app-item-ghe [Ghe]="danhSachGhe[i + 10]"></app-item-ghe>
+                    <app-item-ghe [Ghe]="danhSachGhe[i + 11]"></app-item-ghe>
+                    <app-item-ghe [Ghe]="danhSachGhe[i + 12]"></app-item-ghe>
+                    <app-item-ghe [Ghe]="danhSachGhe[i + 13]" class="ml-4"></app-item-ghe>
+                    <app-item-ghe [Ghe]="danhSachGhe[i + 14]"></app-item-ghe>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+<!-- <div class="row">
+    <div class="form-check">
+        <input id="gheTrong" class="form-check-input" type="checkbox" name="" value="true">
+        <label for="gheTrong" class="form-check-label">Ghế trống</label>
+    </div>
+    <div class="form-check">
+        <input id="dangChon" class="form-check-input" type="checkbox" name="" value="true">
+        <label for="dangChon" class="form-check-label">Đang chọn</label>
+    </div>
+    <div class="form-check">
+        <input id="daChon" class="form-check-input" type="checkbox" name="" value="true">
+        <label for="daChon" class="form-check-label">Đã chọn</label>
+    </div>
+    <div class="form-check">
+        <input id="khongTheChon" class="form-check-input" type="checkbox" name="" value="true" disabled>
+        <label for="khongTheChon" class="form-check-label">Không thể chọn</label>
+    </div>
+</div> -->

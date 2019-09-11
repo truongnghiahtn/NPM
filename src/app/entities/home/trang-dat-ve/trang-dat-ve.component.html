@@ -1,1 +1,123 @@
-<p>trang-dat-ve works!</p>
+<ng-container *ngIf="phongVe && heThongRap">
+    <div class="phongVe">
+        <div class="row">
+            <div class="seat__Checkout">
+                <div class="row">
+                    <div class="row top__content">
+                        <div class="lefttitle">
+                            <div class="logo__cinema">
+                                <img class="logoRap" [src]="heThongRap.logo" alt="#">
+                            </div>
+                            <div class="info__logo">
+                                <p>
+                                    {{lichChieu.thongTinRap.tenCumRap}}
+                                </p>
+                                <p>
+                                    Hôm nay - {{lichChieu.ngayChieuGioChieu | date: 'HH:mm'}} - {{lichChieu.thongTinRap.tenRap| uppercase}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="righttitle">
+                            <p>thời gian giữ ghế</p>
+                            <p>
+                                <!-- <span class="minute"></span>
+                                <span class="second"></span> -->
+                                <countdown [config]="{leftTime: 300, format: 'm:s'}" (event)="handleEvent($event)"></countdown>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="seatmap">
+                        <div class="panzoom">
+                            <div class="screen">
+                                <img class="logo" src="../../../assets/img/screen.png" alt="">
+                            </div>
+                            <div class="listseat">
+                                <app-danh-sach-ghe [danhSachGhe]="phongVe.danhSachGhe"></app-danh-sach-ghe>
+                            </div>
+                        </div>
+                        <div class="noteseat">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reset__ticker">
+                <div class="content">
+                    Đã hết thời gian giữ ghế. Vui lòng thực hiện đơn hàng trong thời hạn 5 phút.
+                    <a (click)="datVeLai()" style="color:#FB4226; cursor: pointer;">Đặt vé lại</a>
+                </div>
+            </div>
+            <div class="modal__Checkout" (click)="backPage()" *ngIf="statusModal"></div>
+            <div class="right__Checkout container-fluid">
+                <div class="row thanh__tien justify-content-center">
+                    <p class="total">{{tongTien}} đ</p>
+                </div>
+                <div class="row thongtin__phim">
+                    <p class="w-100">{{chiTietPhim.tenPhim}}</p>
+                    <div class="content__Cinema">
+                        <div class="addr">
+                            <p>{{lichChieu.thongTinRap.tenCumRap}}</p>
+                        </div>
+                        <div class="time">
+                            <p>Hôm nay {{lichChieu.ngayChieuGioChieu | date: 'dd/MM/yyyy'}} - {{lichChieu.ngayChieuGioChieu | date: 'HH:mm'}} - {{lichChieu.thongTinRap.tenRap | uppercase}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ghe">
+                    <div class="col-sm-7 pl-0">
+                        <p>Ghế:
+                            <ng-container *ngFor="let item of danhSachGheDaDat; let i = index"><span *ngIf="i > 0">,
+                                </span>{{item.tenGhe}}
+                            </ng-container>
+                        </p>
+                    </div>
+                    <div class="col-sm-5 text-right">
+                        <p>{{tienGhe}} đ</p>
+                    </div>
+                </div>
+                <div class="row combo">
+                    <div class="col-sm-7 pl-0" (click)="chonCombo()" style="cursor: pointer">
+                        <p>Chọn Combo:</p>
+                    </div>
+                    <div class="col-sm-5 text-right">
+                        <p>{{tienCombo}} đ</p>
+                    </div>
+                </div>
+                <button class="btn w-100 datve" (click)="datVe()">Đặt vé</button>
+            </div>
+
+            <div class="combo__Checkout">
+                <div class="combolist">
+                    <div>Snacks - Kẹo</div>
+                    <div class="row" *ngFor="let item of danhSachCombo" style="margin-bottom: 30px">
+                        <div class="col-sm-2 imgCombo">
+                            <img class="img-fluid w-100" [src]="item.hinhAnh">
+                        </div>
+                        <div class="col-sm-7 infoCombo">
+                            <div>
+                                <img class="img-fluid information" src="https://123phim.vn/app/assets/img/icons/information.png" alt="">
+                                <span>{{item.tenCombo}}</span>
+                            </div>
+                            <div class="money">{{item.gia}}</div>
+                        </div>
+                        <div class="col-sm-3 opnum">
+                            <button class="down" *ngIf="item.amount == 0" style="color: #9b9b9b !important; cursor: initial">-</button>
+                            <button class="down" *ngIf="item.amount > 0" (click)="down(item)">-</button>
+                            <span class="number">{{item.amount}}</span>
+                            <button class="up" *ngIf="item.amount < 10" (click)="up(item)">+</button>
+                            <button class="up" *ngIf="item.amount === 10" style="color: #9b9b9b !important; cursor: initial">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="success__buyticket">
+                <div class="content text-center font-weight-bold">
+                    Đặt vé thành công! <br>
+                    <p class="text-secondary font-weight-normal">Your check-in was successful. Enjoy your movie!</p>
+                    <button class="btn btn-success w-100" (click)="datVeSuccess()">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
