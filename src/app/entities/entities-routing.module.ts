@@ -12,7 +12,10 @@ const routes: Routes = [
         path:"",
         loadChildren:"./home/home.module#HomeModule"
       },
-      // trang Admin
+      {
+        path:"trang-chu",
+        loadChildren:"./home/home.module#HomeModule"
+      },
       {
       path:"admin",
       loadChildren:"./admin/admin.module#AdminModule"

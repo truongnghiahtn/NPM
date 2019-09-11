@@ -9,7 +9,6 @@ declare var $:any;
 
 export class CarouselComponent implements OnInit, AfterViewInit {
   mangPhim: any = [];
-  vitri: number = 0;
   constructor(private dataSV: DataService) { }
 
   ngOnInit() {
@@ -32,11 +31,5 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
 
   }
-  onCarousel(index, phim) {
-    this.vitri = index;
-    console.log(phim);
-  }
-  // chiTiet() {
-  //   // this.route.navigate(["/chi-tiet-phim"])
-  // }
+  
 }

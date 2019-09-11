@@ -22,13 +22,15 @@ import { ReviewComponent } from './news/review/review.component';
 import { PromotionComponent } from './news/promotion/promotion.component';
 import { NewsItem1Component } from './news/news-item1/news-item1.component';
 import { NewsItem2Component } from './news/news-item2/news-item2.component';
+import { MaterialModule } from 'src/app/common/material/material.module';
+
 
 
 @NgModule({
   declarations: [TrangChuComponent, CarouselComponent, CarouselItemPhimComponent, CarouselItemDetailComponent, SearchMovieComponent, MoviesComponent, NowPlayingComponent, CommingSoonComponent, NowPlayItemComponent, CommingSoonitemComponent, CinemaComplexComponent, ParentListCinemasComponent, ListCinemasComponent, ListMoviesComponent, NewsComponent, NewComponent, ReviewComponent, PromotionComponent, NewsItem1Component, NewsItem2Component],
   imports: [
     CommonModule,
-    TrangChuRoutingModule
+    TrangChuRoutingModule,MaterialModule
   ]
 })
 export class TrangChuModule { }
