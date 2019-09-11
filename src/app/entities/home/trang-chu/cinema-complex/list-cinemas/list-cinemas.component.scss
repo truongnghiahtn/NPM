@@ -1,0 +1,23 @@
+.cinema__item {
+    padding: 15px;
+    padding-left: 20px;
+    float: left;
+    width: 100%;
+    opacity: 0.5;
+    cursor: pointer;
+    span {
+        display: block;
+    }
+    .tenCumRap {
+        font-size: 14px;
+    }
+    .addr {
+        font-size: 12px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    &.active {
+        opacity: 1;
+    }
+}

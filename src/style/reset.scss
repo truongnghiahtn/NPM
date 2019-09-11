@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    font-family: 'Exo 2', sans-serif;
+    background: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header,
+section,
+footer,
+aside,
+nav,
+main,
+article,
+figure {
+    display: block;
+}

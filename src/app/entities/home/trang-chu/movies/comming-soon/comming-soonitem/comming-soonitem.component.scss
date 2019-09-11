@@ -1,0 +1,140 @@
+@mixin text($fs, $fw, $color) {
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+}
+
+//Variable
+// variable color
+$color-black-0: #29303b; // default
+$color-blue-0: #fe7900;
+$color-orange-0: #fe7900;
+$color-red-0: #fa5238;
+$color-red-1: #fb4226;
+$color-gray-0: #9b9b9b;
+$color-gray-1: #4a4a4a;
+$color-gray-2: #333;
+$color-gray-3: #4a4a4a;
+$color-green-0: #417500;
+$color-white-0: #fff;
+$color-white-1: #f5f1f0;
+// variable font-size
+$fs-0: 15px; //default
+$fs-1: 13px;
+$fs-2: 14px;
+$fs-3: 16px;
+$fs-4: 20px;
+$fs-5: 24px;
+$fs-6: 40px;
+//variable margin
+$mg-0: 5px;
+$mg-1: 10px;
+$mg-2: 25px;
+//variable border-radius
+$border-radius-0: 2px;
+$border-radius-1: 10px;
+$border-radius-2: 10px;
+$border-radius-3: 50%;
+//variable padding
+$pd-0: 5px; //default
+$pd-1: 10px;
+$pd-2: 15px;
+$pd-3: 20px;
+//variable line-height
+$line-height-0: 1.43; //default
+//variable font-weight
+$fw-normal: normal; //  normal : 400
+$fw-bold-0: 600;
+$fw-bold-1: 700;
+$fw-bold-2: 500;
+$fw-bold: bold;
+//break points
+$breakpoints: ( "extra-large": 1200px, "large": 992px, "medium": 768px, "small": 576px);
+//End variable 
+.tab__item {
+    .coming__content {
+        padding-bottom: 40px;
+        .coming__overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover !important;
+        }
+        .coming__detail {
+            .coming__detail__item {
+                span {
+                    @include text($fs-2, $fw-normal, #ec7532);
+                    letter-spacing: 2px;
+                }
+                h3 {
+                    @include text(34px, $fw-normal, $color-white-0);
+                    margin-bottom: 0;
+                    line-height: 1.4em;
+                }
+                .coming__detial__icon {
+                    font-size: $fs-0 - 5;
+                    .movie__star {
+                        margin: 0 2px;
+                        color: #fbbd61;
+                        display: inline-block;
+                    }
+                    .movie__star-rating {
+                        color: #d8d8d8;
+                    }
+                    span {
+                        @include text($fs-0 - 3, $fw-normal, $color-white-0);
+                        color: $color-white-0;
+                        opacity: 0.75;
+                    }
+                }
+                p {
+                    margin: 20px 0;
+                }
+                a {
+                    @include text($fs-2, $fw-normal, #ec7532);
+                    text-decoration: none;
+                    letter-spacing: 2px;
+                    &:hover {
+                        color: #fbbd61;
+                    }
+                }
+            }
+            .coming__detail__video {
+                a {
+                    box-shadow: 0 0 50px 15px rgba(0, 0, 0, 0.75);
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    i {
+                        @include text($fs-5, $fw-bold-1, $color-white-0);
+                        position: absolute;
+                        display: block;
+                        text-align: center;
+                        text-indent: 5px;
+                        line-height: 75px;
+                        width: 80px;
+                        height: 80px;
+                        border: 2px solid #ec7532;
+                        border-radius: 50%;
+                        text-decoration: none;
+                        transition: all 0.3s ease-in-out;
+                    }
+                }
+                &:hover {
+                    i {
+                        transform: scale(0.9);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.opacity {
+    opacity: 1;
+}
