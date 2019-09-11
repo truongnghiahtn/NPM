@@ -1,56 +1,65 @@
-.movieInfo {
-    display: flex;
-    cursor: pointer;
-    .movieImage {
-        width: 50px;
-        height: 50px;
-    }
-    .wrapInfo {
-        width: 100%;
-        padding-left: 30px;
-        padding-top: 6px;
-        .age {
-            background-color: #fb4226;
-            color: #fff;
-            border-radius: 4px;
-            padding: 0 5px;
-            float: left;
-            margin-right: 5px;
-            font-size: 12px;
-        }
-        .movieTitle {
-            font-size: 14px;
-            display: block;
-            font-family: "SF Medium";
-            line-height: 22px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            color: #000;
-        }
-        p {
-            margin: 0;
-            line-height: 1.7;
-            font-size: 12px;
-            color: #9b9b9b;
-        }
-    }
-}
-
-.ngayChieu {
-    font-family: "SF Medium";
-    color: #417505;
+.itemMovie {
     float: left;
-    font-size: 22px;
-    font-weight: 400;
-    color: #417500;
-    margin: 0 5px 5px 0;
-    transition: all 0.2s;
-    text-decoration: none;
-    display: block;
-    span {
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-bottom: 17px;
+    padding-top: 20px;
+    padding-right: 15px;
+    padding-left: 20px;
+    .movieInfo {
+        display: flex;
         cursor: pointer;
-        &:hover {
-            color: #fb4226;
+        .movieImage {
+            width: 50px;
+            height: 50px;
+        }
+        .wrapInfo {
+            width: 100%;
+            padding-left: 30px;
+            padding-top: 6px;
+            .age {
+                background-color: #fb4226;
+                color: #fff;
+                border-radius: 4px;
+                padding: 0 5px;
+                float: left;
+                margin-right: 5px;
+                font-size: 12px;
+            }
+            .movieTitle {
+                font-size: 14px;
+                display: block;
+                font-family: "SF Medium";
+                line-height: 22px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                color: #000;
+            }
+            p {
+                margin: 0;
+                line-height: 1.7;
+                font-size: 12px;
+                color: #9b9b9b;
+            }
+        }
+    }
+    .ngayChieu {
+        font-family: "SF Medium";
+        color: #417505;
+        float: left;
+        font-size: 22px;
+        font-weight: 400;
+        color: #417500;
+        margin: 0 5px 5px 0;
+        transition: all 0.2s;
+        text-decoration: none;
+        display: block;
+        span {
+            cursor: pointer;
+            &:hover {
+                color: #fb4226;
+            }
         }
     }
 }

@@ -4,6 +4,7 @@
         width: 70%;
         float: left;
         padding-top: 30px;
+        background: bisque;
         .row {
             max-width: 900px;
             margin: auto;
@@ -96,12 +97,12 @@
     }
     .right__Checkout {
         position: fixed;
+        height: 100%;
         right: 0;
-        // top: 56px;
-        top: 0;
+        z-index: 3;
+        bottom: 0;
         width: 30%;
         height: 100%;
-        z-index: 10;
         background-color: #fff;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         .row {
@@ -156,7 +157,7 @@
         &.animated {
             visibility: visible;
             &.slideInRight {
-                animation-duration: .7s;
+                animation-duration: 0.7s;
             }
         }
         .combolist {

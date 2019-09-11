@@ -1,17 +1,19 @@
-<div class="movieInfo" (click)="toggle()">
-    <img class="movieImage" [src]="moviesInDay.hinhAnh" alt="#">
-    <div class="wrapInfo">
-        <p>
-            <span class="age">C18</span>
-            <span class="movieTitle">{{moviesInDay.tenPhim}}</span>
-        </p>
-        <p>{{thoiLuong}} - 123Phim {{moviesInDay.danhGia}} - IMDb 6.6</p>
+<div class="itemMovie">
+    <div class="movieInfo" (click)="toggle()">
+        <img class="movieImage" [src]="moviesInDay.hinhAnh" alt="#">
+        <div class="wrapInfo">
+            <p>
+                <span class="age">C18</span>
+                <span class="movieTitle">{{moviesInDay.tenPhim}}</span>
+            </p>
+            <p>{{thoiLuong}} - 123Phim {{moviesInDay.danhGia}} - IMDb 6.6</p>
+        </div>
     </div>
-</div>
-<div *ngIf="status">
-    <div class="ngayChieu">
-        <span *ngFor="let item of moviesToDay" (click)="_DatVe(item.maLichChieu)">
-            {{item.ngayChieuGioChieu | date: 'HH:mm'}}
-        </span>
+    <div *ngIf="status">
+        <div class="ngayChieu">
+            <span *ngFor="let item of moviesToDay" (click)="_DatVe(item.maLichChieu)">
+                {{item.ngayChieuGioChieu | date: 'HH:mm'}}
+            </span>
+        </div>
     </div>
 </div>
