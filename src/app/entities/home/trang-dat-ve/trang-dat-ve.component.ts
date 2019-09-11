@@ -103,7 +103,6 @@ export class TrangDatVeComponent implements OnInit {
         this._dataService.post(uri, this.danhSachVeDat).subscribe(
           (data: any) => {
             console.log(data);
-            // location.reload();
           },
           (err: any) => {
             console.log(err);
@@ -111,7 +110,7 @@ export class TrangDatVeComponent implements OnInit {
           })
       } else {
         alert("Vui lòng chọn ghế!");
-        
+
         return false;
       }
     }
