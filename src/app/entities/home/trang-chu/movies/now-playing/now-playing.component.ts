@@ -21,11 +21,11 @@ constructor( private dataService:DataService) { }
       this.getListMovie();
     
     }
-    ngAfterViewInit(){
-      setInterval(() => {
-      this.next(); 
-    }, 10000);
-    }
+    // ngAfterViewInit(){
+    //   setInterval(() => {
+    //   this.next(); 
+    // }, 10000);
+    // }
   next(){
     if(this.biendem1===this.biendem)
     {

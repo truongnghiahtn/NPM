@@ -3,9 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { TrangChiTietComponent } from './trang-chi-tiet.component';
 
 
-
 const routes: Routes = [
-  { path: "", component: TrangChiTietComponent }
+  {path:"",component:TrangChiTietComponent}
 ];
 
 @NgModule({
