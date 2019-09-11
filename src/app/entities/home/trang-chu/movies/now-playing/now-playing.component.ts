@@ -36,7 +36,6 @@ constructor( private dataService:DataService) { }
       
     }
     this.status=true;
-    console.log(this.biendem1)
   
   }
   pre(){
@@ -48,25 +47,23 @@ constructor( private dataService:DataService) { }
       this.biendem1--;
     }
     this.status=false;
-    console.log(this.biendem1);
   }
   catlayout(){
     if(this.DSphimDangChieu1.length>8){
       this.biendem= parseInt(`${this.DSphimDangChieu1.length/8}`)+1;
     }
-    console.log(this.biendem)
-    console.log("lengh",this.DSphimDangChieu1.length)
+
   }
   getListMovie(){
     this.subListMovie= this.dataService.get('http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP02').subscribe((data:Phim[])=>{
-      console.log(data);
+ 
       this.DSphimDangChieu1=data;
 
     this.catphim();
       if(this.DSphimDangChieu1.length>8){
         if(this.DSphimDangChieu1.length % 8 ===0){
           this.biendem= parseInt(`${this.DSphimDangChieu1.length/8}`);
-          console.log(this.biendem);
+
         }
         else{
         this.biendem= parseInt(`${this.DSphimDangChieu1.length/8}`)+1;

@@ -4,10 +4,18 @@ import { HomeComponent } from './home.component';
 
 
 const routes: Routes = [
- {path:"",
-  component:HomeComponent, children: [
-    {path: "", loadChildren: "./trang-chu/trang-chu.module#TrangChuModule"}
-  ]}
+  {
+    path: "",
+    component: HomeComponent, children: [
+      { path: "", loadChildren: "./trang-chu/trang-chu.module#TrangChuModule" },
+      { path: "trang-chu", loadChildren: "./trang-chu/trang-chu.module#TrangChuModule" },
+      { path: "dang-ky", loadChildren: "./trang-dang-ky/trang-dang-ky.module#TrangDangKyModule" },
+      { path: "dang-nhap", loadChildren: "./trang-dang-nhap/trang-dang-nhap.module#TrangDangNhapModule" },
+      { path: "dat-ve", loadChildren: "./trang-dat-ve/trang-dat-ve.module#TrangDatVeModule" },
+      { path: "tin-tuc", loadChildren: "./trang-tin-tuc/trang-tin-tuc.module#TrangTinTucModule" },
+      { path: "chi-tiet-phim/:id", loadChildren: "./trang-chi-tiet/trang-chi-tiet.module#TrangChiTietModule" }
+    ]
+  }
 ];
 
 @NgModule({

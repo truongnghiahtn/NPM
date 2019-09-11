@@ -1,1 +1,5 @@
-<p>carousel-item-detail works!</p>
+<div [ngClass]="{'active':index===0}" class="item">
+    <h1>{{details.tenPhim}}</h1>
+    <p>{{details.moTa}}</p>
+    <button class="btn btn-success" (click)="chiTiet()">Chi tiết</button>
+</div>
