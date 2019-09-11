@@ -111,6 +111,7 @@ export class TrangDatVeComponent implements OnInit {
           })
       } else {
         alert("Vui lòng chọn ghế!");
+        
         return false;
       }
     }
