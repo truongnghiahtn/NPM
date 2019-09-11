@@ -1,1 +1,8 @@
-<p>carousel-item-phim works!</p>
+<div class="carousel-item item" [ngClass]="{'active':index === vitri}" (click)="onCarousel(phim)">
+    <img [src]="phim.hinhAnh" alt="">
+    <div class="item__overlay">
+        <div class="play">
+            <i class="fa fa-play-circle"></i>
+        </div>
+    </div>
+</div>

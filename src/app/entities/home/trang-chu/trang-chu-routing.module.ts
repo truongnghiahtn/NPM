@@ -4,7 +4,7 @@ import { TrangChuComponent } from './trang-chu.component';
 
 
 const routes: Routes = [
-  {path:"", component: TrangChuComponent},
+  {path:"", component:TrangChuComponent}
 ];
 
 @NgModule({

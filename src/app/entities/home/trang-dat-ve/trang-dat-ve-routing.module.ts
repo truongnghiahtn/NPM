@@ -4,7 +4,7 @@ import { TrangDatVeComponent } from './trang-dat-ve.component';
 
 
 const routes: Routes = [
-  { path:"", component: TrangDatVeComponent}
+  {path:"",component:TrangDatVeComponent}
 ];
 
 @NgModule({
