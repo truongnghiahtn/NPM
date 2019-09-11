@@ -30,11 +30,16 @@
                         "styles": [
                             "node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
 <<<<<<< HEAD
+<<<<<<< HEAD
                             "src/assets/css/bootstrap.min.css",
 =======
                             "src/assets/css/bootstrap.css",
                             "src/assets/css/materialize.css",
 >>>>>>> carousel
+=======
+                            "src/assets/css/bootstrap.css",
+                            "src/assets/css/materialize.css",
+>>>>>>> 8844eddd58842c0d79ab7f5f5a3e9efd3e82b788
                             "src/assets/css/animate.min.css",
                             "src/assets/css/materialize.css",
                             "src/assets/css/venobox.css",
@@ -45,6 +50,9 @@
                             "node_modules/popper.js/dist/umd/popper.min.js",
                             "node_modules/bootstrap/dist/js/bootstrap.min.js",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8844eddd58842c0d79ab7f5f5a3e9efd3e82b788
                             "src/assets/js/materialize.min.js",
                             "node_modules/owl.carousel/dist/owl.carousel.min.js",
                             "src/assets/js/venobox.min.js"

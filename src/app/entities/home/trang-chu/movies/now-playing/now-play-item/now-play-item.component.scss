@@ -1,0 +1,133 @@
+@mixin text($fs, $fw, $color) {
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+}
+
+.movie-info {
+    overflow: hidden;
+    .movie-img {
+        position: relative;
+        img {
+            border-bottom: 5px solid #fe7900;
+            transition: all 0.2s;
+            height: 370px;
+            width: 100%;
+        }
+        h2 {
+            position: absolute;
+            top: 115px;
+            left: 90px;
+            z-index: 10;
+            width: 70px;
+            height: 70px;
+            line-height: 65px;
+            border-radius: 50%;
+            background-color: rgba($color: #ffffff, $alpha: 0.8);
+            @include text(30px, bold, #4a4a4a);
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        h3 {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            z-index: 10;
+            width: 70px;
+            height: 70px;
+            line-height: 65px;
+            border-radius: 50%;
+            background-color: rgba($color: orange, $alpha: 0.8);
+            @include text(34px, 600, #34ff03);
+            transform: rotate(20deg);
+        }
+        .movie-content {
+            h1 {
+                @include text(29px, 600, black);
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                line-height: 20px;
+                height: 42px;
+                font-size: 25px;
+            }
+            p {
+                @include text(16px, normal, #333);
+                margin: 0;
+            }
+        }
+    }
+    position: relative;
+    .movie-detail {
+        transition: all 1s;
+        opacity: 0;
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        transform: rotateY(180deg) scale(0.1);
+        background-color: rgba($color: #000000, $alpha: 0.8);
+        width: 100%;
+        height: 100%;
+        padding: 30px 20px;
+        h1 {
+            @include text(24px, bold, #ffffff);
+            padding: 20px 0;
+        }
+        ul {
+            padding-left: 0;
+            width: 100%;
+            li {
+                list-style: none;
+                display: flex;
+                color: rgba($color: #ffffff, $alpha: 0.8);
+                font-weight: 500;
+                span {
+                    color: white;
+                    padding-left: 5px;
+                }
+            }
+        }
+        h2 {
+            @include text(30px, bold, #4a4a4a);
+            width: 70px;
+            height: 70px;
+            line-height: 65px;
+            border-radius: 50%;
+            background: orange;
+            text-align: center;
+            margin: 0 auto;
+            border: 2px solid #f5f1f0;
+            transition: all 2s;
+        }
+        .movie-trailer {
+            padding-top: 110px;
+            p {
+                a {
+                    text-decoration: none;
+                    font-size: 20px;
+                    .fa {
+                        color: orange;
+                    }
+                    span {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+    &:hover {
+        .movie-detail {
+            opacity: 1;
+            transform: rotateY(360deg);
+            perspective: 1500px;
+        }
+        .movie-img {
+            img {
+                transform: scale(1.3, 1.6);
+            }
+        }
+    }
+}

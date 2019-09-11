@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-now-play-item',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./now-play-item.component.scss']
 })
 export class NowPlayItemComponent implements OnInit {
+  @Input() phim;
+
 
   constructor() { }
 
+ 
+
   ngOnInit() {
+ 
   }
 
 }

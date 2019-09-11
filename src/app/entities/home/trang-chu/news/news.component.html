@@ -1,1 +1,34 @@
-<p>news works!</p>
+<!-- Nav pills -->
+
+
+
+<ul class="nav nav-pills ">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="pill" href="#home_tintuc">New</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#menu1_tintuc">Review</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#menu2_tintuc">Khuyến mãi</a>
+    </li>
+</ul>
+
+
+
+
+
+<!-- Tab panes -->
+<div class="tab-content">
+
+    <div class="tab-pane container active" id="home_tintuc">
+        <app-new></app-new>
+    </div>
+
+    <div class="tab-pane container fade show" id="menu1_tintuc">
+        <app-review></app-review>
+    </div>
+    <div class="tab-pane container fade show" id="menu2_tintuc">
+        <app-promotion></app-promotion>
+    </div>
+</div>
