@@ -1,1 +1,29 @@
-<p>promotion works!</p>
+<div class="container">
+    <ng-container *ngFor="let item of DSTinTuc |slice:0: biendem;let i=index">
+        <div class="row">
+            <div *ngFor="let item of DSTinTuc |slice:(0+i*8):(2+i*8)" class="col-6">
+                <app-news-item1 [tintuc]="item"></app-news-item1>
+            </div>
+            <div *ngFor="let item of DSTinTuc |slice:(2+i*8):(4+i*8)" class="col-4">
+
+                <app-news-item1 [tintuc]="item"></app-news-item1>
+
+            </div>
+            <div class="col-4">
+                <div *ngFor="let item of DSTinTuc |slice:(4+i*8):(8+i*8)">
+                    <div class="mb-2">
+                        <app-news-item2 [tintuc]="item"></app-news-item2>
+                    </div>
+                </div>
+            </div>
+
+            <div [ngSwitch]="1+i" class="col-12">
+                <div *ngSwitchCase="biendem" class="col-12">
+                    <div *ngIf="biendem< bienbtn">
+                        <button mat-raised-button color="primary" (click)="xemthem()"> xem them</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

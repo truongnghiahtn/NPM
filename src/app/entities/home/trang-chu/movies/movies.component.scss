@@ -1,0 +1,34 @@
+.intro_content {
+    .nav-tabs {
+        border-bottom: none;
+        .nav-item {
+            .nav-link {
+                text-decoration: none;
+                color: #000000;
+                border: none;
+                padding-right: 0px;
+                padding-left: 0px;
+                &::after {
+                    content: "/";
+                    color: #000000;
+                    padding: 0 10px;
+                    font-weight: 600;
+                    font-size: 25px;
+                }
+            }
+            .nav-link.active {
+                color: #fe7900;
+            }
+        }
+        .nav-item:last-child {
+            .nav-link {
+                &::after {
+                    content: "";
+                }
+            }
+        }
+    }
+    .tab-content {
+        position: relative;
+    }
+}

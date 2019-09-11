@@ -1,1 +1,24 @@
-<p>movies works!</p>
+<div class="row intro_content">
+    <div class="col text-center p-0 ">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs container">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#home159">Now playing</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu1159">Coming soon</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane container active" id="home159">
+                <app-now-playing></app-now-playing>
+            </div>
+            <div class="tab-pane container fade" id="menu1159">
+                <app-comming-soon></app-comming-soon>
+            </div>
+        </div>
+    </div>
+</div>

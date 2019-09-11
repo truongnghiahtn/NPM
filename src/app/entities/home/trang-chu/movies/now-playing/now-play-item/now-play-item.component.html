@@ -1,1 +1,34 @@
-<p>now-play-item works!</p>
+<div class="movie-info">
+    <div class="movie-img">
+        <img [src]="phim.hinhAnh" alt="" class="img-fluid">
+        <!-- <h2>{{phim.danhGia}}</h2> -->
+
+        <div class="movie-content text-left">
+            <h1>the Movie:{{phim.tenPhim}}</h1>
+            <p class="text-left">release: {{phim.ngayKhoiChieu | date:'dd/MM/yyyy'}}</p>
+            <div class="movie-trailer d-flex justify-content-between">
+                <p class="p-2"><i class="fa fa-play-circle" aria-hidden="true"></i> <span>Trailer</span></p>
+                <p class="p-2"><i class="fa fa-info-circle" aria-hidden="true"></i> <span>Detail</span></p>
+            </div>
+
+        </div>
+    </div>
+    <div class="movie-detail text-left">
+        <h1>the Movie:{{phim.tenPhim}}</h1>
+        <ul>
+            <li> release: <span>{{phim.ngayKhoiChieu | date:'dd/MM/yyyy'}}</span></li>
+            <li>Genre : <span>drama</span></li>
+            <li>Duration: <span>120 phut</span></li>
+            <li>Language: <span>English</span></li>
+        </ul>
+        <h2>{{phim.danhGia}}</h2>
+        <div class="movie-trailer d-flex justify-content-between">
+            <p class="p-2">
+                <a href="#"><i class="fa fa-play-circle" aria-hidden="true"></i> <span>Trailer</span> </a> </p>
+            <p class="p-2">
+                <a href="#"> <i class="fa fa-info-circle" aria-hidden="true"></i> <span>Detail</span></a>
+            </p>
+        </div>
+
+    </div>
+</div>

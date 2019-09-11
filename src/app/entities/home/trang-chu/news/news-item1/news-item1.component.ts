@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-news-item1',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news-item1.component.scss']
 })
 export class NewsItem1Component implements OnInit {
-
+  @Input() tintuc;
   constructor() { }
 
   ngOnInit() {
