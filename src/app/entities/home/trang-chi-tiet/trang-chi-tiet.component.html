@@ -1,1 +1,71 @@
-<p>trang-chi-tiet works!</p>
+<ng-container *ngIf="mangphim">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <img [src]="mangphim.hinhAnh">
+            </div>
+            <div class="col-6">
+                <table class="table">
+
+                    <tbody>
+                        <tr>
+                            <td> ten phim </td>
+                            <td> {{mangphim.tenPhim}} </td>
+                        </tr>
+                        <tr>
+
+                            <td>mota </td>
+                            <td>{{mangphim.moTa}}</td>
+                        </tr>
+                        <tr>
+
+                            <td>ngay chieu </td>
+                            <td>{{mangphim.ngayKhoiChieu | date:"dd-MM-yyyy"}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                he thong rap
+                            </th>
+                            <th>
+                                ten cum rap
+                            </th>
+                            <th>
+                                ten rap
+                            </th>
+                            <th>
+                                ngay chieu
+                            </th>
+                            <th>
+                                gio chieu
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let item of mangphim.lichChieu">
+
+                            <td>
+                                {{item.thongTinRap.tenHeThongRap}}
+                            </td>
+                            <td>{{item.thongTinRap.tenCumRap}}</td>
+                            <td>{{item.thongTinRap.TenRap}}</td>
+                            <td>{{item.ngayChieuGioChieu| date:"dd-MM-yyyy"}}</td>
+                            <td>{{item.ngayChieuGioChieu| date:"hh:mm"}}</td>
+                            <button class="btn btn-info" (click)="datve(item.maLichChieu)">dat ve</button>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>
+Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos laboriosam iusto deleniti doloremque, cumque aliquam corrupti maiores repellendus. Sequi, eum veniam cumque adipisci recusandae dignissimos corrupti provident consequuntur, rerum ea
+quaerat rem natus expedita, officia temporibus fugit itaque repudiandae ex nemo! Dolores ab libero sequi! Dolorem possimus sequi, nisi perspiciatis officiis deleniti sint tempora dolores illo quo reiciendis sit magnam, atque explicabo ea, consequatur
+excepturi blanditiis? Ut numquam, eveniet, error quae, cupiditate veritatis nisi animi praesentium voluptatibus ipsa ducimus? Quos corporis quam illum dolorem. Libero ducimus molestias voluptates cumque quas necessitatibus temporibus animi! Doloremque,
+odio facere. Ut nobis iste repellendus.
