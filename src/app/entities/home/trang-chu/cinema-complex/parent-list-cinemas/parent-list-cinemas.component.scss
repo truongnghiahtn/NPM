@@ -1,5 +1,7 @@
 .listPCinemas {
     height: 705px;
+    display: flex;
+    justify-content: center;
     .nav {
         &.nav-tabs {
             display: block;
@@ -14,7 +16,7 @@
             .nav-link {
                 padding: 20px;
                 border: none;
-                opacity: .5;
+                opacity: .7;
                 position: relative;
                 transition: all .2s;
                 img {

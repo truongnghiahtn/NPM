@@ -92,14 +92,15 @@ export class TrangDatVeComponent implements OnInit {
   }
 
   datVe() {
-    let nguoiDungHienTai = JSON.parse(localStorage.getItem("nguoiDungDangNhap"));
+    // let nguoiDungHienTai = JSON.parse(localStorage.getItem("nguoiDungDangNhap"));
+    let nguoiDungHienTai = JSON.parse(localStorage.getItem("KhachHang"));
     console.log(nguoiDungHienTai);
     if (nguoiDungHienTai) {
       if (this.soGheDaDat > 0) {
         this.danhSachVeDat.taiKhoanNguoiDung = nguoiDungHienTai.taiKhoan;
         // console.log(this.danhSachVeDat.taiKhoanNguoiDung);
         // console.log(this.danhSachVeDat);
-        const uri = `QuanLyDatVe/DatVe`;
+        const uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/DatVe`;
         this._dataService.post(uri, this.danhSachVeDat).subscribe(
           (data: any) => {
             // console.log(data);
@@ -109,7 +110,7 @@ export class TrangDatVeComponent implements OnInit {
             $(".success__buyticket").css("display", "block");
           })
       } else {
-        alert("Vui lòng chọn ghế!");
+        $(".pick__chair").css("display", "block");
         return false;
       }
     }
@@ -217,6 +218,13 @@ export class TrangDatVeComponent implements OnInit {
     $(".combo__Checkout").removeClass("slideInRight").addClass("slideOutRight");
     this.statusModal = false;
     this.timeChecked = 0;
+  }
+  
+  backPagePick(){
+    $(".pick__chair").css("display", "none");
+  }
+  backPageSignIn(){
+    $(".signIn").css("display", "none");
   }
 
   ngOnDestroy(): void {
