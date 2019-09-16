@@ -33,10 +33,8 @@ constructor( private dataService:DataService) { }
     }
     else{
       this.biendem1++
-      
     }
     this.status=true;
-  
   }
   pre(){
     if(this.biendem1===1)
@@ -67,7 +65,7 @@ constructor( private dataService:DataService) { }
         }
         else{
         this.biendem= parseInt(`${this.DSphimDangChieu1.length/8}`)+1;
-        console.log(this.biendem)
+    
         }
       }
     })
