@@ -1,17 +1,25 @@
-<div class="movieInfo" (click)="toggle()">
-    <img class="movieImage" [src]="moviesInDay.hinhAnh" alt="#">
-    <div class="wrapInfo">
-        <p>
-            <span class="age">C18</span>
-            <span class="movieTitle">{{moviesInDay.tenPhim}}</span>
-        </p>
-        <p>{{thoiLuong}} - 123Phim {{moviesInDay.danhGia}} - IMDb 6.6</p>
+<div class="itemMovie" *ngFor="let item1 of moviesInDay">
+    <div class="movieInfo" (click)="toggle()">
+        <img class="movieImage" [src]="item1.hinhAnh" alt="#">
+        <div class="wrapInfo">
+            <p>
+                <span class="age">C18</span>
+                <span class="movieTitle">{{item1.tenPhim}}</span>
+            </p>
+            <p>120 - 123Phim {{item1.danhGia}} - IMDb 6.6</p>
+        </div>
     </div>
-</div>
-<div *ngIf="status">
-    <div class="ngayChieu">
-        <span *ngFor="let item of moviesToDay" (click)="_DatVe(item.maLichChieu)">
-            {{item.ngayChieuGioChieu | date: 'HH:mm'}}
-        </span>
+    <div *ngIf="status">
+        <div class="ngayChieu">
+            <!-- <a *ngFor="let item of moviesToDay" [routerLink]="['/dat-ve/', item.maLichChieu]" [queryParams]="{movieId: moviesInDay.maPhim}" target="_blank">
+                    {{item.ngayChieuGioChieu | date: 'HH:mm'}}
+                </a> -->
+
+            <a *ngFor="let item2 of movies.danhSachPhim" [hidden]="item2.maPhim !== item1.maPhim"
+                (click)="_DatVe(item2.maLichChieu, item1.maPhim)">
+                {{item2.ngayChieuGioChieu | date: 'HH:mm'}}
+            </a>
+
+        </div>
     </div>
 </div>

@@ -1,16 +1,16 @@
 .ghe {
-    background-color: gray;
-    &:focus {
-        box-shadow: 0 0 0 0.2rem rgb(#28a745, 0.3);
-    }
+  background-color: gray;
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgb(#28a745, 0.3);
+  }
 }
 
 .gheDangChon {
-    background-color: #28a745;
+  background-color: #28a745;
 }
 
 button {
-    font-size: 10px;
-    width: 35px;
-    height: 35px;
+  font-size: 10px;
+  width: 35px;
+  height: 35px;
 }

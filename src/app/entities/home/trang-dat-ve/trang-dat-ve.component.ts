@@ -70,7 +70,7 @@ export class TrangDatVeComponent implements OnInit {
 
         this.tienGhe += this.eventGhe.ghe.giaVe;
         this.tongTien += this.eventGhe.ghe.giaVe;
-        console.log(this.danhSachVeDat);
+        // console.log(this.danhSachVeDat);
       }
       else {
         if (this.eventGhe.ghe) {
@@ -79,7 +79,7 @@ export class TrangDatVeComponent implements OnInit {
           this.danhSachVeDat.danhSachVe.splice(this.danhSachVeDat.danhSachVe.findIndex(item => {
             return item.maGhe === this.eventGhe.ghe.maGhe;
           }), 1);
-          console.log(this.danhSachVeDat.danhSachVe);
+          // console.log(this.danhSachVeDat.danhSachVe);
           this.danhSachGheDaDat.splice(this.danhSachGheDaDat.findIndex(item => {
             return item.maGhe === this.eventGhe.ghe.maGhe;
           }), 1);
@@ -92,25 +92,25 @@ export class TrangDatVeComponent implements OnInit {
   }
 
   datVe() {
-    let nguoiDungHienTai = JSON.parse(localStorage.getItem("nguoiDungDangNhap"));
+    // let nguoiDungHienTai = JSON.parse(localStorage.getItem("nguoiDungDangNhap"));
+    let nguoiDungHienTai = JSON.parse(localStorage.getItem("KhachHang"));
     console.log(nguoiDungHienTai);
     if (nguoiDungHienTai) {
       if (this.soGheDaDat > 0) {
         this.danhSachVeDat.taiKhoanNguoiDung = nguoiDungHienTai.taiKhoan;
-        console.log(this.danhSachVeDat.taiKhoanNguoiDung);
-        console.log(this.danhSachVeDat);
-        const uri = `QuanLyDatVe/DatVe`;
+        // console.log(this.danhSachVeDat.taiKhoanNguoiDung);
+        // console.log(this.danhSachVeDat);
+        const uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/DatVe`;
         this._dataService.post(uri, this.danhSachVeDat).subscribe(
           (data: any) => {
-            console.log(data);
-            // location.reload();
+            // console.log(data);
           },
           (err: any) => {
-            console.log(err);
+            // console.log(err);
             $(".success__buyticket").css("display", "block");
           })
       } else {
-        alert("Vui lòng chọn ghế!");
+        $(".pick__chair").css("display", "block");
         return false;
       }
     }
@@ -134,7 +134,7 @@ export class TrangDatVeComponent implements OnInit {
     this._dataService.get(`http://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${this.maLichChieu}`).subscribe(
       (data: any) => {
         this.phongVe = data;
-        console.log(data);
+        // console.log(data);
       },
       (err: any) => {
         console.log(err);
@@ -150,13 +150,13 @@ export class TrangDatVeComponent implements OnInit {
           if (item.maLichChieu == this.maLichChieu)
             this.lichChieu = item;
         })
-        console.log(this.lichChieu);
+        // console.log(this.lichChieu);
         this._dataService.get(`http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap?maHeThongRap=${this.lichChieu.thongTinRap.maHeThongRap}`).subscribe(
           (data: any) => {
             data.map(item => {
               this.heThongRap = item;
             })
-            console.log(this.heThongRap);
+            // console.log(this.heThongRap);
           },
           (err: any) => {
             console.log(err);
@@ -170,7 +170,6 @@ export class TrangDatVeComponent implements OnInit {
   }
 
   handleEvent(event) {
-    console.log(event);
     if (event.left === 0) {
       $(".reset__ticker").css("display", "block");
     }
@@ -192,7 +191,7 @@ export class TrangDatVeComponent implements OnInit {
     location.reload();
   }
 
-  datVeSuccess(){
+  datVeSuccess() {
     location.reload();
   }
 
@@ -204,7 +203,6 @@ export class TrangDatVeComponent implements OnInit {
 
   chonCombo() {
     this.timeChecked += 1;
-    console.log(this.timeChecked);
     if (this.timeChecked === 1) {
       $(".combo__Checkout").removeClass("slideOutRight").addClass("slideInRight animated");
       this.statusModal = true;
@@ -222,12 +220,18 @@ export class TrangDatVeComponent implements OnInit {
     this.timeChecked = 0;
   }
 
+  backPagePick() {
+    $(".pick__chair").css("display", "none");
+  }
+  backPageSignIn() {
+    $(".signIn").css("display", "none");
+  }
+
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
     this._sharingData.destroyData();
     this.danhSachGheDaDat.length = 0;
     this.subStatusChair.unsubscribe();
-    console.log("ngOnDestroy");
   }
 }

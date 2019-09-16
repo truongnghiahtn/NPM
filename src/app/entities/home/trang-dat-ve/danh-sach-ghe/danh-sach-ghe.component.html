@@ -4,10 +4,10 @@
             <ng-container *ngFor="let item of danhSachGhe; let i = index">
                 <!-- <app-item-ghe [Ghe]="item"></app-item-ghe>
                 <br *ngIf="(i + 1) % 15 === 0"> -->
-                <div *ngIf="i % 15 === 0 && 136 >= i" class="row">
+                <div *ngIf="i % 15 === 0 && 76 >= i" class="row">
                     <app-item-ghe [Ghe]="danhSachGhe[i]"></app-item-ghe>
-                    <app-item-ghe [Ghe]="danhSachGhe[i + 1]"></app-item-ghe>
-                    <app-item-ghe [Ghe]="danhSachGhe[i + 2]" class="mr-4"></app-item-ghe>
+                    <app-item-ghe [Ghe]="danhSachGhe[i + 1]" class="mr-4"></app-item-ghe>
+                    <app-item-ghe [Ghe]="danhSachGhe[i + 2]"></app-item-ghe>
                     <app-item-ghe [Ghe]="danhSachGhe[i + 3]"></app-item-ghe>
                     <app-item-ghe [Ghe]="danhSachGhe[i + 4]"></app-item-ghe>
                     <app-item-ghe [Ghe]="danhSachGhe[i + 5]"></app-item-ghe>

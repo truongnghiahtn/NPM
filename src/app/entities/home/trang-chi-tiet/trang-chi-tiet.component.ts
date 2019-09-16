@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-trang-chi-tiet',
@@ -9,27 +10,33 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class TrangChiTietComponent implements OnInit {
 
-  constructor(private activatedrouter:ActivatedRoute,
-     private _dataservice:DataService) { }
-    maphim:any;
-    mangphim:any[];
-  
+  constructor(private activatedrouter: ActivatedRoute,
+    private _dataservice: DataService,
+    private spinner: NgxSpinnerService) { }
+  maphim: any;
+  mangphim: any[];
+
   ngOnInit() {
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
     this.laymaphim();
     this.getchitiet();
   }
-  laymaphim(){
-    this.maphim=this.activatedrouter.snapshot.paramMap.get("id");
+  laymaphim() {
+    this.maphim = this.activatedrouter.snapshot.paramMap.get("id");
     console.log(this.maphim);
   }
-  getchitiet(){
+  getchitiet() {
     this._dataservice.get(`http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${this.maphim}`)
-    .subscribe((data:any)=>{
-      this.mangphim=data;
-      console.log(this.mangphim)
-    }),
-    (err)=>{
-      console.log(err);
-    }
+      .subscribe((data: any) => {
+        this.mangphim = data;
+        console.log(this.mangphim)
+      }),
+      (err) => {
+        console.log(err);
+      }
   }
 }

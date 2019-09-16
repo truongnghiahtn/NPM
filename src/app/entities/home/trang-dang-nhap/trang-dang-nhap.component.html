@@ -12,34 +12,16 @@
         <!--Card content-->
         <mdb-card-body class="px-lg-5 pt-0">
           <!-- Form -->
-          <form
-            #formLogin="ngForm"
-            (submit)="_handleOnSignIn(formLogin)"
-            class="text-center"
-            style="color: #757575;"
-          >
+          <form #formLogin="ngForm" (submit)="_handleOnSignIn(formLogin)" class="text-center" style="color: #757575;">
             <!-- Email -->
             <div class="md-form">
-              <input
-                id="taiKhoan"
-                class="form-control"
-                mdbInput
-                name="taiKhoan"
-                ngModel
-              />
+              <input id="taiKhoan" class="form-control" mdbInput name="taiKhoan" ngModel />
               <label for="taiKhoan">Username</label>
             </div>
 
             <!-- Password -->
             <div class="md-form">
-              <input
-                type="password"
-                id="matKhau"
-                class="form-control"
-                mdbInput
-                name="matKhau"
-                ngModel
-              />
+              <input type="password" id="matKhau" class="form-control" mdbInput name="matKhau" ngModel />
               <label for="matKhau">Password</label>
             </div>
 
@@ -55,16 +37,8 @@
             </div>
 
             <!-- Sign in button -->
-            <button
-              mdbBtn
-              color="info"
-              outline="true"
-              rounded="true"
-              block="true"
-              class="my-4 waves-effect z-depth-0"
-              mdbWavesEffect
-              type="submit"
-            >
+            <button mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0"
+              mdbWavesEffect type="submit">
               Sign in
             </button>
 

@@ -34,7 +34,7 @@ export class ParentListCinemasComponent implements OnInit {
   }
 
   _layThongTinLichChieu() {
-    const uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP15`;
+    const uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01`;
     this._dataService.get(uri).subscribe(
       (data: any) => {
         this.listLichChieuHTRap = data;

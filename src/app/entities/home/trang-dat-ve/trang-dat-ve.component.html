@@ -89,7 +89,7 @@
 
             <div class="combo__Checkout">
                 <div class="combolist">
-                    <div>Snacks - Kẹo</div>
+                    <div class="combo">Snacks - Kẹo</div>
                     <div class="row" *ngFor="let item of danhSachCombo" style="margin-bottom: 30px">
                         <div class="col-sm-2 imgCombo">
                             <img class="img-fluid w-100" [src]="item.hinhAnh">
@@ -116,6 +116,16 @@
                     Đặt vé thành công! <br>
                     <p class="text-secondary font-weight-normal">Your check-in was successful. Enjoy your movie!</p>
                     <button class="btn btn-success w-100" (click)="datVeSuccess()">OK</button>
+                </div>
+            </div>
+            <div class="pick__chair" (click)="backPagePick()">
+                <div class="content">
+                    Vui lòng chọn ghế!
+                </div>
+            </div>
+            <div class="signIn" (click)="backPageSignIn()">
+                <div class="content">
+                    Vui lòng đăng nhập để chọn ghế!
                 </div>
             </div>
         </div>

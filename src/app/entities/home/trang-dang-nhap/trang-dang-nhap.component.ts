@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DataService } from 'src/app/shared/services/data.service';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-trang-dang-nhap',
@@ -13,17 +14,24 @@ export class TrangDangNhapComponent implements OnInit {
   @ViewChild("formLogin", { static: false }) formLogin: NgForm;
   constructor(
     private dataSV: DataService,
-    private router : Router,
-    ) { }
+    private router: Router,
+    private spinner: NgxSpinnerService
+  ) { }
 
   ngOnInit() {
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
   }
+
   _handleOnSignIn(formLogin) {
     const uri = 'http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap';
     this.dataSV.post(uri, formLogin.value).subscribe(
       (data: any) => {
         this.router.navigate([""]);
-        localStorage.setItem("KhachHang",JSON.stringify(formLogin.value));
+        localStorage.setItem("KhachHang", JSON.stringify(data));
         console.log(data);
       },
       (err) => {
@@ -35,7 +43,7 @@ export class TrangDangNhapComponent implements OnInit {
   canDeactivate($event): boolean {
     return this.formLogin.submitted || !this.formLogin.dirty;
   }
-  dangKy(){
+  dangKy() {
     this.router.navigate(["dang-ky"]);
     console.log("a");
   }

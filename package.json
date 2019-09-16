@@ -27,6 +27,7 @@
     "jquery": "^3.4.1",
     "mdbootstrap": "^4.8.9",
     "ngx-countdown": "^8.0.1",
+    "ngx-spinner": "^8.0.3",
     "owl.carousel": "^2.3.4",
     "popper.js": "^1.15.0",
     "rxjs": "~6.4.0",
