@@ -46,17 +46,14 @@
     }
     .ngayChieu {
         font-family: "SF Medium";
-        color: #417505;
         float: left;
         font-size: 22px;
         font-weight: 400;
-        color: #417500;
-        margin: 0 5px 5px 0;
         transition: all 0.2s;
-        text-decoration: none;
-        display: block;
-        span {
+        a {
+            color: #417500;
             cursor: pointer;
+            text-decoration: none;
             &:hover {
                 color: #fb4226;
             }
