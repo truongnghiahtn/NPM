@@ -18,7 +18,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
     this.dataSV.get("http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01").subscribe(
       (result) => {
         this.mangPhim = result;
-        console.log(result);
+        
         $(document).ready(function () {
           $(".carousel").carousel();
         })

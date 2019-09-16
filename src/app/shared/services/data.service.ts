@@ -12,6 +12,9 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class DataService {
+  static get(arg0: string) {
+    throw new Error("Method not implemented.");
+  }
 
   constructor(private http: HttpClient) {
 
@@ -29,6 +32,16 @@ export class DataService {
   }
   post(uri: string, data?: any): Observable<any> {
     return this.http.post(uri, data, httpOptions).pipe(
+      tap(() => {
+        // loading
+      }),
+      catchError(err => {
+        return this.handleErr(err)
+      })
+    )
+  }
+  put(uri: string, data?: any): Observable<any> {
+    return this.http.put(uri, data, httpOptions).pipe(
       tap(() => {
         // loading
       }),
