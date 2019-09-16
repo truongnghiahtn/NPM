@@ -36,7 +36,7 @@ xemthem(){
   }
 dungbtn(){
   this.bienbtn=(this.DSTinTuc.length)/8;
-  console.log(this.bienbtn);
+  // console.log(this.bienbtn);
 }
 
 

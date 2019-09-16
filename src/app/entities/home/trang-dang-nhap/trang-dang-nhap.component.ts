@@ -22,15 +22,14 @@ export class TrangDangNhapComponent implements OnInit {
     const uri = 'http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap';
     this.dataSV.post(uri, formLogin.value).subscribe(
       (data: any) => {
-        console.log(data);
         this.router.navigate([""]);
         localStorage.setItem("KhachHang",JSON.stringify(formLogin.value));
+        console.log(data);
       },
       (err) => {
         console.log(err);
       }
     )
-    console.log(formLogin.value);
   }
   @HostListener("window:beforeunload", ["$event"])
   canDeactivate($event): boolean {
@@ -38,5 +37,6 @@ export class TrangDangNhapComponent implements OnInit {
   }
   dangKy(){
     this.router.navigate(["dang-ky"]);
+    console.log("a");
   }
 }
