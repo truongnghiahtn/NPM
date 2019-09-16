@@ -47,7 +47,7 @@ export class SearchMovieComponent implements OnInit {
     const uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=1344`;
     this.dataServive.get(uri).subscribe(
       data => {
-        this.layThongTinLichChieuPhim = data;
+        this.thongTinLichChieuPhim = data.heThongRapChieu;
         console.log(data);
       },
       err => {

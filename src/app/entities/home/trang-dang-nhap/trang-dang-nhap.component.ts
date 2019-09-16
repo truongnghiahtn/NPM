@@ -1,17 +1,24 @@
+<<<<<<< HEAD
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DataService } from 'src/app/shared/services/data.service';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+=======
+import { Component, OnInit, ViewChild, HostListener } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { DataService } from "src/app/shared/services/data.service";
+import { Router } from "@angular/router";
+>>>>>>> minh
 
 @Component({
-  selector: 'app-trang-dang-nhap',
-  templateUrl: './trang-dang-nhap.component.html',
-  styleUrls: ['./trang-dang-nhap.component.scss']
+  selector: "app-trang-dang-nhap",
+  templateUrl: "./trang-dang-nhap.component.html",
+  styleUrls: ["./trang-dang-nhap.component.scss"]
 })
 export class TrangDangNhapComponent implements OnInit {
-
   @ViewChild("formLogin", { static: false }) formLogin: NgForm;
+<<<<<<< HEAD
   constructor(
     private dataSV: DataService,
     private router: Router,
@@ -26,18 +33,24 @@ export class TrangDangNhapComponent implements OnInit {
     }, 2000);
   }
 
+=======
+  constructor(private dataSV: DataService, private router: Router) {}
+
+  ngOnInit() {}
+>>>>>>> minh
   _handleOnSignIn(formLogin) {
-    const uri = 'http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap';
+    const uri =
+      "http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap";
     this.dataSV.post(uri, formLogin.value).subscribe(
       (data: any) => {
         this.router.navigate([""]);
         localStorage.setItem("KhachHang", JSON.stringify(data));
         console.log(data);
       },
-      (err) => {
+      err => {
         console.log(err);
       }
-    )
+    );
   }
   @HostListener("window:beforeunload", ["$event"])
   canDeactivate($event): boolean {

@@ -1,47 +1,64 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-3">
-      <mat-form-field>
+      <mat-form-field style="width: 100%">
         <mat-label>Phim</mat-label>
         <mat-select>
-          <mat-option *ngFor="let item of danhSachPhim">
+          <mat-option *ngFor="let item of danhSachPhim" [value]="item.maPhim">
             {{ item.tenPhim }}
           </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
     <div class="col-2">
-      <mat-form-field>
+      <mat-form-field style="width: 100%">
         <mat-label>Rạp</mat-label>
         <mat-select>
-          <mat-option *ngFor="let item of danhSachRap">
+          <mat-option
+            *ngFor="let item of danhSachRap"
+            [value]="item.maHeThongRap"
+          >
             {{ item.tenHeThongRap }}
           </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
     <div class="col-2">
-      <mat-form-field>
-        <mat-label>Ngày xem</mat-label>
+      <mat-form-field style="width: 100%">
+        <mat-label>Ngày chiếu</mat-label>
         <mat-select>
-          <mat-option *ngFor="let item of danhSachPhim">
-            {{ item.tenPhim }}
-          </mat-option>
+          <ng-container *ngFor="let item of thongTinLichChieuPhim">
+            <ng-container *ngFor="let i of item.cumRapChieu">
+              <ng-container *ngFor="let j of i.lichChieuPhim">
+                <mat-option [value]="j.maLichChieu">
+                  {{ j.ngayChieuGioChieu | date: "dd-MM-yyyy" }}</mat-option
+                >
+              </ng-container>
+            </ng-container>
+          </ng-container>
         </mat-select>
       </mat-form-field>
     </div>
     <div class="col-3">
-      <mat-form-field>
+      <mat-form-field style="width: 100%">
         <mat-label>Suất chiếu</mat-label>
         <mat-select>
-          <mat-option *ngFor="let item of thongTinLichChieuPhim">
-            {{ item.tenPhim }}
-          </mat-option>
+          <ng-container *ngFor="let item of thongTinLichChieuPhim">
+            <ng-container *ngFor="let i of item.cumRapChieu">
+              <ng-container *ngFor="let j of i.lichChieuPhim">
+                <mat-option [value]="j.maLichChieu">
+                  {{ j.ngayChieuGioChieu | date: "hh:mm" }}</mat-option
+                >
+              </ng-container>
+            </ng-container>
+          </ng-container>
         </mat-select>
       </mat-form-field>
     </div>
     <div class="col-2">
-      <button class="btn btn-success" (click)="datVe()">Mua vé ngay</button>
+      <button class="btn btn-success" disabled (click)="datVe()">
+        Mua vé ngay
+      </button>
     </div>
   </div>
 </div>
