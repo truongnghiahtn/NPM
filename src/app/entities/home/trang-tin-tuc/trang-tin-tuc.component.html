@@ -1,1 +1,16 @@
-<p>trang-tin-tuc works!</p>
+<div class="News">
+    <div class="News-title">
+        <h1>{{DSTintuc.name}}</h1>
+        <div class="News-icon text-center">
+            <i class="fa fa-thumbs-o-up " [ngClass]="{like:status}" aria-hidden="true" (click)="like()"></i>
+            <i class="fa fa-comment-o" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="News-content">
+        <img [src]="DSTintuc.Img" alt="" class="img-fluid">
+        <p>{{DSTintuc.content2}}</p>
+        <img [src]="DSTintuc.Img2" class="img-fluid">
+        <p>{{DSTintuc.content2}}</p>
+    </div>
+
+</div>
