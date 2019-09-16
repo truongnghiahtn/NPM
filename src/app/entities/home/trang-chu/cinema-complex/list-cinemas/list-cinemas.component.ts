@@ -21,7 +21,7 @@ export class ListCinemasComponent implements OnInit {
   }
 
   _layThongTinLichChieu() {
-    const uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${this.listHTRap.maHeThongRap}&maNhom=GP15`;
+    const uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${this.listHTRap.maHeThongRap}&maNhom=GP01`;
     this._dataService.get(uri).subscribe(
       (data: any) => {
         data.map(item => {

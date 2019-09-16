@@ -1,9 +1,12 @@
 .phongVe {
     width: 100%;
+    margin-top: 99px;
+    position: relative;
     .seat__Checkout {
         width: 70%;
         float: left;
         padding-top: 30px;
+        background: bisque;
         .row {
             max-width: 900px;
             margin: auto;
@@ -33,11 +36,18 @@
                     }
                 }
                 .righttitle {
-                    width: 120px;
+                    width: 106px;
+                    //
                     font-size: 14px;
                     text-align: right;
-                    p:first-child {
+                    p {
                         margin-bottom: 0;
+                        &:last-child {
+                            color: #fb4226 !important;
+                            font-size: 27px;
+                            text-align: center;
+                            margin-bottom: 0;
+                        }
                     }
                 }
             }
@@ -58,12 +68,15 @@
         }
     }
     .reset__ticker,
-    .success__buyticket {
+    .success__buyticket,
+    .pick__chair,
+    .signIn {
         width: 100%;
         height: 100%;
         display: none;
         text-align: center;
         position: fixed;
+        top: 0;
         z-index: 999;
         background-color: rgba(0, 0, 0, 0.85);
         .content {
@@ -86,22 +99,19 @@
         }
     }
     .modal__Checkout {
-        z-index: 2;
+        z-index: 20;
         background-color: rgba(0, 0, 0, 0.85);
-        position: fixed;
+        position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
     }
     .right__Checkout {
-        position: fixed;
-        right: 0;
-        // top: 56px;
-        top: 0;
+        position: relative;
         width: 30%;
-        height: 100%;
-        z-index: 10;
+        padding-top: 30px;
+        z-index: 22;
         background-color: #fff;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         .row {
@@ -110,8 +120,13 @@
         .thanh__tien {
             margin-bottom: 15px;
             font-size: 34px;
+            color: #44c020;
             text-align: center;
             margin-bottom: 1rem;
+            p {
+                width: 300px;
+                margin-bottom: 10px;
+            }
         }
         .thongtin__phim {
             padding-bottom: 12.5px;
@@ -126,40 +141,48 @@
             margin-bottom: 0;
         }
         .datve {
-            background-color: #afafaf;
+            // background-color: #afafaf;
             font-size: 23px;
             position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
             height: 60px;
+            left: 0;
+            bottom: 0;
             cursor: pointer;
             font-size: 24px;
             text-align: center;
             color: #e9e9e9 !important;
             border-radius: 0;
-            // background-image: linear-gradient(223deg,#b4ec51 0,#429321 100%);
+            border: 0;
+            background-image: linear-gradient(223deg, #b4ec51 0, #429321 100%);
         }
     }
     .combo__Checkout {
         overflow: auto;
-        position: fixed;
-        padding-top: 80px;
+        position: absolute;
+        padding-top: 30px;
         visibility: hidden;
-        right: 400px;
+        right: 393px;
         top: 0;
         background-color: #fff;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-        z-index: 2;
+        z-index: 21;
         width: 465px;
         height: 100%;
         &.animated {
             visibility: visible;
             &.slideInRight {
-                animation-duration: .7s;
+                animation-duration: 0.7s;
             }
         }
         .combolist {
+            .combo {
+                margin-bottom: 15px;
+                font-family: "SF Medium";
+                font-size: 18px;
+                background-color: #f5f5f5;
+                border-bottom: 1px dashed #ddd;
+                padding: 3%;
+            }
             .imgCombo {}
             .infoCombo {
                 .information {
