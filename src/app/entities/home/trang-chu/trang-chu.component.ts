@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-trang-chu',
-  templateUrl: './trang-chu.component.html',
-  styleUrls: ['./trang-chu.component.scss']
+  selector: "app-trang-chu",
+  templateUrl: "./trang-chu.component.html",
+  styleUrls: ["./trang-chu.component.scss"]
 })
 export class TrangChuComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

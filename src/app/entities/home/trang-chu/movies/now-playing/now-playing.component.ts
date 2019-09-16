@@ -67,7 +67,7 @@ constructor( private dataService:DataService) { }
         }
         else{
         this.biendem= parseInt(`${this.DSphimDangChieu1.length/8}`)+1;
-        console.log(this.biendem)
+        // console.log(this.biendem)
         }
       }
     })

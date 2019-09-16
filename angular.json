@@ -33,6 +33,7 @@
                             "src/assets/css/materialize.css",
                             "src/assets/css/animate.min.css",
                             "src/assets/css/venobox.css",
+                            "node_modules/mdbootstrap/css/mdb.min.css",
                             "src/styles.scss"
                         ],
                         "scripts": [
@@ -41,7 +42,8 @@
                             "node_modules/bootstrap/dist/js/bootstrap.min.js",
                             "src/assets/js/materialize.min.js",
                             "node_modules/owl.carousel/dist/owl.carousel.min.js",
-                            "src/assets/js/venobox.min.js"
+                            "src/assets/js/venobox.min.js",
+                            "node_modules/mdbootstrap/js/mdb.min.js"
                         ]
                     },
                     "configurations": {
