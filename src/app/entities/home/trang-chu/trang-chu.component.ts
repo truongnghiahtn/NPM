@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: "app-trang-chu",
@@ -6,7 +7,13 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./trang-chu.component.scss"]
 })
 export class TrangChuComponent implements OnInit {
-  constructor() {}
+  constructor(private spinner: NgxSpinnerService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
+  }
 }

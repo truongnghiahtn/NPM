@@ -16,8 +16,8 @@ export class AuthInterceptor implements HttpInterceptor {
         //         authToken = user.accessToken;
         // } cho admin
 
-        if (localStorage.getItem("nguoiDungDangNhap")) {
-            const user = JSON.parse(localStorage.getItem("nguoiDungDangNhap"));
+        if (localStorage.getItem("KhachHang")) {
+            const user = JSON.parse(localStorage.getItem("KhachHang"));
             authToken = user.accessToken;
         }
 

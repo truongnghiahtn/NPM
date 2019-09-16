@@ -191,7 +191,7 @@ export class TrangDatVeComponent implements OnInit {
     location.reload();
   }
 
-  datVeSuccess(){
+  datVeSuccess() {
     location.reload();
   }
 
@@ -219,11 +219,11 @@ export class TrangDatVeComponent implements OnInit {
     this.statusModal = false;
     this.timeChecked = 0;
   }
-  
-  backPagePick(){
+
+  backPagePick() {
     $(".pick__chair").css("display", "none");
   }
-  backPageSignIn(){
+  backPageSignIn() {
     $(".signIn").css("display", "none");
   }
 
