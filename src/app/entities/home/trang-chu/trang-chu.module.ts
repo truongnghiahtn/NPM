@@ -22,7 +22,6 @@ import { ReviewComponent } from "./news/review/review.component";
 import { PromotionComponent } from "./news/promotion/promotion.component";
 import { NewsItem1Component } from "./news/news-item1/news-item1.component";
 import { NewsItem2Component } from "./news/news-item2/news-item2.component";
-import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { MaterialModule } from "./../../../common/material/material.module";
 
 @NgModule({
@@ -48,12 +47,7 @@ import { MaterialModule } from "./../../../common/material/material.module";
     NewsItem1Component,
     NewsItem2Component
   ],
-  imports: [
-    CommonModule,
-    TrangChuRoutingModule,
-    MDBBootstrapModule,
-    MaterialModule
-  ],
+  imports: [CommonModule, TrangChuRoutingModule, MaterialModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class TrangChuModule {}

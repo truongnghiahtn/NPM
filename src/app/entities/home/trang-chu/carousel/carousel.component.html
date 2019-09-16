@@ -1,28 +1,44 @@
 <section class="movie-carousel">
-    <!--black layer-->
-    <div class="overlay"></div>
-    <div class="bg-item active" style="background-image: url('../../../assets/img/bg6.jpg')">
-    </div>
-    <div class="movie-carousel__content">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="carousel__content">
-                        <div class="content">
-                            <ng-container *ngFor="let item of mangPhim |slice:2:14;let i = index">
-                                <app-carousel-item-detail [details]="item" [index]="i"></app-carousel-item-detail>
-                            </ng-container>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="carousel carousel__items">
-                        <ng-container *ngFor="let movie of mangPhim |slice:2:14;let i = index">
-                            <app-carousel-item-phim [phim]="movie" (click)="onCarousel(movie.maPhim)"></app-carousel-item-phim>
-                        </ng-container>
-                    </div>
-                </div>
+  <!--black layer-->
+  <div class="overlay"></div>
+  <div
+    class="bg-item active"
+    style="background-image: url('../../../assets/img/bg6.jpg')"
+  ></div>
+  <div class="movie-carousel__content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="carousel__content">
+            <div class="content">
+              <ng-container
+                *ngFor="let item of mangPhim | slice: 2:14; let i = index"
+              >
+                <app-carousel-item-detail
+                  [details]="item"
+                  [index]="i"
+                ></app-carousel-item-detail>
+              </ng-container>
             </div>
+          </div>
         </div>
+        <div class="col-md-6">
+          <div class="carousel carousel__items">
+            <ng-container *ngIf="mangPhim">
+              <ng-container
+                *ngFor="let movie of mangPhim | slice: 2:14; let i = index"
+              >
+                <app-carousel-item-phim
+                  [phim]="movie"
+                  [vitri]="i"
+                  [vitrichon]="checkedMovie"
+                  (click)="onCarousel(i)"
+                ></app-carousel-item-phim>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
