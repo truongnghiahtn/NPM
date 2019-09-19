@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChildren, QueryList, ViewChild } from '@angular/core';
 import { CommingSoonitemComponent } from './comming-soonitem/comming-soonitem.component';
-declare var $:any;
+declare var $: any;
 
 @Component({
   selector: 'app-comming-soon',
@@ -107,17 +107,13 @@ export class CommingSoonComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    setTimeout(() => this.listPhim.first.status = true);
-    $('.video-venobox').venobox();
+    setTimeout(() => this.listPhim.first.status = true, 1000);
     $('.owl-carousel').owlCarousel({
       loop: false,
       dots: false,
       rewind: true,
       nav: true,
       responsiveClass: true,
-      autoplay: true,
-      autoplayTimeout: 3000,
-      autoplayHoverPause: true,
       responsive: {
         0: {
           items: 3
@@ -130,13 +126,7 @@ export class CommingSoonComponent implements OnInit {
         }
       }
     })
-
-    // setTimeout(function () {
-    //   $('.comingSoon').waypoint(function () {
-    //     $('.coming__overlay').addClass("fadeIn animated");
-    //     $('.coming__detail__item').addClass("fadeInUp animated");
-    //   }, { offset: '100%' });
-    // });
+    $('.video-venobox').venobox();
   }
 
   show(maPhim) {

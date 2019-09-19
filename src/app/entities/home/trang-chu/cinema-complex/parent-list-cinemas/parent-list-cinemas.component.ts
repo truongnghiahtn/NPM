@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
 import { ListCinemasComponent } from '../list-cinemas/list-cinemas.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-parent-list-cinemas',
@@ -14,6 +15,10 @@ export class ParentListCinemasComponent implements OnInit {
   listLichChieuHTRap: Array<any> = [];
   listCumRap: Array<any> = [];
   listDSPhim: Array<any> = [];
+
+  subHeThongRap = new Subscription();
+  subLichChieu = new Subscription();
+
   constructor(private _dataService: DataService) { }
 
   ngOnInit() {
@@ -23,7 +28,7 @@ export class ParentListCinemasComponent implements OnInit {
 
   _layDanhSachHeThongRap() {
     const uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap`;
-    this._dataService.get(uri).subscribe(
+    this.subHeThongRap = this._dataService.get(uri).subscribe(
       (data: any) => {
         this.listHTRap = data;
       },
@@ -35,7 +40,7 @@ export class ParentListCinemasComponent implements OnInit {
 
   _layThongTinLichChieu() {
     const uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01`;
-    this._dataService.get(uri).subscribe(
+    this.subLichChieu = this._dataService.get(uri).subscribe(
       (data: any) => {
         this.listLichChieuHTRap = data;
         this.listLichChieuHTRap.map(item => {
@@ -83,5 +88,12 @@ export class ParentListCinemasComponent implements OnInit {
       default:
         break;
     }
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.subHeThongRap.unsubscribe();
+    this.subLichChieu.unsubscribe();
   }
 }

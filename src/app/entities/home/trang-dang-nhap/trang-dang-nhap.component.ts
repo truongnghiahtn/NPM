@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DataService } from 'src/app/shared/services/data.service';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trang-dang-nhap',
@@ -13,8 +13,8 @@ export class TrangDangNhapComponent implements OnInit {
   @ViewChild("formLogin", { static: false }) formLogin: NgForm;
   constructor(
     private dataSV: DataService,
-    private router : Router,
-    ) { }
+    private router: Router,
+  ) { }
 
   ngOnInit() {
   }
@@ -24,7 +24,7 @@ export class TrangDangNhapComponent implements OnInit {
       (data: any) => {
         console.log(data);
         this.router.navigate([""]);
-        localStorage.setItem("KhachHang",JSON.stringify(formLogin.value));
+        localStorage.setItem("KhachHang", JSON.stringify(formLogin.value));
       },
       (err) => {
         console.log(err);
@@ -36,7 +36,7 @@ export class TrangDangNhapComponent implements OnInit {
   canDeactivate($event): boolean {
     return this.formLogin.submitted || !this.formLogin.dirty;
   }
-  dangKy(){
+  dangKy() {
     this.router.navigate(["dang-ky"]);
   }
 }

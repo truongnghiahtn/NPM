@@ -30,7 +30,7 @@ import { MaterialModule } from 'src/app/common/material/material.module';
   declarations: [TrangChuComponent, CarouselComponent, CarouselItemPhimComponent, CarouselItemDetailComponent, SearchMovieComponent, MoviesComponent, NowPlayingComponent, CommingSoonComponent, NowPlayItemComponent, CommingSoonitemComponent, CinemaComplexComponent, ParentListCinemasComponent, ListCinemasComponent, ListMoviesComponent, NewsComponent, NewComponent, ReviewComponent, PromotionComponent, NewsItem1Component, NewsItem2Component],
   imports: [
     CommonModule,
-    TrangChuRoutingModule,MaterialModule
+    TrangChuRoutingModule, MaterialModule
   ]
 })
 export class TrangChuModule { }

@@ -14,6 +14,8 @@ declare var $: any;
 })
 export class TrangDatVeComponent implements OnInit {
   statusModal: boolean = false;
+  loading: boolean = false;
+  load: boolean = false;
   timeChecked = 0;
   maLichChieu: any;
   maPhim: any;
@@ -51,6 +53,7 @@ export class TrangDatVeComponent implements OnInit {
     private _sharingData: SharingDataService) { }
 
   ngOnInit() {
+    setTimeout(() => this.load = true, 3000);
     this._getParamsFromUrl();
     this._layChiTietPhim();
     this._layDanhSachGhe();
@@ -89,35 +92,6 @@ export class TrangDatVeComponent implements OnInit {
         }
       }
     })
-  }
-
-  datVe() {
-    // let nguoiDungHienTai = JSON.parse(localStorage.getItem("nguoiDungDangNhap"));
-    let nguoiDungHienTai = JSON.parse(localStorage.getItem("KhachHang"));
-    console.log(nguoiDungHienTai);
-    if (nguoiDungHienTai) {
-      if (this.soGheDaDat > 0) {
-        this.danhSachVeDat.taiKhoanNguoiDung = nguoiDungHienTai.taiKhoan;
-        // console.log(this.danhSachVeDat.taiKhoanNguoiDung);
-        // console.log(this.danhSachVeDat);
-        const uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/DatVe`;
-        this._dataService.post(uri, this.danhSachVeDat).subscribe(
-          (data: any) => {
-            // console.log(data);
-          },
-          (err: any) => {
-            // console.log(err);
-            $(".success__buyticket").css("display", "block");
-          })
-      } else {
-        $(".pick__chair").css("display", "block");
-        return false;
-      }
-    }
-    else {
-      alert("Vui lòng đăng nhập để đặt vé!");
-      return false;
-    }
   }
 
   _getParamsFromUrl() {
@@ -191,14 +165,8 @@ export class TrangDatVeComponent implements OnInit {
     location.reload();
   }
 
-  datVeSuccess(){
+  datVeSuccess() {
     location.reload();
-  }
-
-  ngAfterViewInit(): void {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
-
   }
 
   chonCombo() {
@@ -219,12 +187,47 @@ export class TrangDatVeComponent implements OnInit {
     this.statusModal = false;
     this.timeChecked = 0;
   }
-  
-  backPagePick(){
+
+  backPagePick() {
     $(".pick__chair").css("display", "none");
   }
-  backPageSignIn(){
+  backPageSignIn() {
     $(".signIn").css("display", "none");
+  }
+
+
+  datVe() {
+    // let nguoiDungHienTai = JSON.parse(localStorage.getItem("nguoiDungDangNhap"));
+    let nguoiDungHienTai = JSON.parse(localStorage.getItem("KhachHang"));
+    console.log(nguoiDungHienTai);
+    if (nguoiDungHienTai) {
+      if (this.soGheDaDat > 0) {
+        this.danhSachVeDat.taiKhoanNguoiDung = nguoiDungHienTai.taiKhoan;
+        // console.log(this.danhSachVeDat.taiKhoanNguoiDung);
+        // console.log(this.danhSachVeDat);
+        const uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/DatVe`;
+        this._dataService.post(uri, this.danhSachVeDat).subscribe(
+          (data: any) => {
+            this.loading = true;
+            setTimeout(() => {
+              $(".success__buyticket").css("display", "block");
+              this.loading = false;
+            }, 3000);
+
+            console.log(data);
+          },
+          (err: any) => {
+            // console.log(err);
+          })
+      } else {
+        $(".pick__chair").css("display", "block");
+        return false;
+      }
+    }
+    else {
+      alert("Vui lòng đăng nhập để đặt vé!");
+      return false;
+    }
   }
 
   ngOnDestroy(): void {

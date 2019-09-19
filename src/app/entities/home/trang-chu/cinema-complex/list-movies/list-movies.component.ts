@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, QueryList } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
-import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { MovieTimerComponent } from '../movie-timer/movie-timer.component';
 
 @Component({
   selector: 'app-list-movies',
@@ -9,16 +10,15 @@ import { Router } from '@angular/router';
 })
 export class ListMoviesComponent implements OnInit {
   @Input() movies;
+  @ViewChildren(MovieTimerComponent) listMovieTimer: QueryList<MovieTimerComponent>;
   moviesInDay: Array<any> = [];
-  moviesToDay: Array<any> = [];
   thoiLuong: any;
-  status: boolean = true;
-  url: any;
   maPhim: any;
   ArrayMaPhim = [];
+
+  subLichChieu = new Subscription();
   constructor(
     private _dataService: DataService,
-    private router: Router
   ) { }
 
   ngOnInit() {
@@ -26,10 +26,9 @@ export class ListMoviesComponent implements OnInit {
   }
 
   ngOnChanges(): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-    this.movies.danhSachPhim.map(item => {
+    this.movies.danhSachPhim = this.movies.danhSachPhim.filter(item => {
       this.ArrayMaPhim.push(item.maPhim);
+      return item.ngayChieuGioChieu.includes("2019-01-01T");
     })
 
     this.maPhim = [...new Set(this.ArrayMaPhim)];
@@ -37,7 +36,7 @@ export class ListMoviesComponent implements OnInit {
     if (this.maPhim) {
       this.maPhim.map(maPhim => {
         let uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`;
-        this._dataService.get(uri).subscribe((data: any) => {
+        this.subLichChieu = this._dataService.get(uri).subscribe((data: any) => {
           this.moviesInDay.push(data);
           this.moviesInDay.map(item => {
             item.heThongRapChieu.map(item => {
@@ -54,26 +53,20 @@ export class ListMoviesComponent implements OnInit {
               })
             })
           })
-        })
+        });
       })
     }
   }
 
-  _DatVe(maLichChieu, maPhim) {
-    const url = this.router.serializeUrl(this.router.createUrlTree(['/dat-ve/', maLichChieu], { queryParams: { movieId: maPhim } }));
-
-    window.open(url, '_blank');
-
-    // this.router.navigate(['/dat-ve/', maLichChieu], { queryParams: { movieId: this.moviesInDay.maPhim } }).then(result => {
-    //   window.open(window.location.href, '_blank');
-    // })
-
-    /*     console.log(this.movies.maCumRap);
-        console.log(this.moviesInDay);
-        console.log(this.moviesToDay); */
+  toggle(thamso) {
+    this.listMovieTimer.map(item => {
+      if (item.event === thamso) {
+        item.status = !item.status;
+      }
+    })
   }
 
-  toggle() {
-    this.status = !this.status;
+  ngOnDestroy(): void {
+    this.subLichChieu.unsubscribe();
   }
 }

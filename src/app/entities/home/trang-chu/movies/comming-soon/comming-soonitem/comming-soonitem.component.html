@@ -1,8 +1,8 @@
 <div class="tab__item" [hidden]="!status">
     <div class="coming__content text-white">
-        <div class="coming__overlay animated" [ngClass]="{fadeIn: status}" [style.background-image]="'url(' + phim.hinhAnhBG + ')'"></div>
+        <div class="coming__overlay animated fadeIn" [style.background-image]="'url(' + phim.hinhAnhBG + ')'"></div>
         <div class="row coming__detail d-flex align-items-center">
-            <div class="coming__detail__item animated col-sm-6 col-12" [ngClass]="{fadeInUp: status}">
+            <div class="coming__detail__item animated col-sm-6 col-12 fadeInUp">
                 <span>{{phim.theLoai}}</span>
                 <h3>{{phim.tenPhim}}</h3>
                 <div class="coming__detial__icon">
