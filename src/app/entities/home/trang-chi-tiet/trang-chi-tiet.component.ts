@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-trang-chi-tiet',
@@ -10,11 +11,18 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class TrangChiTietComponent implements OnInit {
 
   constructor(private activatedrouter: ActivatedRoute,
-    private _dataservice: DataService) { }
+    private _dataservice: DataService,
+    private spinner: NgxSpinnerService) { }
   maphim: any;
   mangphim: any[];
 
   ngOnInit() {
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
+
     this.laymaphim();
     this.getchitiet();
   }

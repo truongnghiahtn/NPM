@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-item1',
@@ -7,9 +8,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NewsItem1Component implements OnInit {
   @Input() tintuc;
-  constructor() { }
+  constructor(
+    private router :Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  chitiet(){
+    this.router.navigate(['/chi-tiet-tin-tuc',this.tintuc.id],{queryParams:{tentintuc:this.tintuc.name, Loaitin:this.tintuc.loaitin}})
+    console.log(this.tintuc.id);
   }
 
 }

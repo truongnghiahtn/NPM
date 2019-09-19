@@ -206,7 +206,7 @@ export class TrangDatVeComponent implements OnInit {
         // console.log(this.danhSachVeDat.taiKhoanNguoiDung);
         // console.log(this.danhSachVeDat);
         const uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/DatVe`;
-        this._dataService.post(uri, this.danhSachVeDat).subscribe(
+        this._dataService.postDatVe(uri, this.danhSachVeDat).subscribe(
           (data: any) => {
             this.loading = true;
             setTimeout(() => {

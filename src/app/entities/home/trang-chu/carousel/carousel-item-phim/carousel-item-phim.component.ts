@@ -1,19 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from "@angular/core";
 
 @Component({
-  selector: 'app-carousel-item-phim',
-  templateUrl: './carousel-item-phim.component.html',
-  styleUrls: ['./carousel-item-phim.component.scss']
+  selector: "app-carousel-item-phim",
+  templateUrl: "./carousel-item-phim.component.html",
+  styleUrls: ["./carousel-item-phim.component.scss"]
 })
-export class CarouselItemPhimComponent implements OnInit {
+export class CarouselItemPhimComponent implements OnInit, OnChanges {
   @Input() phim;
   @Input() vitri;
-  index: number = 0;
-  constructor() { }
+  @Input() vitrichon;
+  constructor() {}
 
-  ngOnInit() {
-  }
-  onCarousel(_phim) {
-    console.log(this.vitri);
-  }
+  ngOnInit() {}
+  ngAfterViewInit() {}
+  ngOnChanges() {}
 }

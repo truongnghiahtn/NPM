@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DataService } from 'src/app/shared/services/data.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-trang-dang-ky',
@@ -10,10 +11,16 @@ import { DataService } from 'src/app/shared/services/data.service';
 export class TrangDangKyComponent implements OnInit {
 
   @ViewChild("formSignUp", { static: false }) formSignUp: NgForm;
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService,
+    private spinner: NgxSpinnerService) {
 
   }
   ngOnInit() {
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
   }
 
   _handleOnSubmit(user) {

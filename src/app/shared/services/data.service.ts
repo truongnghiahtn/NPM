@@ -17,6 +17,9 @@ let headers = new HttpHeaders({
   providedIn: 'root'
 })
 export class DataService {
+  static get(arg0: string) {
+    throw new Error("Method not implemented.");
+  }
 
   constructor(private http: HttpClient) {
 
@@ -42,6 +45,27 @@ export class DataService {
       })
     )
   }
+  put(uri: string, data?: any): Observable<any> {
+    return this.http.put(uri, data, httpOptions).pipe(
+      tap(() => {
+        // loading
+      }),
+      catchError(err => {
+        return this.handleErr(err)
+      })
+    )
+  }
+  postDatVe(uri: string, data?: any): Observable<any> {
+    return this.http.post(uri, data, { headers: headers, responseType: 'text' }).pipe(
+      tap(() => {
+        // loading
+      }),
+      catchError(err => {
+        return this.handleErr(err)
+      })
+    )
+  }
+
   handleErr(err) {
     console.log(err);
     switch (err.status) {

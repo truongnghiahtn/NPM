@@ -1,11 +1,11 @@
 <div class="Tintuc__item">
     <img [src]="tintuc.Img" class="img-fluid">
     <div class="Tintuc-content">
-        <h1>{{tintuc.name}}</h1>
+        <h1 (click)="chitiet()">{{tintuc.name}}</h1>
         <p>{{tintuc.content}}</p>
     </div>
     <div class="Tintuc-icon">
-        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-        <i class="fa fa-comment-o" aria-hidden="true"></i>
+        <i class="fa fa-thumbs-up"></i>
+        <i class="fa fa-comment-alt"></i>
     </div>
 </div>
