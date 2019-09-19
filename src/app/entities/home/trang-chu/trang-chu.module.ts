@@ -23,6 +23,7 @@ import { PromotionComponent } from "./news/promotion/promotion.component";
 import { NewsItem1Component } from "./news/news-item1/news-item1.component";
 import { NewsItem2Component } from "./news/news-item2/news-item2.component";
 import { MaterialModule } from "./../../../common/material/material.module";
+import { MovieTimerComponent } from './cinema-complex/movie-timer/movie-timer.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { MaterialModule } from "./../../../common/material/material.module";
     ReviewComponent,
     PromotionComponent,
     NewsItem1Component,
-    NewsItem2Component
+    NewsItem2Component,
+    MovieTimerComponent
   ],
   imports: [CommonModule, TrangChuRoutingModule, MaterialModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

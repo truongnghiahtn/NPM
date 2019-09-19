@@ -6,6 +6,7 @@ import { TrangDatVeComponent } from './trang-dat-ve.component';
 import { DanhSachGheComponent } from './danh-sach-ghe/danh-sach-ghe.component';
 import { ItemGheComponent } from './item-ghe/item-ghe.component';
 import { CountdownModule } from 'ngx-countdown';
+import { MaterialModule } from 'src/app/common/material/material.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { CountdownModule } from 'ngx-countdown';
   imports: [
     CommonModule,
     TrangDatVeRoutingModule,
-    CountdownModule
+    CountdownModule,
+    MaterialModule
   ]
 })
 export class TrangDatVeModule { }

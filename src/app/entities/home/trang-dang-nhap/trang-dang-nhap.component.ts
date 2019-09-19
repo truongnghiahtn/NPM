@@ -22,7 +22,7 @@ export class TrangDangNhapComponent implements OnInit {
 
     setTimeout(() => {
       this.spinner.hide();
-    }, 2000);
+    }, 1000);
   }
 
   _handleOnSignIn(formLogin) {

@@ -20,7 +20,7 @@ export class TrangDangKyComponent implements OnInit {
 
     setTimeout(() => {
       this.spinner.hide();
-    }, 2000);
+    }, 1000);
   }
 
   _handleOnSubmit(user) {

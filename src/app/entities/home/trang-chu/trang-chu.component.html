@@ -1,5 +1,7 @@
-<app-carousel></app-carousel>
-<app-search-movie></app-search-movie>
-<app-movies></app-movies>
-<app-cinema-complex></app-cinema-complex>
-<app-news></app-news>
+<ng-container *ngIf="loading">
+    <app-carousel></app-carousel>
+    <app-search-movie></app-search-movie>
+    <app-movies></app-movies>
+    <app-cinema-complex></app-cinema-complex>
+    <app-news></app-news>
+</ng-container>
