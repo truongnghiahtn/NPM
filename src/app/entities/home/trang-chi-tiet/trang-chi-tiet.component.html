@@ -1,77 +1,39 @@
 <ng-container *ngIf="mangphim">
-    <div class="container animated fadeIn">
-        <div class="row">
-            <div class="col-6">
+    <div class=" container animated fadeIn ">
+        <div class="row show-movie">
+            <div class="col-6 text-center ">
                 <img [src]="mangphim.hinhAnh">
             </div>
-            <div class="col-6">
-                <table class="table">
+            <div class=" col-6">
 
-                    <tbody>
-                        <tr>
-                            <td> ten phim </td>
-                            <td> {{mangphim.tenPhim}} </td>
-                        </tr>
-                        <tr>
-
-                            <td>mota </td>
-                            <td>{{mangphim.moTa}}</td>
-                        </tr>
-                        <tr>
-
-                            <td>ngay chieu </td>
-                            <td>{{mangphim.ngayKhoiChieu | date:"dd-MM-yyyy"}}</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
-            <div class="col-12">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>
-                                he thong rap
-                            </th>
-                            <th>
-                                ten cum rap
-                            </th>
-                            <th>
-                                ten rap
-                            </th>
-                            <th>
-                                ngay chieu
-                            </th>
-                            <th>
-                                gio chieu
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
+        </div>
+        <div>
+            <ul class="nav nav-pills ">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="pill" href="#home_chi-tiet" (click)="reset()">Lịch chiếu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#menu1_chi-tiet" (click)="reset()">Thông tin </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#menu2_chi-tiet" (click)="reset()">Đánh giá</a>
+                </li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
 
-                        <tr *ngFor="let item of mangphim.lichChieu">
+                <div class="tab-pane container active" id="home_chi-tiet">
+                    <app-lichchieu></app-lichchieu>
+                </div>
 
-                            <td>
-                                {{item.thongTinRap.tenHeThongRap}}
-                            </td>
-                            <td>{{item.thongTinRap.tenCumRap}}</td>
-                            <td>{{item.thongTinRap.TenRap}}</td>
-                            <td>{{item.ngayChieuGioChieu| date:"dd-MM-yyyy"}}</td>
-                            <td>{{item.ngayChieuGioChieu| date:"hh:mm"}}</td>
-                            <button class="btn btn-info" (click)="datve(item.maLichChieu)">dat ve</button>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="tab-pane container fade show" id="menu1_chi-tiet">
+                    <app-thongtin></app-thongtin>
+                </div>
+                <div class="tab-pane container fade show" id="menu2_chi-tiet">
+                    <app-danh-gia></app-danh-gia>
+                </div>
             </div>
         </div>
     </div>
 </ng-container>
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos laboriosam iusto deleniti doloremque, cumque
-aliquam corrupti maiores repellendus. Sequi, eum veniam cumque adipisci recusandae dignissimos corrupti provident
-consequuntur, rerum ea
-quaerat rem natus expedita, officia temporibus fugit itaque repudiandae ex nemo! Dolores ab libero sequi! Dolorem
-possimus sequi, nisi perspiciatis officiis deleniti sint tempora dolores illo quo reiciendis sit magnam, atque explicabo
-ea, consequatur
-excepturi blanditiis? Ut numquam, eveniet, error quae, cupiditate veritatis nisi animi praesentium voluptatibus ipsa
-ducimus? Quos corporis quam illum dolorem. Libero ducimus molestias voluptates cumque quas necessitatibus temporibus
-animi! Doloremque,
-odio facere. Ut nobis iste repellendus.
