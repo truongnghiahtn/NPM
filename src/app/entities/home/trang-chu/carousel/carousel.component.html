@@ -23,8 +23,8 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="carousel carousel__items">
-            <ng-container *ngIf="mangPhim">
+          <ng-container *ngIf="mangPhim">
+            <div class="carousel carousel__items">
               <ng-container
                 *ngFor="let movie of mangPhim | slice: 2:14; let i = index"
               >
@@ -35,8 +35,8 @@
                   (click)="onCarousel(i)"
                 ></app-carousel-item-phim>
               </ng-container>
-            </ng-container>
-          </div>
+            </div>
+          </ng-container>
         </div>
       </div>
     </div>

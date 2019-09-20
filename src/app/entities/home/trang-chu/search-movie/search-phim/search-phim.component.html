@@ -1,0 +1,8 @@
+<mat-form-field style="width: 100%">
+  <mat-label>Phim</mat-label>
+  <mat-select #select (selectionChange)="chonPhim(select)">
+    <mat-option *ngFor="let item of danhSachPhim" [value]="item.tenPhim">
+      {{ item.tenPhim }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

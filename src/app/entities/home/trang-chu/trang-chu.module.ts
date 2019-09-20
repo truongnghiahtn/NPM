@@ -23,6 +23,10 @@ import { PromotionComponent } from "./news/promotion/promotion.component";
 import { NewsItem1Component } from "./news/news-item1/news-item1.component";
 import { NewsItem2Component } from "./news/news-item2/news-item2.component";
 import { MaterialModule } from "./../../../common/material/material.module";
+import { SearchPhimComponent } from './search-movie/search-phim/search-phim.component';
+import { SearchRapComponent } from './search-movie/search-rap/search-rap.component';
+import { SearchNgayComponent } from './search-movie/search-ngay/search-ngay.component';
+import { SearchGioComponent } from './search-movie/search-gio/search-gio.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import { MaterialModule } from "./../../../common/material/material.module";
     ReviewComponent,
     PromotionComponent,
     NewsItem1Component,
-    NewsItem2Component
+    NewsItem2Component,
+    SearchPhimComponent,
+    SearchRapComponent,
+    SearchNgayComponent,
+    SearchGioComponent
   ],
   imports: [CommonModule, TrangChuRoutingModule, MaterialModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

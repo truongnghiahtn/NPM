@@ -1,0 +1,13 @@
+<mat-form-field style="width: 100%">
+  <mat-label>Rạp</mat-label>
+  <mat-select #select (selectionChange)="chonRap(select)">
+    <ng-container *ngIf="movie">
+      <mat-option *ngFor="let item of danhSachRap" [value]="item.maHeThongRap">
+        {{ item.tenHeThongRap }}
+      </mat-option>
+    </ng-container>
+    <ng-container *ngIf="!movie">
+      <mat-option>Vui lòng chọn phim</mat-option>
+    </ng-container>
+  </mat-select>
+</mat-form-field>

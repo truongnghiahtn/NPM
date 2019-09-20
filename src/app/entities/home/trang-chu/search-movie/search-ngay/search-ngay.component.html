@@ -1,0 +1,19 @@
+<mat-form-field style="width: 100%">
+  <mat-label>Ngày chiếu</mat-label>
+  <mat-select #select (selectionChange)="chonNgay(select)">
+    <ng-container *ngIf="rap">
+      <ng-container *ngFor="let item of thongTinLichChieuPhim">
+        <ng-container *ngFor="let i of item.cumRapChieu">
+          <ng-container *ngFor="let j of i.lichChieuPhim">
+            <mat-option [value]="j.maLichChieu">
+              {{ j.ngayChieuGioChieu | date: "dd-MM-yyyy" }}</mat-option
+            >
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngIf="!rap">
+      <mat-option> Vui lòng chọn phim và rạp</mat-option>
+    </ng-container>
+  </mat-select>
+</mat-form-field>

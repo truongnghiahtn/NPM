@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { DataService } from 'src/app/shared/services/data.service';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } from "@angular/core";
+import { DataService } from "src/app/shared/services/data.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-list-movies',
-  templateUrl: './list-movies.component.html',
-  styleUrls: ['./list-movies.component.scss']
+  selector: "app-list-movies",
+  templateUrl: "./list-movies.component.html",
+  styleUrls: ["./list-movies.component.scss"]
 })
 export class ListMoviesComponent implements OnInit {
   @Input() movies;
@@ -16,21 +16,16 @@ export class ListMoviesComponent implements OnInit {
   url: any;
   maPhim: any;
   ArrayMaPhim = [];
-  constructor(
-    private _dataService: DataService,
-    private router: Router
-  ) { }
+  constructor(private _dataService: DataService, private router: Router) {}
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   ngOnChanges(): void {
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
     //Add '${implements OnChanges}' to the class.
     this.movies.danhSachPhim.map(item => {
       this.ArrayMaPhim.push(item.maPhim);
-    })
+    });
 
     this.maPhim = [...new Set(this.ArrayMaPhim)];
 
@@ -45,24 +40,31 @@ export class ListMoviesComponent implements OnInit {
                 if (item.maCumRap === this.movies.maCumRap) {
                   item.lichChieuPhim.map(a => {
                     this.movies.danhSachPhim.map(item => {
-                      if (item.maRap === a.maRap && item.ngayChieuGioChieu === a.ngayChieuGioChieu) {
+                      if (
+                        item.maRap === a.maRap &&
+                        item.ngayChieuGioChieu === a.ngayChieuGioChieu
+                      ) {
                         item["maLichChieu"] = a.maLichChieu;
                       }
-                    })
-                  })
+                    });
+                  });
                 }
-              })
-            })
-          })
-        })
-      })
+              });
+            });
+          });
+        });
+      });
     }
   }
 
   _DatVe(maLichChieu, maPhim) {
-    const url = this.router.serializeUrl(this.router.createUrlTree(['/dat-ve/', maLichChieu], { queryParams: { movieId: maPhim } }));
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree(["/dat-ve/", maLichChieu], {
+        queryParams: { movieId: maPhim }
+      })
+    );
 
-    window.open(url, '_blank');
+    window.open(url, "_blank");
 
     // this.router.navigate(['/dat-ve/', maLichChieu], { queryParams: { movieId: this.moviesInDay.maPhim } }).then(result => {
     //   window.open(window.location.href, '_blank');
