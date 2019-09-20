@@ -24,6 +24,7 @@ export class DataService {
   constructor(private http: HttpClient) {
 
   }
+
   get(uri: string): Observable<any> {
     return this.http.get(uri).pipe(
       tap(() => {

@@ -9,35 +9,32 @@ import { News } from 'src/app/common/models/news';
   templateUrl: './new.component.html',
   styleUrls: ['./new.component.scss']
 })
-export class NewComponent implements OnInit
-
-
-{
-  biendem:number=1;
-  bienbtn:number;
-  DSTinTuc:any=[
+export class NewComponent implements OnInit {
+  biendem: number = 1;
+  bienbtn: number;
+  DSTinTuc: any = [
   ]
-  sublistnew =new Subscription()
-  constructor( private dataService:DataService,
-  private router:Router) { }
+  sublistnew = new Subscription()
+  constructor(private dataService: DataService,
+    private router: Router) { }
 
   ngOnInit() {
     this.getlistnew();
   }
-  xemthem(){
+  xemthem() {
     this.biendem++;
-}
+  }
 
-getlistnew(){
-  this.sublistnew=this.dataService.get('http://5d6a41476b97ef00145b77b6.mockapi.io/api/new_tin_tuc').subscribe((data:News[])=>{
-    this.DSTinTuc=data;
-    this.bienbtn=(this.DSTinTuc.length)/8;
-  },(err)=>{
-    console.log(err);
-  })
-}
-ngOnDestroy(){
-  this.sublistnew.unsubscribe();
-    }
+  getlistnew() {
+    this.sublistnew = this.dataService.get('/api/new_tin_tuc').subscribe((data: News[]) => {
+      this.DSTinTuc = data;
+      this.bienbtn = (this.DSTinTuc.length) / 8;
+    }, (err) => {
+      console.log(err);
+    })
+  }
+  ngOnDestroy() {
+    this.sublistnew.unsubscribe();
+  }
 }
 
