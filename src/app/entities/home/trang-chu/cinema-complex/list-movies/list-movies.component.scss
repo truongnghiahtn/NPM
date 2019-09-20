@@ -1,62 +1,57 @@
 .itemMovie {
-    float: left;
-    clear: both;
-    width: 100%;
-    position: relative;
-    padding-bottom: 17px;
-    padding-top: 20px;
-    padding-right: 15px;
-    padding-left: 20px;
-    .movieInfo {
-        display: flex;
-        cursor: pointer;
-        .movieImage {
-            width: 50px;
-            height: 50px;
-        }
-        .wrapInfo {
-            width: 100%;
-            padding-left: 30px;
-            padding-top: 6px;
-            .age {
-                background-color: #fb4226;
-                color: #fff;
-                border-radius: 4px;
-                padding: 0 5px;
-                float: left;
-                margin-right: 5px;
-                font-size: 12px;
-            }
-            .movieTitle {
-                font-size: 14px;
-                display: block;
-                font-family: "SF Medium";
-                line-height: 22px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                color: #000;
-            }
-            p {
-                margin: 0;
-                line-height: 1.7;
-                font-size: 12px;
-                color: #9b9b9b;
-            }
-        }
+  float: left;
+  clear: both;
+  width: 100%;
+  position: relative;
+  padding-bottom: 17px;
+  padding-top: 20px;
+  padding-right: 15px;
+  padding-left: 20px;
+  .movieInfo {
+    display: flex;
+    cursor: pointer;
+    .movieImage {
+      width: 50px;
+      height: 50px;
     }
-    .ngayChieu {
-        font-family: "SF Medium";
+    .wrapInfo {
+      width: 100%;
+      padding-left: 30px;
+      padding-top: 6px;
+      .age {
+        background-color: #fb4226;
+        color: #fff;
+        border-radius: 4px;
+        padding: 0 5px;
         float: left;
-        font-size: 22px;
-        font-weight: 400;
-        transition: all 0.2s;
-        a {
-            color: #417500;
-            cursor: pointer;
-            text-decoration: none;
-            &:hover {
-                color: #fb4226;
-            }
-        }
+        margin-right: 5px;
+        font-size: 12px;
+      }
+      .movieTitle {
+        font-size: 14px;
+        display: block;
+        font-family: "SF Medium";
+        line-height: 22px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #000;
+      }
+      p {
+        margin: 0;
+        line-height: 1.7;
+        font-size: 12px;
+        color: #9b9b9b;
+      }
     }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: calc(100% - 40px);
+    transform: translateX(-50%);
+    border-bottom: 1px solid #ccc;
+    border-color: rgba(238, 238, 238, 0.88);
+  }
 }

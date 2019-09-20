@@ -8,6 +8,11 @@ const httpOptions = {
     "Content-Type": "application/json"
   })
 }
+
+let headers = new HttpHeaders({
+  'Content-Type': 'application/json'
+});
+
 @Injectable({
   providedIn: 'root'
 })
@@ -50,6 +55,17 @@ export class DataService {
       })
     )
   }
+  postDatVe(uri: string, data?: any): Observable<any> {
+    return this.http.post(uri, data, { headers: headers, responseType: 'text' }).pipe(
+      tap(() => {
+        // loading
+      }),
+      catchError(err => {
+        return this.handleErr(err)
+      })
+    )
+  }
+
   handleErr(err) {
     console.log(err);
     switch (err.status) {

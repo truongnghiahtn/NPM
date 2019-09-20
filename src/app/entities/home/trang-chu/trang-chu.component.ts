@@ -8,12 +8,13 @@ import * as $ from "jquery";
 })
 export class TrangChuComponent implements OnInit {
   constructor(private spinner: NgxSpinnerService) {}
-
+  loading: boolean = false;
   ngOnInit() {
     this.spinner.show();
 
     setTimeout(() => {
       this.spinner.hide();
-    }, 2000);
+      this.loading = true;
+    }, 1000);
   }
 }

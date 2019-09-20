@@ -1,0 +1,7 @@
+<div class="ngayChieu animated fadeIn" *ngIf="!status">
+    <a *ngFor="let item of movieTimer" (click)="DatVe(item.maPhim, item.maLichChieu)">
+        <ng-container *ngIf="item.maPhim === event">
+            {{item.ngayChieuGioChieu | date: 'HH:mm'}}
+        </ng-container>
+    </a>
+</div>

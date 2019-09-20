@@ -10,15 +10,15 @@ export class NowPlayItemComponent implements OnInit {
   @Input() phim;
 
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
- 
+
 
   ngOnInit() {
- 
+
   }
-   chiTiet(){
-    this.router.navigate(['/chi-tiet-phim',this.phim.maPhim],{queryParams:{tenphim:this.phim.tenPhim}});
+  chiTiet() {
+    this.router.navigate(['/chi-tiet-phim/', this.phim.maPhim], { queryParams: { tenPhim: this.phim.tenPhim } });
     console.log(this.phim.maPhim);
   }
 

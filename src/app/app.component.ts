@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import * as $ from "jquery";
 import { NgxSpinnerService } from 'ngx-spinner';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,16 +9,17 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class AppComponent {
   title = 'MnpMovie';
-  loading: any = false;
 
-  constructor(private spinner: NgxSpinnerService) { }
-
-  ngOnInit() {
+  constructor(private spinner: NgxSpinnerService) {
     this.spinner.show();
 
     setTimeout(() => {
       this.spinner.hide();
-      this.loading = true;
-    }, 5000);
+    }, 4000);
   }
+
+  ngOnInit() {
+
+  }
+
 }

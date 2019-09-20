@@ -14,8 +14,4 @@ export class DanhSachGheComponent implements OnInit {
 
   }
 
-  ngOnChanges(): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-  }
 }

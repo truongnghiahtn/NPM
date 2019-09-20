@@ -1,10 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   overflow-x: hidden;
-
-  ::ng-deep .overlay.ng-star-inserted {
-    background-color: #333;
-  }
 }
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";

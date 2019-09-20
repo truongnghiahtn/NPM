@@ -1,5 +1,5 @@
 <ng-container *ngIf="phongVe && heThongRap">
-    <div class="phongVe">
+    <div class="phongVe animated fadeIn">
         <div class="row">
             <div class="seat__Checkout">
                 <div class="row">
@@ -13,7 +13,8 @@
                                     {{lichChieu.thongTinRap.tenCumRap}}
                                 </p>
                                 <p>
-                                    Hôm nay - {{lichChieu.ngayChieuGioChieu | date: 'HH:mm'}} - {{lichChieu.thongTinRap.tenRap| uppercase}}
+                                    Hôm nay - {{lichChieu.ngayChieuGioChieu | date: 'HH:mm'}} -
+                                    {{lichChieu.thongTinRap.tenRap| uppercase}}
                                 </p>
                             </div>
                         </div>
@@ -21,8 +22,9 @@
                             <p>thời gian giữ ghế</p>
                             <p>
                                 <!-- <span class="minute"></span>
-                                <span class="second"></span> -->
-                                <countdown [config]="{leftTime: 300, format: 'm:s'}" (event)="handleEvent($event)"></countdown>
+                                    <span class="second"></span> -->
+                                <countdown [config]="{leftTime: 300, format: 'm:s'}" (event)="handleEvent($event)">
+                                </countdown>
                             </p>
                         </div>
                     </div>
@@ -59,7 +61,9 @@
                             <p>{{lichChieu.thongTinRap.tenCumRap}}</p>
                         </div>
                         <div class="time">
-                            <p>Hôm nay {{lichChieu.ngayChieuGioChieu | date: 'dd/MM/yyyy'}} - {{lichChieu.ngayChieuGioChieu | date: 'HH:mm'}} - {{lichChieu.thongTinRap.tenRap | uppercase}}
+                            <p>Hôm nay {{lichChieu.ngayChieuGioChieu | date: 'dd/MM/yyyy'}} -
+                                {{lichChieu.ngayChieuGioChieu | date: 'HH:mm'}} -
+                                {{lichChieu.thongTinRap.tenRap | uppercase}}
                             </p>
                         </div>
                     </div>
@@ -84,7 +88,16 @@
                         <p>{{tienCombo}} đ</p>
                     </div>
                 </div>
-                <button class="btn w-100 datve" (click)="datVe()">Đặt vé</button>
+                <div class="btnDatVe">
+                    <button class="btn w-100 datve" (click)="datVe()">
+                        <span *ngIf="!loading; else spinner">
+                            Đặt vé
+                        </span>
+                        <ng-template #spinner>
+                            <mat-spinner></mat-spinner>
+                        </ng-template>
+                    </button>
+                </div>
             </div>
 
             <div class="combo__Checkout">
@@ -96,17 +109,20 @@
                         </div>
                         <div class="col-sm-7 infoCombo">
                             <div>
-                                <img class="img-fluid information" src="https://123phim.vn/app/assets/img/icons/information.png" alt="">
+                                <img class="img-fluid information"
+                                    src="https://123phim.vn/app/assets/img/icons/information.png" alt="">
                                 <span>{{item.tenCombo}}</span>
                             </div>
                             <div class="money">{{item.gia}}</div>
                         </div>
                         <div class="col-sm-3 opnum">
-                            <button class="down" *ngIf="item.amount == 0" style="color: #9b9b9b !important; cursor: initial">-</button>
+                            <button class="down" *ngIf="item.amount == 0"
+                                style="color: #9b9b9b !important; cursor: initial">-</button>
                             <button class="down" *ngIf="item.amount > 0" (click)="down(item)">-</button>
                             <span class="number">{{item.amount}}</span>
                             <button class="up" *ngIf="item.amount < 10" (click)="up(item)">+</button>
-                            <button class="up" *ngIf="item.amount === 10" style="color: #9b9b9b !important; cursor: initial">+</button>
+                            <button class="up" *ngIf="item.amount === 10"
+                                style="color: #9b9b9b !important; cursor: initial">+</button>
                         </div>
                     </div>
                 </div>
