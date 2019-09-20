@@ -12,7 +12,7 @@ import { FormsModule } from "@angular/forms";
     CommonModule,
     TrangDangKyRoutingModule,
     FormsModule,
-    MDBBootstrapModule
+    MDBBootstrapModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

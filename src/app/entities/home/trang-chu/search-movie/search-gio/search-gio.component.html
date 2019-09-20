@@ -1,0 +1,19 @@
+<mat-form-field style="width: 100%">
+  <mat-label>Suất chiếu</mat-label>
+  <mat-select #select (selectionChange)="chonGio(select.value)">
+    <ng-container *ngIf="ngay">
+      <ng-container *ngFor="let item of thongTinLichChieuPhim">
+        <ng-container *ngFor="let i of item.cumRapChieu">
+          <ng-container *ngFor="let j of i.lichChieuPhim">
+            <mat-option [value]="j.maLichChieu">
+              {{ j.ngayChieuGioChieu | date: "hh:mm" }}</mat-option
+            >
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngIf="!ngay">
+      <mat-option>Vui lòng chọn phim,rạp và ngày</mat-option>
+    </ng-container>
+  </mat-select>
+</mat-form-field>

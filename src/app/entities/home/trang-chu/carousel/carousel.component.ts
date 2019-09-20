@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { DataService } from "src/app/shared/services/data.service";
-import { CarouselItemPhimComponent } from "./carousel-item-phim/carousel-item-phim.component";
+
 declare var $: any;
 @Component({
   selector: "app-carousel",
@@ -8,8 +8,6 @@ declare var $: any;
   styleUrls: ["./carousel.component.scss"]
 })
 export class CarouselComponent implements OnInit {
-  @ViewChild(CarouselItemPhimComponent, { static: false })
-  itemPhim: CarouselItemPhimComponent;
   mangPhim: any = [];
   checkedMovie: any;
   constructor(private dataSV: DataService) {}
@@ -24,7 +22,9 @@ export class CarouselComponent implements OnInit {
       .subscribe(
         result => {
           this.mangPhim = result;
-          $(".carousel").carousel();
+          $(document).ready(function() {
+            $(".carousel").carousel();
+          });
         },
         err => {
           console.log(err);
@@ -34,5 +34,4 @@ export class CarouselComponent implements OnInit {
   onCarousel(index) {
     this.checkedMovie = index;
   }
-  ngAfterViewInit() {}
 }

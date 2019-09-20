@@ -13,16 +13,6 @@
         <img [src]="DSTintuc.Img2" class="img-fluid">
         <p>{{DSTintuc.content2}}</p>
     </div>
-    <div class="News_binh-luat">
-        <div class="News-Show">
-        </div>
-        <div class="New-comment d-flex">
-            <ng-container *ngIf="info">
-            
-            <div  class="user"> 123456 {{info.taiKhoan }}</div>
-            <div><input type="text" class="form-control"></div>
-        </ng-container>
-        </div>
-    </div>
+    <app-comment></app-comment>
 
 </div>

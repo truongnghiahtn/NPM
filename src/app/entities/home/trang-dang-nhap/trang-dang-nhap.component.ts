@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { DataService } from 'src/app/shared/services/data.service';
-import { Router } from '@angular/router';
-import { NgxSpinnerService } from 'ngx-spinner';
+import { Component, OnInit, ViewChild, HostListener } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { DataService } from "src/app/shared/services/data.service";
+import { Router } from "@angular/router";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: "app-trang-dang-nhap",
@@ -15,7 +15,7 @@ export class TrangDangNhapComponent implements OnInit {
     private dataSV: DataService,
     private router: Router,
     private spinner: NgxSpinnerService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.spinner.show();

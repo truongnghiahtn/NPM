@@ -36,6 +36,17 @@ export class DataService {
     )
 
   }
+  delete(uri: string): Observable<any> {
+    return this.http.delete(uri).pipe(
+      tap(() => {
+        // loading
+      }),
+      catchError(err => {
+        return this.handleErr(err)
+      })
+    )
+
+  }
   post(uri: string, data?: any): Observable<any> {
     return this.http.post(uri, data, httpOptions).pipe(
       tap(() => {
