@@ -24,8 +24,20 @@ export class DataService {
   constructor(private http: HttpClient) {
 
   }
+
   get(uri: string): Observable<any> {
     return this.http.get(uri).pipe(
+      tap(() => {
+        // loading
+      }),
+      catchError(err => {
+        return this.handleErr(err)
+      })
+    )
+
+  }
+  delete(uri: string): Observable<any> {
+    return this.http.delete(uri).pipe(
       tap(() => {
         // loading
       }),

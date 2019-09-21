@@ -1,0 +1,25 @@
+<div class="container lichChieu">
+    <div class="row">
+        <ul class="nav nav-tabs">
+            <li class="nav-item" *ngFor="let hethongrap of thongTinHeThongRap">
+                <a class="nav-link" data-toggle="tab" [href]='"#"+ hethongrap.maHeThongRap' role="tab">
+                    <div>
+                        <img class="img-fluid" [src]="hethongrap.logo">
+                    </div>
+                    <div>{{hethongrap.tenHeThongRap}}</div>
+                </a>
+            </li>
+        </ul>
+        <div class="listTimeOfPhim">
+            <div class="row DayOfWeek"></div>
+            <div class="tab-content">
+                <ng-container *ngFor="let item of thongTinLichChieuPhim.heThongRapChieu; let i = index">
+                    <div class="tab-pane" [id]="item.maHeThongRap">
+                        <app-item-lichchieu [thongTinHeThongRap]="item">
+                        </app-item-lichchieu>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
