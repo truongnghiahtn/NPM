@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { TrangChiTietRoutingModule } from './trang-chi-tiet-routing.module';
 import { TrangChiTietComponent } from './trang-chi-tiet.component';
@@ -12,7 +13,7 @@ import { DanhGiaComponent } from './danh-gia/danh-gia.component';
   declarations: [TrangChiTietComponent, LichchieuComponent, ThongtinComponent, DanhGiaComponent],
   imports: [
     CommonModule,
-    TrangChiTietRoutingModule
+    TrangChiTietRoutingModule,FormsModule
   ]
 })
 export class TrangChiTietModule { }
