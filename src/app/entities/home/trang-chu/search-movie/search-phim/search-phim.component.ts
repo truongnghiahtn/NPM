@@ -28,7 +28,6 @@ export class SearchPhimComponent implements OnInit {
     );
   }
   chonPhim(data) {
-    console.log(data);
-    this.phimDuocChon.emit(data);
+    this.phimDuocChon.emit(data.value);
   }
 }

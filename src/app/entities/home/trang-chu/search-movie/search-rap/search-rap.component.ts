@@ -8,20 +8,26 @@ import { Router } from "@angular/router";
 })
 export class SearchRapComponent implements OnInit {
   danhSachRap: any = [];
-  rap: any;
+  rap: any = [];
+  mangLichChieu: any = [];
+
   constructor(private dataServive: DataService, private router: Router) {}
   @Input() movie;
   @Output() event = new EventEmitter();
-  ngOnInit() {
-    this.layThongTinHeThongRap();
-  }
-  layThongTinHeThongRap() {
-    const uri =
-      "http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap";
+  ngOnInit() {}
+
+  layThongTinDanhSachRap() {
+    const uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${this.movie}`;
     this.dataServive.get(uri).subscribe(
       data => {
-        console.log(data);
-        this.danhSachRap = data;
+        data.heThongRapChieu.map(item => {
+          item.cumRapChieu.map(item => {
+            this.danhSachRap.push(item);
+          });
+        });
+        data.heThongRapChieu.map(item => {
+          console.log(item);
+        });
       },
       err => {
         console.log(err);
@@ -29,7 +35,21 @@ export class SearchRapComponent implements OnInit {
     );
   }
   chonRap(event) {
+    this.mangLichChieu = [];
     this.rap = event.value;
-    this.event.emit(event.value);
+    this.danhSachRap.map(item => {
+      if (this.rap === item.maCumRap) {
+        item.lichChieuPhim.map(item => {
+          this.mangLichChieu.push(item);
+        });
+      }
+    });
+    this.event.emit(this.mangLichChieu);
+  }
+  ngOnChanges() {
+    if (this.movie !== undefined) {
+      this.danhSachRap = [];
+      this.layThongTinDanhSachRap();
+    }
   }
 }

@@ -1,15 +1,18 @@
 <div class="itemMovie" *ngFor="let item1 of moviesInDay">
-    <div class="movieInfo" (click)="toggle(item1.maPhim)">
-        <img class="movieImage" [src]="item1.hinhAnh" alt="#">
-        <div class="wrapInfo">
-            <p>
-                <span class="age">C18</span>
-                <span class="movieTitle">{{item1.tenPhim}}</span>
-            </p>
-            <p>120 - 123Phim {{item1.danhGia}} - IMDb 6.6</p>
-        </div>
+  <div class="movieInfo" (click)="toggle(item1.maPhim)">
+    <img class="movieImage" [src]="item1.hinhAnh" alt="#" />
+    <div class="wrapInfo">
+      <p>
+        <span class="age">C18</span>
+        <span class="movieTitle">{{ item1.tenPhim }}</span>
+      </p>
+      <p>120 - 123Phim {{ item1.danhGia }} - IMDb 6.6</p>
     </div>
-    <ng-container>
-        <app-movie-timer [movieTimer]="movies.danhSachPhim" [event]="item1.maPhim"></app-movie-timer>
-    </ng-container>
+  </div>
+  <ng-container>
+    <app-movie-timer
+      [movieTimer]="movies.danhSachPhim"
+      [event]="item1.maPhim"
+    ></app-movie-timer>
+  </ng-container>
 </div>

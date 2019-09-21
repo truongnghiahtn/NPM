@@ -9,31 +9,42 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <div class="carousel__content">
-            <div class="content">
-              <ng-container
-                *ngFor="let item of mangPhim | slice: 2:14; let i = index"
-              >
-                <app-carousel-item-detail
-                  [details]="item"
-                  [index]="i"
-                ></app-carousel-item-detail>
-              </ng-container>
+          <ng-container *ngIf="mangPhim">
+            <div class="carousel__content">
+              <div class="content">
+                <ng-container
+                  *ngFor="let phim of mangPhim | slice: 2:14; let i = index"
+                >
+                  <div [ngClass]="{ active: i === vitri }" class="item">
+                    <h1>{{ phim.tenPhim }}</h1>
+                    <p>{{ phim.moTa }}</p>
+                    <button class="btn btn-success" (click)="chiTiet()">
+                      Chi tiết
+                    </button>
+                  </div>
+                </ng-container>
+              </div>
             </div>
-          </div>
+          </ng-container>
         </div>
         <div class="col-md-6">
           <ng-container *ngIf="mangPhim">
             <div class="carousel carousel__items">
               <ng-container
-                *ngFor="let movie of mangPhim | slice: 2:14; let i = index"
+                *ngFor="let phim of mangPhim | slice: 2:14; let i = index"
               >
-                <app-carousel-item-phim
-                  [phim]="movie"
-                  [vitri]="i"
-                  [vitrichon]="checkedMovie"
-                  (click)="onCarousel(i)"
-                ></app-carousel-item-phim>
+                <div
+                  class="carousel-item item"
+                  [ngClass]="{ active: i === vitri }"
+                  (click)="onCarousel(i, phim)"
+                >
+                  <img [src]="phim.hinhAnh" alt="" />
+                  <div class="item__overlay">
+                    <div class="play">
+                      <i class="fa fa-play-circle"></i>
+                    </div>
+                  </div>
+                </div>
               </ng-container>
             </div>
           </ng-container>

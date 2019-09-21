@@ -4,8 +4,6 @@ import { CommonModule } from "@angular/common";
 import { TrangChuRoutingModule } from "./trang-chu-routing.module";
 import { TrangChuComponent } from "./trang-chu.component";
 import { CarouselComponent } from "./carousel/carousel.component";
-import { CarouselItemPhimComponent } from "./carousel/carousel-item-phim/carousel-item-phim.component";
-import { CarouselItemDetailComponent } from "./carousel/carousel-item-detail/carousel-item-detail.component";
 import { SearchMovieComponent } from "./search-movie/search-movie.component";
 import { MoviesComponent } from "./movies/movies.component";
 import { NowPlayingComponent } from "./movies/now-playing/now-playing.component";
@@ -33,8 +31,6 @@ import { MovieTimerComponent } from "./cinema-complex/movie-timer/movie-timer.co
   declarations: [
     TrangChuComponent,
     CarouselComponent,
-    CarouselItemPhimComponent,
-    CarouselItemDetailComponent,
     SearchMovieComponent,
     MoviesComponent,
     NowPlayingComponent,
