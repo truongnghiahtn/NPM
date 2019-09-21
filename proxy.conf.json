@@ -6,5 +6,16 @@
       "^/api": ""
     },
     "changeOrigin": true
+  },
+  "/comment": {
+    "target": "http://5d81e3001c8ff70014ef40ba.mockapi.io",
+    "pathRewrite": {
+      "^/comment": ""
+    },
+    "changeOrigin": true,
+    "secure": false,
+    "headers": {
+      "host": "http://www.localhost:4200"
+    }
   }
 }

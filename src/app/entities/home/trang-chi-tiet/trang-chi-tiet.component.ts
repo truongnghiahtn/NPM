@@ -28,13 +28,11 @@ export class TrangChiTietComponent implements OnInit {
   }
   laymaphim() {
     this.maphim = this.activatedrouter.snapshot.paramMap.get("id");
-    console.log(this.maphim);
   }
   getchitiet() {
     this._dataservice.get(`http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${this.maphim}`)
       .subscribe((data: any) => {
         this.mangphim = data;
-        console.log(this.mangphim)
       }),
       (err) => {
         console.log(err);
