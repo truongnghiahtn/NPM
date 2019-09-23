@@ -1,0 +1,43 @@
+.lichChieu {
+  height: 705px;
+  display: flex;
+  // justify-content: center;
+  .nav {
+    &.nav-tabs {
+      display: block;
+      min-height: 705px;
+      width: 92px;
+      float: left;
+      border: 1px solid #ebebec;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+    .nav-item {
+      .nav-link {
+        padding: 20px;
+        border: none;
+        opacity: 0.7;
+        position: relative;
+        transition: all 0.2s;
+        img {
+          width: 50px;
+        }
+        &.active {
+          opacity: 1;
+        }
+        &::after {
+          content: "";
+          width: calc(100% - 40px);
+          height: 1px;
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          transform: translateX(-50%);
+          background-color: #eeeeeee0;
+        }
+      }
+    }
+  }
+  .tab-content {
+  }
+}

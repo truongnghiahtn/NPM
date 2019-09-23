@@ -1,0 +1,178 @@
+.backgroud{
+      /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  
+  /* Full height */
+  height: 1000px;
+  width: 100%; 
+ position: absolute;
+ top:110px;
+ left: 0;
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    
+}
+.show-movie {
+    padding: 100px 0;
+   
+    img{
+        transform: scale(0.9);
+    }
+    .movie-chitiet{
+        margin-left: 20px;
+        h1{
+            font-size: 20px;
+        }
+        p{
+            font-size: 14px;
+        }
+    }
+    .movie-danhgia{
+        
+      text-align: center;
+      
+      margin-top:90px;
+        h1{
+           font-weight: bold;
+           font-size: 60px;
+           border: 3px solid orange;
+           width: 80px;
+           margin: 0 auto;
+           border-radius: 50%;
+        }
+    }
+  }
+.nav {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  .nav-item {
+    width: 120px;
+    text-align: center;
+    .nav-link {
+      transition: all 0.3s;
+      border: none;
+      color: black;
+      font-size: 20px;
+      &:hover {
+        transform: scale(1.3);
+      }
+      padding: 0;
+    }
+    .active {
+      background-color: transparent;
+      color: orange;
+    }
+  }
+}
+.user {
+  i {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(125, 122, 122, 0.8);
+    color: white;
+    text-align: center;
+    line-height: 35px;
+    font-size: 30px;
+    margin-right: 10px;
+    margin-top: -5px;
+  }
+  p {
+    padding: 0 10px;
+    margin: 3px;
+  }
+}
+.danhgia-comment {
+  border: 1px solid orange;
+  width: 600xp;
+  height: 50px;
+  padding: 10px 20px;
+  cursor: pointer;
+  .Danhgia_icon {
+    color: rgba($color: #fe7900, $alpha: 0.5);
+  }
+}
+.show-danhgia {
+  .danhgia {
+    border: 1px solid #fe7900;
+    margin: 10px 0;
+    padding: 10px 20px;
+    .Danhgia_icon {
+      i {
+        font-size: 12px;
+      }
+    }
+    .danhgia_comment {
+      position: relative;
+      p {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 20px;
+
+        max-height: 60px;
+        font-size: 16px;
+        padding: 5px 0px 5px 20px;
+        margin-bottom: 5px;
+      }
+      span {
+        position: absolute;
+        bottom: -5px;
+        right: 55px;
+        cursor: pointer;
+        transition: all 0.25s;
+        &:hover {
+          color: yellow;
+          font-weight: bold;
+          transform: scale(1.2);
+        }
+      }
+      span:last-child {
+        right: 5px;
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+}
+.modal-backdrop {
+  position: fixed;
+}
+.body.modal-open {
+  overflow: hidden;
+}
+.modal {
+  top: 80px;
+  left: -75px;
+}
+.modal-content {
+  width: 130%;
+}
+.Danhgia_icon,
+.icon-show-movie {
+  color: rgba($color: #fe7900, $alpha: 0.4);
+  font-size: 20px;
+  .star1 {
+    color: #fe7900;
+  }
+  .star2 {
+    color: #fe7900;
+  }
+  .star3 {
+    color: #fe7900;
+  }
+  .star4 {
+    color: #fe7900;
+  }
+  .star5 {
+    color: #fe7900;
+  }
+}

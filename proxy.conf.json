@@ -1,0 +1,21 @@
+{
+  "/api": {
+    "target": "http://5d6a41476b97ef00145b77b6.mockapi.io",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "changeOrigin": true
+  },
+  "/comment": {
+    "target": "http://5d81e3001c8ff70014ef40ba.mockapi.io",
+    "pathRewrite": {
+      "^/comment": ""
+    },
+    "changeOrigin": true,
+    "secure": false,
+    "headers": {
+      "host": "http://www.localhost:4200"
+    }
+  }
+}

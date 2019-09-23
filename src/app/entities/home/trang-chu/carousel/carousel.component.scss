@@ -2,6 +2,7 @@
 .movie-carousel {
   position: relative;
   height: 560px;
+  margin-top: 99px;
   .overlay {
     position: absolute;
     z-index: 3;
@@ -9,7 +10,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to bottom, rgba(31, 29, 29, 0.719), rgba(0, 0, 0, 1));
+    background-image: linear-gradient(
+      to bottom,
+      rgba(31, 29, 29, 0.719),
+      rgba(0, 0, 0, 1)
+    );
   }
   .bg-item {
     position: absolute;

@@ -2,8 +2,9 @@
     <div class="News-title">
         <h1>{{DSTintuc.name}}</h1>
         <div class="News-icon text-center">
-            <i class="fa fa-thumbs-up" [ngClass]="{like:status}" aria-hidden="true" (click)="like()"><span>({{sumlike}})</span></i>
-            
+            <i class="fa fa-thumbs-up" [ngClass]="{like:status}" aria-hidden="true"
+                (click)="like()"><span>({{sumlike}})</span></i>
+
             <i class="fa fa-comment-alt" aria-hidden="true"></i>
         </div>
     </div>
@@ -13,16 +14,6 @@
         <img [src]="DSTintuc.Img2" class="img-fluid">
         <p>{{DSTintuc.content2}}</p>
     </div>
-    <div class="News_binh-luat">
-        <div class="News-Show">
-        </div>
-        <div class="New-comment d-flex">
-            <ng-container *ngIf="info">
-            
-            <div  class="user"> 123456 {{info.taiKhoan }}</div>
-            <div><input type="text" class="form-control"></div>
-        </ng-container>
-        </div>
-    </div>
+    <app-comment></app-comment>
 
 </div>

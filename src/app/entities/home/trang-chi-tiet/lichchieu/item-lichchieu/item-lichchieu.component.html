@@ -1,0 +1,9 @@
+<ng-container *ngFor="let cumRap of thongTinHeThongRap.cumRapChieu" style="overflow: scroll">
+    <div>
+        {{cumRap.tenCumRap}}
+        {{cumRap.diaChi}}
+    </div>
+    <div *ngFor="let item of cumRap.lichChieuPhim | slice:0:5">
+        <span>{{item.ngayChieuGioChieu}}</span>
+    </div>
+</ng-container>

@@ -13,28 +13,28 @@ export class PromotionComponent implements OnInit {
 
   biendem: number = 1;
   bienbtn: number;
-  DSTinTuc:any=[];
-  sublistpromotion= new Subscription()
-  constructor(private dataService:DataService,
-    private router:Router) { }
+  DSTinTuc: any = [];
+  sublistpromotion = new Subscription()
+  constructor(private dataService: DataService,
+    private router: Router) { }
   xemthem() {
     this.biendem++;
   }
 
- 
+
 
   ngOnInit() {
     this.getlistpromotion();
   }
-  getlistpromotion(){
-    this.sublistpromotion=this.dataService.get('http://5d6a41476b97ef00145b77b6.mockapi.io/api/new_promotion').subscribe((data:News[])=>{
-      this.DSTinTuc=data;
+  getlistpromotion() {
+    this.sublistpromotion = this.dataService.get('/api/new_promotion').subscribe((data: News[]) => {
+      this.DSTinTuc = data;
       this.bienbtn = (this.DSTinTuc.length) / 8;
-    },(err)=>{
+    }, (err) => {
       console.log(err);
     })
   }
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.sublistpromotion.unsubscribe();
-      }
+  }
 }
