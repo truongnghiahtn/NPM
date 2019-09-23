@@ -1,1 +1,23 @@
-<p>admin works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-5 mx-auto">
+      <form #formSignIn="ngForm" (submit)="_handleOnSignIn(formSignIn.value)">
+        <h4 class="display-4">Đăng Nhập</h4>
+        <div class="form-group">
+          <label for="">Tài Khoản</label>
+          <input type="text" name="taiKhoan" ngModel class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="">Mật Khẩu</label>
+          <input type="text" name="matKhau" ngModel class="form-control" />
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-success">
+            Đăng nhập
+          </button>
+          <button type="submit" class="btn btn-danger">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
