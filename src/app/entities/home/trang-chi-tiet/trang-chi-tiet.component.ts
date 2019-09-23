@@ -72,7 +72,7 @@ export class TrangChiTietComponent implements OnInit {
     }
   }
   getdanhgia(){
-    this._dataservice.get("http://5d81e3001c8ff70014ef40ba.mockapi.io/danhgia_movie").subscribe((data=>{
+    this._dataservice.get("/comment/danhgia_movie").subscribe((data=>{
       this.datacomment=data;
       this.newcomment=[];
       this.datacomment.map(item=>{
@@ -97,7 +97,7 @@ export class TrangChiTietComponent implements OnInit {
        comment:this.formdanhgia.value.comment,
        danhgia:this.danhgia,
      }
-     this._dataservice.post("http://5d81e3001c8ff70014ef40ba.mockapi.io/danhgia_movie",comments).subscribe((data)=>{
+     this._dataservice.post("/comment/danhgia_movie",comments).subscribe((data)=>{
        console.log(data);
       this.capnhat(data.id);
       this.formdanhgia.resetForm();
@@ -120,7 +120,7 @@ export class TrangChiTietComponent implements OnInit {
   }
   xoa(Id)
   {
-    this._dataservice.delete(`http://5d81e3001c8ff70014ef40ba.mockapi.io/danhgia_movie/${Id}`).subscribe((data)=>{
+    this._dataservice.delete(`/comment/danhgia_movie/${Id}`).subscribe((data)=>{
       console.log(data);
     },(err)=>(console.log(err)))
     
@@ -151,7 +151,7 @@ export class TrangChiTietComponent implements OnInit {
       comment:this.formdanhgia.value.comment,
       danhgia:this.danhgia,
     }
-    this._dataservice.put(`http://5d81e3001c8ff70014ef40ba.mockapi.io/danhgia_movie/${this.idfix}`,commentsfix).subscribe((data:any)=>{
+    this._dataservice.put(`/comment/danhgia_movie/${this.idfix}`,commentsfix).subscribe((data:any)=>{
       
     },(err)=>{
       console.log(err)
