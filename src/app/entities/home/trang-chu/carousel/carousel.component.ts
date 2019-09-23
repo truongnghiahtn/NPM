@@ -19,7 +19,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   layDanhSachPhim() {
     this.dataSV
       .get(
-        "http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP02"
+        "http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01"
       )
       .subscribe(
         result => {
