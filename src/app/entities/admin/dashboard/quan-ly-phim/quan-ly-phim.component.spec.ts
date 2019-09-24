@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminQuanLyPhimComponent } from './admin-quan-ly-phim.component';
+import { QuanLyPhimComponent } from './quan-ly-phim.component';
 
-describe('AdminQuanLyPhimComponent', () => {
-  let component: AdminQuanLyPhimComponent;
-  let fixture: ComponentFixture<AdminQuanLyPhimComponent>;
+describe('QuanLyPhimComponent', () => {
+  let component: QuanLyPhimComponent;
+  let fixture: ComponentFixture<QuanLyPhimComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminQuanLyPhimComponent ]
+      declarations: [ QuanLyPhimComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminQuanLyPhimComponent);
+    fixture = TestBed.createComponent(QuanLyPhimComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

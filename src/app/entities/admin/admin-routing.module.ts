@@ -7,6 +7,9 @@ const routes: Routes = [
   {
     path:"",component:AdminComponent,
     children:[
+      {
+        path:"dang-ky",loadChildren:"./admin-dang-ky/admin-dang-ky.module#AdminDangKyModule"
+      },
       {path:"dashboard",loadChildren:"./dashboard/dashboard.module#DashboardModule"}
     ]
 
