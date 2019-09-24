@@ -39,12 +39,11 @@ export class TrangDangNhapComponent implements OnInit {
       }
     );
   }
+  dangKy() {
+    this.router.navigate(["dang-ky"]);
+  }
   @HostListener("window:beforeunload", ["$event"])
   canDeactivate($event): boolean {
     return this.formLogin.submitted || !this.formLogin.dirty;
-  }
-  dangKy() {
-    this.router.navigate(["dang-ky"]);
-    console.log("a");
   }
 }

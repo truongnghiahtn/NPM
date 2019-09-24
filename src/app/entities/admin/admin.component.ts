@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, HostListener, ViewChild } from "@angular/core";
 import { DataService } from "src/app/shared/services/data.service";
 import { Router } from "@angular/router";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-admin",
@@ -9,7 +10,7 @@ import { Router } from "@angular/router";
 })
 export class AdminComponent implements OnInit {
   constructor(private dataSV: DataService, private router: Router) {}
-
+  @ViewChild("formSignIn", { static: false }) formSignIn: NgForm;
   ngOnInit() {}
   _handleOnSignIn(formSignIn) {
     const uri =
@@ -27,5 +28,9 @@ export class AdminComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+  @HostListener("window:beforeunload", ["$event"])
+  canDeactivate($event): boolean {
+    return this.formSignIn.submitted || !this.formSignIn.dirty;
   }
 }
