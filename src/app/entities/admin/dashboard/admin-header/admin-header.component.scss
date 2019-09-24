@@ -1,0 +1,36 @@
+.admin-header{
+    border:1px solid white;
+     box-shadow: 0 2px 4px rgba(0,0,0,.08);
+     position: fixed;
+     width: 100%;
+     top:0;
+     left: 0;
+     background-color: #fff;
+     z-index: 100;
+     .admin-user{
+         height: 80px;
+         align-items: center;
+         p{
+             margin: 0;
+         };
+         .user{
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: rgba(125, 122, 122, 0.8);
+            color: white;
+            text-align: center;
+            line-height: 35px;
+            font-size: 30px;
+            margin-left: 15px;
+        }
+     }
+     .admin-branch{
+         button{
+             i{
+                 font-size: 25px;
+                 color: #c8c8c8;
+             }
+         }
+     }
+}
