@@ -10,9 +10,9 @@ const routes: Routes = [
     canDeactivate: [CandeactiveDangNhap]
   },
   {
-    path: "dashboard",
-    loadChildren: "./dashboard/dashboard.module#DashboardModule"
-  }
+    path:"dang-ky",loadChildren:"./admin-dang-ky/admin-dang-ky.module#AdminDangKyModule"
+  },
+  {path:"dashboard",loadChildren:"./dashboard/dashboard.module#DashboardModule"}
 ];
 
 @NgModule({

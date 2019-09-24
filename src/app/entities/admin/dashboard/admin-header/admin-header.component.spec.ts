@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminQuanLyTinTucComponent } from './admin-quan-ly-tin-tuc.component';
+import { AdminHeaderComponent } from './admin-header.component';
 
-describe('AdminQuanLyTinTucComponent', () => {
-  let component: AdminQuanLyTinTucComponent;
-  let fixture: ComponentFixture<AdminQuanLyTinTucComponent>;
+describe('AdminHeaderComponent', () => {
+  let component: AdminHeaderComponent;
+  let fixture: ComponentFixture<AdminHeaderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminQuanLyTinTucComponent ]
+      declarations: [ AdminHeaderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminQuanLyTinTucComponent);
+    fixture = TestBed.createComponent(AdminHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
