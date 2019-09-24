@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CarouselItemDetailComponent } from './carousel-item-detail.component';
+import { QuanLyTinTucComponent } from './quan-ly-tin-tuc.component';
 
-describe('CarouselItemDetailComponent', () => {
-  let component: CarouselItemDetailComponent;
-  let fixture: ComponentFixture<CarouselItemDetailComponent>;
+describe('QuanLyTinTucComponent', () => {
+  let component: QuanLyTinTucComponent;
+  let fixture: ComponentFixture<QuanLyTinTucComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CarouselItemDetailComponent ]
+      declarations: [ QuanLyTinTucComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CarouselItemDetailComponent);
+    fixture = TestBed.createComponent(QuanLyTinTucComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

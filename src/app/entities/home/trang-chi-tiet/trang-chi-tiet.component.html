@@ -1,23 +1,37 @@
 <ng-container *ngIf="mangphim">
-    <div class=" container animated fadeIn ">
+    <div class="backgroud" [style.background-image]="'url(' +mangphim.hinhAnh  + ')'">
+    </div>
+    <div class=" container animated fadeIn " >
         <div class="row show-movie">
-            <div class="col-6 text-center ">
+            <div class="col-6 d-flex justify-content-center" >
                 <img [src]="mangphim.hinhAnh">
+                <div class="movie-chitiet mt-5">
+                    <p>{{mangphim.ngayKhoiChieu|date:"dd/MM/yyyy"}}</p>
+                    <h1>{{mangphim.tenPhim}}</h1>
+                    <p><span>120phut-2D/3D</span></p>
+                </div>
             </div>
-            <div class=" col-6">
-
+            <div class=" col-6 movie-danhgia">
+                <h1>{{mangphim.danhGia}}</h1>
+                <div class="icon-show-movie">
+                    <i class="fa fa-star "  [ngClass]="{star1:mangphim.danhGia >=1 }"></i>
+                    <i class="fa fa-star "  [ngClass]="{star2:mangphim.danhGia >=2}"></i>
+                    <i class="fa fa-star "  [ngClass]="{star3:mangphim.danhGia >=3}"></i>
+                    <i class="fa fa-star "  [ngClass]="{star4:mangphim.danhGia >=4}"></i>
+                    <i class="fa fa-star "  [ngClass]="{star5:mangphim.danhGia >=5}"></i>
+                </div>
             </div>
         </div>
         <div>
             <ul class="nav nav-pills ">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="pill" href="#home_chi-tiet" (click)="reset()">Lịch chiếu</a>
+                    <a class="nav-link active" data-toggle="pill" href="#home_chi-tiet">Lịch chiếu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#menu1_chi-tiet" (click)="reset()">Thông tin </a>
+                    <a class="nav-link" data-toggle="pill" href="#menu1_chi-tiet">Thông tin </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#menu2_chi-tiet" (click)="reset()">Đánh giá</a>
+                    <a class="nav-link" data-toggle="pill" href="#menu2_chi-tiet">Đánh giá</a>
                 </li>
             </ul>
             <!-- Tab panes -->
@@ -28,12 +42,108 @@
                 </div>
 
                 <div class="tab-pane container fade show" id="menu1_chi-tiet">
-                    <app-thongtin></app-thongtin>
+                    <app-thongtin [movie]="mangphim"></app-thongtin>
                 </div>
                 <div class="tab-pane container fade show" id="menu2_chi-tiet">
-                    <app-danh-gia></app-danh-gia>
+                    <div class="Danhgia_content col-7 mx-auto">
+                        <div class="danhgia-comment my-2 d-flex justify-content-between " data-toggle="modal"
+                            data-target="#idol" (click)="show()" (click)="reset()">
+                            <div class="user d-flex justify-content-start"><i class="fa fa-user"></i>
+                                <p>bạn nghĩ gì về bộ phim này ??</p>
+                            </div>
+                            <div class="Danhgia_icon">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+
+                        </div>
+                        <div class="show-danhgia">
+                            <ng-container *ngFor="let item of newcomment ">
+                                <div class="danhgia">
+                                    <div class="  d-flex justify-content-between">
+                                        <div class="user d-flex justify-content-start"><i class="fa fa-user"></i>
+                                            <p class="px-0">{{info.hoTen}}</p>
+                                        </div>
+                                        <div class="Danhgia_icon">
+                                            <i class="fa fa-star " (click)="start1()"
+                                                [ngClass]="{star1:item.danhgia >=1 }"></i>
+                                            <i class="fa fa-star " (click)="start2()"
+                                                [ngClass]="{star2:item.danhgia >=2}"></i>
+                                            <i class="fa fa-star " (click)="start3()"
+                                                [ngClass]="{star3:item.danhgia >=3}"></i>
+                                            <i class="fa fa-star " (click)="start4()"
+                                                [ngClass]="{star4:item.danhgia >=4}"></i>
+                                            <i class="fa fa-star " (click)="start5()"
+                                                [ngClass]="{star5:item.danhgia >=5}"></i>
+                                        </div>
+                                    </div>
+                                    <div class="row danhgia_comment">
+                                        <p class="mt-4 mb-0 col-10">{{item.comment}}</p>
+                                        <div *ngIf="item.user===info.taiKhoan">
+                                        <span class="col-1 " data-toggle="modal" data-target="#idol"
+                                            (click)="sua(item.id)" (click)="hidden()">[sửa]</span>
+                                        <span class="col-1 " (click)="xoa(item.id)">[xóa]</span>
+                                    </div>
+
+                                    </div>
+                                </div>
+                            </ng-container>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </ng-container>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="idol" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header  d-flex justify-content-between">
+                <div class="user d-flex justify-content-start"><i class="fa fa-user"></i>
+                    <p class="px-0">{{info.hoTen}}</p>
+                </div>
+                <div class="Danhgia_icon">
+                    <i class="fa fa-star " (click)="start1()" [ngClass]="{star1:danhgia >=1 }"></i>
+                    <i class="fa fa-star " (click)="start2()" [ngClass]="{star2:danhgia >=2}"></i>
+                    <i class="fa fa-star " (click)="start3()" [ngClass]="{star3:danhgia >=3}"></i>
+                    <i class="fa fa-star " (click)="start4()" [ngClass]="{star4:danhgia >=4}"></i>
+                    <i class="fa fa-star " (click)="start5()" [ngClass]="{star5:danhgia >=5}"></i>
+                </div>
+
+
+            </div>
+            <div class="modal-body">
+                <form #formdanhgia="ngForm">
+                    <div class="form-group">
+
+                        <textarea type="email" class="form-control" name="comment" required ngModel
+                            placeholder="viết bình luận"></textarea>
+                    </div>
+                    <div>
+
+                        <button *ngIf="status" class="btn btn-success" type="submit" data-dismiss="modal"
+                             (click)="postcoment()">gửi
+                        </button>
+
+                        <button *ngIf="!status" class="btn btn-info" type="submit" data-dismiss="modal" (click)="fixcomment()"
+                            >sửa
+                        </button>
+
+
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

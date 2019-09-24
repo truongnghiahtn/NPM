@@ -10,10 +10,17 @@
       ></app-search-rap>
     </div>
     <div class="col-2">
-      <app-search-ngay [rap]="rap" (event)="chonNgay($event)"></app-search-ngay>
+      <app-search-ngay
+        [mangLichChieu]="mangLichChieu"
+        (event)="chonNgay($event)"
+      ></app-search-ngay>
     </div>
     <div class="col-3">
-      <app-search-gio [ngay]="ngay" (event)="chonGio($event)"></app-search-gio>
+      <app-search-gio
+        [ngay]="ngay"
+        [mangLichChieu]="mangLichChieu"
+        (event)="chonGio($event)"
+      ></app-search-gio>
     </div>
     <div class="col-2">
       <button class="btn btn-success" [disabled]="!gio" (click)="datVe()">

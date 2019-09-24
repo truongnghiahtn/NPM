@@ -2,8 +2,8 @@
   <mat-label>Rạp</mat-label>
   <mat-select #select (selectionChange)="chonRap(select)">
     <ng-container *ngIf="movie">
-      <mat-option *ngFor="let item of danhSachRap" [value]="item.maHeThongRap">
-        {{ item.tenHeThongRap }}
+      <mat-option *ngFor="let item of danhSachRap" [value]="item.maCumRap">
+        {{ item.tenCumRap }}
       </mat-option>
     </ng-container>
     <ng-container *ngIf="!movie">

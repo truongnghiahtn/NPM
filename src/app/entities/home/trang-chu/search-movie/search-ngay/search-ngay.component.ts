@@ -11,26 +11,17 @@ export class SearchNgayComponent implements OnInit {
   thongTinLichChieuPhim: any = [];
 
   constructor(private dataServive: DataService, private router: Router) {}
-  @Input() rap;
+  @Input() mangLichChieu;
   @Output() event = new EventEmitter();
   ngay: any;
-  ngOnInit() {
-    this.layThongTinLichChieuPhim();
+
+  ngOnInit() {}
+  ngOnChanges() {
+    // console.log(this.mangLichChieu);
   }
-  layThongTinLichChieuPhim() {
-    const uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=1344`;
-    this.dataServive.get(uri).subscribe(
-      data => {
-        this.thongTinLichChieuPhim = data.heThongRapChieu;
-        console.log(data);
-      },
-      err => {
-        console.log(err);
-      }
-    );
-  }
+
   chonNgay(value) {
-    this.ngay = value;
-    this.event.emit(value);
+    this.ngay = value.value;
+    this.event.emit(this.ngay);
   }
 }

@@ -11,25 +11,26 @@ export class SearchGioComponent implements OnInit {
 
   constructor(private dataServive: DataService, private router: Router) {}
   @Input() ngay;
+  @Input() mangLichChieu;
   @Output() event = new EventEmitter();
   gio: any;
-  ngOnInit() {
-    this.layThongTinLichChieuPhim();
-  }
-  layThongTinLichChieuPhim() {
-    const uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=1344`;
-    this.dataServive.get(uri).subscribe(
-      data => {
-        this.thongTinLichChieuPhim = data.heThongRapChieu;
-        console.log(data);
-      },
-      err => {
-        console.log(err);
-      }
-    );
+  mangGio: any = [];
+  ngOnInit() {}
+
+  ngOnChanges() {
+    if (this.mangLichChieu !== undefined) {
+      this.mangGio = [];
+      this.mangLichChieu.map(item => {
+        // console.log(item.ngayChieuGioChieu);
+        if (this.ngay === item.ngayChieuGioChieu.slice(0, 10)) {
+          this.mangGio.push(item);
+          console.log(item.ngayChieuGioChieu);
+        }
+      });
+    }
   }
   chonGio(value) {
-    console.log(value);
-    this.event.emit(value);
+    console.log(value.value);
+    this.event.emit(value.value);
   }
 }
