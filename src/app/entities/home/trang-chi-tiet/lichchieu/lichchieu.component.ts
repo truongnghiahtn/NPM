@@ -9,9 +9,12 @@ import { DataService } from 'src/app/shared/services/data.service';
 export class LichchieuComponent implements OnInit {
   @Input() maPhim;
   thongTinLichChieuPhim: Array<any> = [];
-  maHeThongRap: any;
   thongTinHeThongRap: Array<any> = [];
-  thongTinCumRap: Array<any> = [];
+  eventSelectDay: any = "2019-01-01";
+  index: any;
+  maHeThongRap: any;
+
+  DayOfWeek = [{ day: "Thứ 2", date: "2019-01-01" }, { day: "Thứ 3", date: "2019-01-02" }, { day: "Thứ 4", date: "2019-01-03" }, { day: "Thứ 5", date: "2019-01-04" }, { day: "Thứ 6", date: "2019-01-05" }, { day: "Thứ 7", date: "2019-01-06" }]
 
   constructor(private dataService: DataService) { }
 
@@ -27,7 +30,7 @@ export class LichchieuComponent implements OnInit {
     this.dataService.get(uri).subscribe(
       (data: any) => {
         this.thongTinLichChieuPhim = data;
-        data.heThongRapChieu.map(item => {
+        data.heThongRapChieu.map((item, index) => {
           const uriHTR = `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap?maHeThongRap=${item.maHeThongRap}`;
           this.dataService.get(uriHTR).subscribe(
             (data: any) => {
@@ -36,12 +39,22 @@ export class LichchieuComponent implements OnInit {
               })
             }
           )
+          if (index === 0) this.maHeThongRap = item.maHeThongRap;
         })
       },
       (err: any) => {
         console.log(err);
       }
     )
+  }
+  /* 
+    MaHeThongRap(maHeThongRap) {
+      this.maHeThongRap = maHeThongRap;
+    }
+   */
+  selectDay(date, index) {
+    this.eventSelectDay = date;
+    this.index = index;
   }
 
 }

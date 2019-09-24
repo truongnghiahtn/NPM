@@ -7,10 +7,11 @@ import { LichchieuComponent } from './lichchieu/lichchieu.component';
 import { ThongtinComponent } from './thongtin/thongtin.component';
 import { DanhGiaComponent } from './danh-gia/danh-gia.component';
 import { ItemLichchieuComponent } from './lichchieu/item-lichchieu/item-lichchieu.component';
+import { DateOfMoviesComponent } from './lichchieu/date-of-movies/date-of-movies.component';
 
 
 @NgModule({
-  declarations: [TrangChiTietComponent, LichchieuComponent, ThongtinComponent, DanhGiaComponent, ItemLichchieuComponent],
+  declarations: [TrangChiTietComponent, LichchieuComponent, ThongtinComponent, DanhGiaComponent, ItemLichchieuComponent, DateOfMoviesComponent],
   imports: [
     CommonModule,
     TrangChiTietRoutingModule

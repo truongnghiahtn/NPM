@@ -1,9 +1,15 @@
-<ng-container *ngFor="let cumRap of thongTinHeThongRap.cumRapChieu" style="overflow: scroll">
-    <div>
-        {{cumRap.tenCumRap}}
-        {{cumRap.diaChi}}
-    </div>
-    <div *ngFor="let item of cumRap.lichChieuPhim | slice:0:5">
-        <span>{{item.ngayChieuGioChieu}}</span>
-    </div>
+<ng-container *ngIf="lichChieuPhim">
+    <ng-container *ngFor="let item of lichChieuPhim; let i = index">
+        <div>
+            {{item.tenCumRap}}
+            {{item.diaChi}}
+        </div>
+        <div>
+            <div class="mr-2" (click)="datVe(item.maLichChieu)">
+                {{item.ngayChieuGioChieu | date: 'HH:mm'}}</div>
+        </div>
+    </ng-container>
 </ng-container>
+
+
+<!--  [hidden]="eventSelect !== (item.ngayChieuGioChieu | slice:0:10)" -->
