@@ -1,0 +1,29 @@
+.tblPhim {
+  .table {
+    thead {
+      th {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+}
+
+.dropdown-menu {
+  &.show {
+    padding: 0.5rem;
+  }
+  .dropdown-item {
+    padding: 0.5rem;
+    margin-left: 0;
+    font-size: 0.9rem;
+    &:hover {
+      box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18),
+        0 4px 15px 0 rgba(0, 0, 0, 0.15);
+      background-color: #4285f4;
+      border-radius: 0.125rem;
+      color: #fff !important;
+      transition: all 0.1s linear;
+    }
+  }
+}

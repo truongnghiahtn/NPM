@@ -11,7 +11,6 @@ export class LichchieuComponent implements OnInit {
   thongTinLichChieuPhim: Array<any> = [];
   thongTinHeThongRap: Array<any> = [];
   eventSelectDay: any = "2019-01-01";
-  index: any;
   maHeThongRap: any;
 
   DayOfWeek = [{ day: "Thứ 2", date: "2019-01-01" }, { day: "Thứ 3", date: "2019-01-02" }, { day: "Thứ 4", date: "2019-01-03" }, { day: "Thứ 5", date: "2019-01-04" }, { day: "Thứ 6", date: "2019-01-05" }, { day: "Thứ 7", date: "2019-01-06" }]
@@ -52,9 +51,8 @@ export class LichchieuComponent implements OnInit {
       this.maHeThongRap = maHeThongRap;
     }
    */
-  selectDay(date, index) {
-    this.eventSelectDay = date;
-    this.index = index;
+  selectDay(day) {
+    this.eventSelectDay = day;
   }
 
 }

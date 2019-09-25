@@ -1,0 +1,6 @@
+<div *ngFor="let item of lichChieuPhim">
+    <div>{{item.tenCumRap}}</div>
+    <div *ngFor="let item1 of item.lichChieu">
+        <div>{{item1.ngayChieuGioChieu}}</div>
+    </div>
+</div>
