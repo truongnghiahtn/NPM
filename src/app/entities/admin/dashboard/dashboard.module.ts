@@ -8,6 +8,7 @@ import { QuanLyPhimComponent } from './quan-ly-phim/quan-ly-phim.component';
 import { QuanLyTinTucComponent } from './quan-ly-tin-tuc/quan-ly-tin-tuc.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { MaterialModule } from 'src/app/common/material/material.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,8 @@ import { MaterialModule } from 'src/app/common/material/material.module';
   declarations: [DashboardComponent, QuanLyNguoiDungComponent, QuanLyPhimComponent, QuanLyTinTucComponent, AdminHeaderComponent],
   imports: [
     CommonModule,
-    DashboardRoutingModule,MaterialModule
+    DashboardRoutingModule, MaterialModule,
+    FormsModule
   ]
 })
 export class DashboardModule { }

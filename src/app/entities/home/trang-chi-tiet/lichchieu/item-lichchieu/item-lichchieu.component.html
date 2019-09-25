@@ -1,15 +1,9 @@
-<ng-container *ngIf="lichChieuPhim">
-    <ng-container *ngFor="let item of lichChieuPhim; let i = index">
-        <div>
-            {{item.tenCumRap}}
-            {{item.diaChi}}
-        </div>
-        <div>
-            <div class="mr-2" (click)="datVe(item.maLichChieu)">
-                {{item.ngayChieuGioChieu | date: 'HH:mm'}}</div>
-        </div>
-    </ng-container>
+<ng-container *ngFor="let item of groups; let i = index">
+    <div [hidden]="eventSelect !== item.day">
+        <app-date-movie [lichChieu]="item.lichChieu"></app-date-movie>
+    </div>
 </ng-container>
+
 
 
 <!--  [hidden]="eventSelect !== (item.ngayChieuGioChieu | slice:0:10)" -->

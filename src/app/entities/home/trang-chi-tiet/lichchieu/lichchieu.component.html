@@ -14,7 +14,7 @@
         <div class="listTimeOfPhim">
             <!-- <app-date-of-movies [maHTR]="maHeThongRap" [maPhim]="maPhim"></app-date-of-movies> -->
             <div class="row DayOfWeek">
-                <div *ngFor="let item of DayOfWeek; let index = index" (click)="selectDay(item.date, index)">
+                <div *ngFor="let item of DayOfWeek" (click)="selectDay(item.date)">
                     <div class="mr-2">{{item.day}}</div>
                     <div class="mr-3">{{item.date | date: 'dd/MM'}}</div>
                 </div>

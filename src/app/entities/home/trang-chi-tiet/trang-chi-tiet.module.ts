@@ -9,10 +9,11 @@ import { ThongtinComponent } from './thongtin/thongtin.component';
 import { DanhGiaComponent } from './danh-gia/danh-gia.component';
 import { ItemLichchieuComponent } from './lichchieu/item-lichchieu/item-lichchieu.component';
 import { DateOfMoviesComponent } from './lichchieu/date-of-movies/date-of-movies.component';
+import { DateMovieComponent } from './lichchieu/date-movie/date-movie.component';
 
 
 @NgModule({
-  declarations: [TrangChiTietComponent, LichchieuComponent, ThongtinComponent, DanhGiaComponent, ItemLichchieuComponent, DateOfMoviesComponent],
+  declarations: [TrangChiTietComponent, LichchieuComponent, ThongtinComponent, DanhGiaComponent, ItemLichchieuComponent, DateOfMoviesComponent, DateMovieComponent],
   imports: [
     CommonModule,
     TrangChiTietRoutingModule,FormsModule
