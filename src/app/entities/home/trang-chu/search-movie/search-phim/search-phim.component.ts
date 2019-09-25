@@ -17,7 +17,7 @@ export class SearchPhimComponent implements OnInit {
   }
   layDanhSachPhim() {
     const uri =
-      "http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP02";
+      "http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01";
     this.dataServive.get(uri).subscribe(
       data => {
         this.danhSachPhim = data;
