@@ -53,9 +53,10 @@ constructor( private dataService:DataService) { }
 
   }
   getListMovie(){
-    this.subListMovie= this.dataService.get('http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP02').subscribe((data:Phim[])=>{
+    this.subListMovie= this.dataService.get('http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01').subscribe((data:Phim[])=>{
  
       this.DSphimDangChieu1=data;
+      console.log(data);
 
     this.catphim();
       if(this.DSphimDangChieu1.length>8){
@@ -75,12 +76,14 @@ constructor( private dataService:DataService) { }
     this.subListMovie.unsubscribe();
       }
     catphim(){
-     var i=16;
-     for(let j=0;j<3;j++)
+     var i=15;
+     for(let j=0;j<2;j++)
      {
        this.DSphimDangChieu1.splice(i,1);
        i--;
      }
+     this.DSphimDangChieu1.splice(0,1)
     }
+    
       
 }

@@ -55,10 +55,14 @@ $breakpoints: ( "extra-large": 1200px, "large": 992px, "medium": 768px, "small":
     background-color: #101010; //change color
     position: relative;
     overflow: hidden;
+    .comingsoon-content{
+        width: 1050px;
+        margin: 0 auto
+    }
     .coming__title {
         position: relative;
         @include text($fs-0, $fw-normal, $color-white-0);
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         letter-spacing: 1.7px;
         padding-bottom: 20px;
         border-bottom: 1px solid #333;
@@ -75,6 +79,9 @@ $breakpoints: ( "extra-large": 1200px, "large": 992px, "medium": 768px, "small":
      ::ng-deep #myTab {
         position: relative;
         padding: 55px 0;
+        padding-bottom: 20px;
+        width: 900px;
+        margin: 0 auto;
         &::before {
             position: absolute;
             right: 0;
@@ -82,17 +89,20 @@ $breakpoints: ( "extra-large": 1200px, "large": 992px, "medium": 768px, "small":
             left: -250%;
             display: block;
             width: 500%;
-            height: 100%;
-            padding: 55px 0;
+            height: 95%;
+            padding: 0;
             background: rgba(#101010, 0.6);
             content: "";
         }
         .owl-stage {
             transition: all 0.3s ease-in-out !important;
+            
+            
             .carousel__item {
                 margin: 0 15px;
                 opacity: 0.35;
                 transition: all 0.3s ease-in-out;
+               
                 cursor: pointer;
                 .nav__img {
                     img {
@@ -135,7 +145,7 @@ $breakpoints: ( "extra-large": 1200px, "large": 992px, "medium": 768px, "small":
     .owl-prev {
         position: absolute;
         right: -65px;
-        top: 35%;
+        top: 45%;
         width: 40px;
         height: 40px;
         z-index: 999;

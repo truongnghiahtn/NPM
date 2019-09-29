@@ -2,6 +2,10 @@
     height: 705px;
     display: flex;
     justify-content: center;
+    width: 940px;
+    margin: 0 auto;
+    border-radius: 4px;
+    
     .nav {
         &.nav-tabs {
             display: block;

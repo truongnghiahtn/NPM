@@ -1,0 +1,35 @@
+.Search-movie{
+   
+    max-width: 900px;
+    margin: 0 auto;
+    height: 90px;
+    position: absolute;
+    top: 520px;
+    width: 100%;
+    left: 50%;
+     transform: translate(-50%,50%);
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    z-index: 10;
+   
+    
+
+    .item{
+        padding: 10px 20px;
+    }
+    .item-btn{
+        padding-top:10px;
+        .btn{
+            background-color: #fe7900;
+            padding: 10px 20px;
+            margin-top:15px;
+            color: #fff;
+            font-size: 14px;
+        }
+        
+    }
+   
+}
