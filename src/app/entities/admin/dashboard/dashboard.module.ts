@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -20,6 +20,7 @@ import { ModalNewsComponent } from './quan-ly-tin-tuc/modal-news/modal-news.comp
     CommonModule,
     DashboardRoutingModule, MaterialModule,
     FormsModule
-  ]
+  ],
+  providers: [DatePipe]
 })
 export class DashboardModule { }

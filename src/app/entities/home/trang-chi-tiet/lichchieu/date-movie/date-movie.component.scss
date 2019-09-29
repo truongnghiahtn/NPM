@@ -1,0 +1,35 @@
+.dateMovie {
+  padding: 20px 20px 10px 20px;
+  width: 100%;
+  position: relative;
+  .wrapInfo {
+    padding-bottom: 10px;
+    .tenCumRap {
+      color: #000;
+      font-family: "SF Medium";
+      font-size: 16px;
+    }
+    .diaChi {
+      font-family: "SF Text Regular";
+      line-height: 1.7;
+      font-size: 14px;
+      color: #9b9b9b;
+    }
+  }
+
+  .ngayChieu {
+    font-family: "SF Medium";
+    margin-top: -4px;
+    font-size: 22px;
+    font-weight: 400;
+    transition: all 0.2s;
+    a {
+      color: #417500;
+      cursor: pointer;
+      text-decoration: none;
+      &:hover {
+        color: #fb4226;
+      }
+    }
+  }
+}
