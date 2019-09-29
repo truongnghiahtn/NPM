@@ -1,9 +1,5 @@
 <ng-container *ngFor="let item of groups; let i = index">
     <div [hidden]="eventSelect !== item.day">
-        <app-date-movie [lichChieu]="item.lichChieu"></app-date-movie>
+        <app-date-movie [lichChieu]="item.lichChieu" [maPhim]="maPhim"></app-date-movie>
     </div>
 </ng-container>
-
-
-
-<!--  [hidden]="eventSelect !== (item.ngayChieuGioChieu | slice:0:10)" -->

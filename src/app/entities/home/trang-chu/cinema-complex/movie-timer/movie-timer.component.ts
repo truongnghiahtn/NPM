@@ -11,6 +11,7 @@ export class MovieTimerComponent implements OnInit {
   @Input() event;
 
   status: boolean = false;
+  img2D: string = "assets/img/2D.png";
   constructor(private router: Router) { }
 
   ngOnInit() {

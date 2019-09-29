@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
-import { Router } from '@angular/router';
+import { SharingDataService } from 'src/app/shared/share/sharing-data.service';
 
 @Component({
   selector: 'app-item-lichchieu',
@@ -9,21 +9,24 @@ import { Router } from '@angular/router';
 })
 export class ItemLichchieuComponent implements OnInit {
   @Input() thongTinHeThongRap;
-  @Input() eventSelect;
   @Input() maPhim;
-  @Input() index;
-  lich: Array<any> = [];
-  lichChieuPhim: Array<any> = [];
+  eventSelect: string = "2019-01-01";
+  lichChieuPhim: any = [];
   groups: any;
   constructor(private dataService: DataService,
-    private router: Router) { }
+    private sharingData: SharingDataService) { }
 
   ngOnInit() {
+    this.sharingData.shareDetailMovie.subscribe((data: string) => {
+      if (typeof data !== 'object') {
+        this.eventSelect = data;
+      }
+    });
+
   }
 
   ngOnChanges() {
     this.layThongTinCumRap();
-    this.layLichChieuPhim()
   }
 
   layThongTinCumRap() {
@@ -37,20 +40,16 @@ export class ItemLichchieuComponent implements OnInit {
               cumRapChieu.lichChieuPhim.map(lichChieuPhim => {
                 lichChieuPhim["tenCumRap"] = cumRapChieu.tenCumRap;
                 lichChieuPhim["diaChi"] = cumR.diaChi;
+                this.lichChieuPhim.push(lichChieuPhim);
               })
             }
           })
         })
+        this.layLichChieuPhim();
       })
-
   }
 
   layLichChieuPhim() {
-    this.thongTinHeThongRap.cumRapChieu.map(item => {
-      item.lichChieuPhim.map(item => {
-        this.lichChieuPhim.push(item);
-      })
-    })
     this.lichChieuPhim = this.lichChieuPhim.reduce((a, item) => {
       a[item.ngayChieuGioChieu.slice(0, 10)] = a[item.ngayChieuGioChieu.slice(0, 10)] || [];
       a[item.ngayChieuGioChieu.slice(0, 10)].push(item);
@@ -59,14 +58,6 @@ export class ItemLichchieuComponent implements OnInit {
     this.groups = Object.keys(this.lichChieuPhim).map(key => {
       return { day: key, lichChieu: this.lichChieuPhim[key] };
     });
-
-    console.log(this.groups)
-  }
-
-  datVe(maLichChieu) {
-    const url = this.router.serializeUrl(this.router.createUrlTree(['/dat-ve/', maLichChieu], { queryParams: { movieId: this.maPhim } }));
-
-    window.open(url, '_blank');
   }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { SharingDataService } from 'src/app/shared/share/sharing-data.service';
 
 @Component({
   selector: 'app-date-movie',
@@ -7,27 +9,32 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DateMovieComponent implements OnInit {
   @Input() lichChieu;
+  @Input() maPhim;
   lichChieuPhim: Array<any> = [];
   groups: Array<any> = [];
-  constructor() { }
+  img2D: string = "assets/img/2D.png";
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   ngOnChanges(): void {
-    console.log(this.lichChieu);
     this.groups = this.lichChieu.reduce((a, item) => {
-      console.log(item);
       let tenCumRap = item.tenCumRap;
-      a[tenCumRap.slice(0, tenCumRap.length)] = a[tenCumRap.slice(0, tenCumRap.length)] || [];
-      a[tenCumRap.slice(0, tenCumRap.length)].push(item);
+      let diaChi = item.diaChi
+      a[tenCumRap + '#' + diaChi] = a[tenCumRap + '#' + diaChi] || [];
+      a[tenCumRap + '#' + diaChi].push(item);
       return a;
     }, {})
-    console.log(this.groups);
-    this.lichChieuPhim = Object.keys(this.groups).map((tenCumRap, diaChi) => {
-      return { tenCumRap: tenCumRap, lichChieu: this.groups[tenCumRap] };
+
+    this.lichChieuPhim = Object.keys(this.groups).map((keyword) => {
+      return { tenCumRap: keyword.split("#")[0], diaChi: keyword.split("#")[1], lichChieu: this.groups[keyword] };
     });
-    console.log(this.lichChieuPhim);
   }
 
+  datVe(maLichChieu) {
+    const url = this.router.serializeUrl(this.router.createUrlTree(['/dat-ve/', maLichChieu], { queryParams: { movieId: this.maPhim } }));
+
+    window.open(url, '_blank');
+  }
 }
