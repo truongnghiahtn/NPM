@@ -1,15 +1,21 @@
 .ngayChieu {
-    font-family: "SF Medium";
-    float: left;
-    font-size: 22px;
-    font-weight: 400;
-    transition: all 0.2s;
-    a {
-        color: #417500;
-        cursor: pointer;
-        text-decoration: none;
-        &:hover {
-            color: #fb4226;
-        }
+  font-family: "SF Medium";
+  float: left;
+  font-size: 22px;
+  font-weight: 400;
+  transition: all 0.2s;
+  img {
+    margin-right: 35px;
+    margin-top: 7px;
+    width: 30px;
+    height: 26px;
+  }
+  a {
+    color: #417500;
+    cursor: pointer;
+    text-decoration: none;
+    &:hover {
+      color: #fb4226;
     }
+  }
 }
