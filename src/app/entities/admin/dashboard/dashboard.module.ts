@@ -19,7 +19,9 @@ import { AdminDangKyModule } from "../admin-dang-ky/admin-dang-ky.module";
     QuanLyNguoiDungComponent,
     QuanLyPhimComponent,
     QuanLyTinTucComponent,
-    AdminHeaderComponent
+    AdminHeaderComponent,
+    ItemTinTucComponent,
+    ModalNewsComponent
   ],
   imports: [
     CommonModule,
