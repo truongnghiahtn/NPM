@@ -1,1 +1,64 @@
-<p>quan-ly-nguoi-dung works!</p>
+<div class="nguoidung">
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <input
+          class="search"
+          type="text"
+          placeholder="Tìm kiếm"
+          (keyup)="timKiem($event)"
+        />
+      </div>
+      <div class="col-9">
+        <button class="btn btn-success">Tìm kiếm</button>
+        <button class="btn btn-success" (click)="layDSNguoiDung()">
+          Lấy danh sách người dùng
+        </button>
+        <button
+          class="btn btn-success"
+          data-toggle="modal"
+          data-target="#modalLoginForm"
+          (click)="themNguoiDung()"
+        >
+          Thêm người dùng
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <table class="table" style="text-align: center">
+        <thead>
+          <tr>
+            <th>Họ tên</th>
+            <th>Mã loại người dùng</th>
+            <th>Email</th>
+            <th>Số điện thoại</th>
+            <th>Tùy chọn</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="mangNguoiDung">
+            <tr *ngFor="let item of mangTimKiem | slice: 0:50">
+              <td>{{ item.hoTen }}</td>
+              <td>{{ item.maLoaiNguoiDung }}</td>
+              <td>{{ item.email }}</td>
+              <td>{{ item.soDt }}</td>
+              <td>
+                <button class="btn btn-success" (click)="xoaNguoiDung(item)">
+                  Xóa
+                </button>
+                <button
+                  class="btn btn-info"
+                  data-toggle="modal"
+                  data-target="#modalLoginForm"
+                  (click)="capNhatThongTin(item)"
+                >
+                  Sửa
+                </button>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

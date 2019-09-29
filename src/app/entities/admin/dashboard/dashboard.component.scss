@@ -1,30 +1,26 @@
-.dashboard{
+.dashboard {
   background-color: #d8e0e4;
   height: 800px;
-.admin-content{
-  padding-top:100px;
-  height: 800px;
-  .tab-link{
-    background-color: #ffffff;
-    padding: 20px;
+  .admin-content {
+    padding-top: 100px;
+    height: 800px;
+    .tab-link {
+      background-color: #ffffff;
+      padding: 20px;
+    }
   }
-
-
- 
-
 }
+.show {
+  transform: translateX(0);
+  // transition: all 0.5s;
 }
-.show{
-  transform: translateX(0) ;
-  transition: all 1s;
-}
-.hidden{
+.hidden {
   transform: translateX(-330px) rotateY(180deg);
-  transition: all 1s;
+  transition: all 0.5s;
   position: absolute;
 }
-.show-max{
+.show-max {
   width: 90%;
-  transition: all 1.5s;
+  // transition: all 0.5s;
   margin: 0 auto;
 }
