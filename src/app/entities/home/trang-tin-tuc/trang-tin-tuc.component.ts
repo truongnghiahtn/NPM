@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/shared/services/data.service';
 import { Subscription } from 'rxjs';
 
@@ -15,13 +15,14 @@ export class TrangTinTucComponent implements OnInit {
   id: any;
   info: any;
   tentintuc: any;
-  status: boolean;
+  status: boolean=false;
   statuslike: boolean;
   loaitintuc: any;
   sumlike: number = 0;
   sublisttintuc = new Subscription()
   constructor(private activaterouter: ActivatedRoute,
-    private datadervice: DataService) { }
+    private datadervice: DataService,
+    private router:Router) { }
 
   ngOnInit() {
     this.layloaitintuc();
@@ -58,6 +59,7 @@ export class TrangTinTucComponent implements OnInit {
     })
   }
   like() {
+    if(this.info){
     this.status = !this.status;
     if (this.status === true) {
       this.sumlike++;
@@ -65,6 +67,10 @@ export class TrangTinTucComponent implements OnInit {
     else {
       this.sumlike--;
     }
+  }else{
+    alert("bạn cần phải đăng nhập trước !!!");
+    this.router.navigate(['/dang-nhap'])
+  }
   }
   layinfodangnhap() {
     if (localStorage.getItem("KhachHang")) {
@@ -78,6 +84,7 @@ export class TrangTinTucComponent implements OnInit {
       this.demlike();
       console.log("helo", this.DSnewlike);
       this.DSnewlike.find(item => {
+        if(this.info){
         if (item.name === this.info.taiKhoan && item.tentintuc === this.DSTintuc.name) {
           if (item.trangthai === true) {
             this.status = true;
@@ -92,6 +99,8 @@ export class TrangTinTucComponent implements OnInit {
         else {
           this.status = false;
         }
+      }
+
       })
     }, (err) => {
       console.log(err);
@@ -109,6 +118,7 @@ export class TrangTinTucComponent implements OnInit {
     })
   }
   postlike() {
+    if(this.info){
     const nguoi = {
       id: "",
       name: this.info.taiKhoan,
@@ -142,6 +152,7 @@ export class TrangTinTucComponent implements OnInit {
         }
       )
     }
+  }
 
   }
   demlike() {

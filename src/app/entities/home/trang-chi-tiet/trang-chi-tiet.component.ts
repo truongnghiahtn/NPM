@@ -13,7 +13,8 @@ export class TrangChiTietComponent implements OnInit {
   @ViewChild ("formdanhgia",{static:false}) formdanhgia:NgForm
   constructor(private activatedrouter: ActivatedRoute,
     private _dataservice: DataService,
-    private spinner: NgxSpinnerService) { }
+    private spinner: NgxSpinnerService,
+    private router:Router) { }
   maphim: any;
   mangphim: any[];
   info:any;
@@ -60,6 +61,7 @@ export class TrangChiTietComponent implements OnInit {
   }
   show(){
     this.status=true;
+  
   }
   hidden(){
     this.status=false;
@@ -88,6 +90,7 @@ export class TrangChiTietComponent implements OnInit {
   }
   postcoment(){
    
+    if(this.info){
     if(this.formdanhgia.valid)
     {
      const comments={
@@ -106,6 +109,11 @@ export class TrangChiTietComponent implements OnInit {
        console.log(err)
      })
    }
+  }
+  else{
+    alert("bạn cần phải đăng nhập trước !!!");
+    this.router.navigate(['/dang-nhap'])
+  }
   }
   capnhat(ID){
     const comments={
@@ -142,8 +150,9 @@ export class TrangChiTietComponent implements OnInit {
     
   }
   fixcomment(){
-
+console.log(this.danhgia);
     this.mangsua.comment=this.formdanhgia.value.comment;
+    this.mangsua.danhgia=this.danhgia;
     const commentsfix={
       id:this.idfix,
       user:this.info.taiKhoan,
@@ -152,7 +161,6 @@ export class TrangChiTietComponent implements OnInit {
       danhgia:this.danhgia,
     }
     this._dataservice.put(`/comment/danhgia_movie/${this.idfix}`,commentsfix).subscribe((data:any)=>{
-      
     },(err)=>{
       console.log(err)
     })
