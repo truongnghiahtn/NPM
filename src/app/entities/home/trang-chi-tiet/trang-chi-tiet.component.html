@@ -1,10 +1,15 @@
 <ng-container *ngIf="mangphim">
     <div class="backgroud" [style.background-image]="'url(' +mangphim.hinhAnh  + ')'">
     </div>
-    <div class=" container animated fadeIn " >
+    <div class=" container animated fadeIn ">
         <div class="row show-movie">
-            <div class="col-6 d-flex justify-content-center" >
-                <img [src]="mangphim.hinhAnh">
+            <div class="col-6 d-flex justify-content-center">
+                <div class="movie-img">
+                    <img [src]="mangphim.hinhAnh" style="transform: scale(0.9)">
+                    <a class="video-venobox" data-autoplay="true" data-vbtype="video" [href]="mangphim.trailer">
+                        <img class="img-fluid" src="assets/img/play-video.png">
+                    </a>
+                </div>
                 <div class="movie-chitiet mt-5">
                     <p>{{mangphim.ngayKhoiChieu|date:"dd/MM/yyyy"}}</p>
                     <h1>{{mangphim.tenPhim}}</h1>
@@ -14,11 +19,11 @@
             <div class=" col-6 movie-danhgia">
                 <h1>{{mangphim.danhGia}}</h1>
                 <div class="icon-show-movie">
-                    <i class="fa fa-star "  [ngClass]="{star1:mangphim.danhGia >=1 }"></i>
-                    <i class="fa fa-star "  [ngClass]="{star2:mangphim.danhGia >=2}"></i>
-                    <i class="fa fa-star "  [ngClass]="{star3:mangphim.danhGia >=3}"></i>
-                    <i class="fa fa-star "  [ngClass]="{star4:mangphim.danhGia >=4}"></i>
-                    <i class="fa fa-star "  [ngClass]="{star5:mangphim.danhGia >=5}"></i>
+                    <i class="fa fa-star " [ngClass]="{star1:mangphim.danhGia >=1 }"></i>
+                    <i class="fa fa-star " [ngClass]="{star2:mangphim.danhGia >=2}"></i>
+                    <i class="fa fa-star " [ngClass]="{star3:mangphim.danhGia >=3}"></i>
+                    <i class="fa fa-star " [ngClass]="{star4:mangphim.danhGia >=4}"></i>
+                    <i class="fa fa-star " [ngClass]="{star5:mangphim.danhGia >=5}"></i>
                 </div>
             </div>
         </div>
@@ -83,10 +88,10 @@
                                     <div class="row danhgia_comment">
                                         <p class="mt-4 mb-0 col-10">{{item.comment}}</p>
                                         <div *ngIf="item.user===info.taiKhoan">
-                                        <span class="col-1 " data-toggle="modal" data-target="#idol"
-                                            (click)="sua(item.id)" (click)="hidden()">[sửa]</span>
-                                        <span class="col-1 " (click)="xoa(item.id)">[xóa]</span>
-                                    </div>
+                                            <span class="col-1 " data-toggle="modal" data-target="#idol"
+                                                (click)="sua(item.id)" (click)="hidden()">[sửa]</span>
+                                            <span class="col-1 " (click)="xoa(item.id)">[xóa]</span>
+                                        </div>
 
                                     </div>
                                 </div>
@@ -131,11 +136,11 @@
                     <div>
 
                         <button *ngIf="status" class="btn btn-success" type="submit" data-dismiss="modal"
-                             (click)="postcoment()">gửi
+                            (click)="postcoment()">gửi
                         </button>
 
-                        <button *ngIf="!status" class="btn btn-info" type="submit" data-dismiss="modal" (click)="fixcomment()"
-                            >sửa
+                        <button *ngIf="!status" class="btn btn-info" type="submit" data-dismiss="modal"
+                            (click)="fixcomment()">sửa
                         </button>
 
 

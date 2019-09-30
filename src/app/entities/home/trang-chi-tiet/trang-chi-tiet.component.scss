@@ -1,51 +1,67 @@
-.backgroud{
-      /* Add the blur effect */
+.backgroud {
+  /* Add the blur effect */
   filter: blur(8px);
   -webkit-filter: blur(8px);
-  
+
   /* Full height */
   height: 1000px;
-  width: 100%; 
- position: absolute;
- top:110px;
- left: 0;
-  
+  width: 100%;
+  position: absolute;
+  top: 110px;
+  left: 0;
+
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-    
 }
 .show-movie {
-    padding: 100px 0;
-   
-    img{
-        transform: scale(0.9);
+  padding: 100px 0;
+
+  .movie-img {
+    position: relative;
+    a {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      background: 0 0;
+      border: none;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.2s;
     }
-    .movie-chitiet{
-        margin-left: 20px;
-        h1{
-            font-size: 20px;
-        }
-        p{
-            font-size: 14px;
-        }
-    }
-    .movie-danhgia{
-        
-      text-align: center;
-      
-      margin-top:90px;
-        h1{
-           font-weight: bold;
-           font-size: 60px;
-           border: 3px solid orange;
-           width: 80px;
-           margin: 0 auto;
-           border-radius: 50%;
-        }
+    &:hover {
+      a {
+        visibility: visible;
+        opacity: 1;
+      }
     }
   }
+  .movie-chitiet {
+    margin-left: 20px;
+    h1 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+  .movie-danhgia {
+    text-align: center;
+
+    margin-top: 90px;
+    h1 {
+      font-weight: bold;
+      font-size: 60px;
+      border: 3px solid orange;
+      width: 80px;
+      margin: 0 auto;
+      border-radius: 50%;
+    }
+  }
+}
 .nav {
   display: flex;
   justify-content: center;

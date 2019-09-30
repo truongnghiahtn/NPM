@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+declare var $: any;
 
 @Component({
   selector: 'app-now-play-item',
@@ -20,6 +21,11 @@ export class NowPlayItemComponent implements OnInit {
   chiTiet() {
     this.router.navigate(['/chi-tiet-phim/', this.phim.maPhim], { queryParams: { tenPhim: this.phim.tenPhim } });
     console.log(this.phim.maPhim);
+  }
+
+
+  ngAfterViewInit() {
+    $('.video-venobox').venobox();
   }
 
 }
