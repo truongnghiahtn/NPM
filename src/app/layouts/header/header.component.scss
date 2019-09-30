@@ -3,7 +3,7 @@
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 2000;
+  z-index: 1000;
   background-color: rgba($color: white, $alpha: 1);
   margin-bottom: 99px;
 
@@ -12,9 +12,7 @@
     .navbar-brand {
       margin-right: 0;
       img {
-        width: 50%;
-        display: block;
-        margin: auto;
+        margin-left:80px;
      
       }
     }

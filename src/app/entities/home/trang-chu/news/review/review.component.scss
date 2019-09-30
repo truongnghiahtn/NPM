@@ -2,3 +2,7 @@ button {
     display: block;
     margin: 0 auto
 }
+::ng-deep .mat-fab.mat-primary, .mat-flat-button.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary {
+    background-color: orange;
+
+}

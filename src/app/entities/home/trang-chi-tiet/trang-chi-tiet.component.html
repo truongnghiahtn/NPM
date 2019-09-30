@@ -1,5 +1,8 @@
 <ng-container *ngIf="mangphim">
     <div class="backgroud" [style.background-image]="'url(' +mangphim.hinhAnh  + ')'">
+        <div class="over-lay">
+
+        </div>
     </div>
     <div class=" container animated fadeIn ">
         <div class="row show-movie">
@@ -70,7 +73,7 @@
                                 <div class="danhgia">
                                     <div class="  d-flex justify-content-between">
                                         <div class="user d-flex justify-content-start"><i class="fa fa-user"></i>
-                                            <p class="px-0">{{info.hoTen}}</p>
+                                            <p *ngIf=" info " class="px-0">{{info.hoTen}}</p>
                                         </div>
                                         <div class="Danhgia_icon">
                                             <i class="fa fa-star " (click)="start1()"
@@ -85,9 +88,9 @@
                                                 [ngClass]="{star5:item.danhgia >=5}"></i>
                                         </div>
                                     </div>
-                                    <div class="row danhgia_comment">
+                                    <div class="row danhgia_comment ">
                                         <p class="mt-4 mb-0 col-10">{{item.comment}}</p>
-                                        <div *ngIf="item.user===info.taiKhoan">
+                                        <div *ngIf=" info &&item.user===info.taiKhoan">
                                             <span class="col-1 " data-toggle="modal" data-target="#idol"
                                                 (click)="sua(item.id)" (click)="hidden()">[sửa]</span>
                                             <span class="col-1 " (click)="xoa(item.id)">[xóa]</span>
@@ -114,7 +117,9 @@
         <div class="modal-content">
             <div class="modal-header  d-flex justify-content-between">
                 <div class="user d-flex justify-content-start"><i class="fa fa-user"></i>
-                    <p class="px-0">{{info.hoTen}}</p>
+                    <div *ngIf="info">
+                        <p class="px-0">{{info.hoTen}}</p>
+                    </div>
                 </div>
                 <div class="Danhgia_icon">
                     <i class="fa fa-star " (click)="start1()" [ngClass]="{star1:danhgia >=1 }"></i>

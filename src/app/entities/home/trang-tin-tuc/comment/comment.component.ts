@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
@@ -19,7 +19,8 @@ export class CommentComponent implements OnInit {
   idxoa: any;
   idfix: any;
   constructor(private activaterouter: ActivatedRoute,
-    private datadervice: DataService) { }
+    private datadervice: DataService,
+    private router:Router) { }
 
   ngOnInit() {
     this.layloaitintuc();
@@ -55,7 +56,8 @@ export class CommentComponent implements OnInit {
   }
   postcoment() {
 
-
+    if(this.info)
+    {
     if (this.formcomment.valid) {
       const comments = {
         id: "",
@@ -72,6 +74,11 @@ export class CommentComponent implements OnInit {
         console.log(err)
       })
     }
+  }
+  else{
+    alert("bạn cần phải đăng nhập trước !!!");
+    this.router.navigate(['/dang-nhap'])
+  }
 
 
   }

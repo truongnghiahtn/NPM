@@ -11,20 +11,21 @@ $max-height:60px;
     margin-right: 10px;
 }
 .News_binh-luan{
-    width: 600px;
+    width: 650px;
     margin: 20px auto;
     .New-comment{
  
         input{
             width: 554px;
-            height: 40px;
+            height: 50px;
             padding: 10px;
-            border-radius: 20px;
+            border-radius: 5px;
+            padding-right: 90px;
         }
         .btn{
             margin: 0;
-            border-radius: 20px;
-            height: 40px;
+            border-radius: 5px;
+            height: 50px;
             margin-left: -90px;
             opacity: 0.5;
             &:hover{
@@ -33,33 +34,55 @@ $max-height:60px;
         }
     }
     .News-Show{
+        overflow-y: auto;
+        max-height: 450px;
         .show-comment{
             border: 1px solid orange;
-            margin: 5px 0;
+            width: 600px;
+          
             .show-user{
                 .user{
                     margin:10px 0 0 30px;
                 }
                 span{
-                    font-weight: bold;
                     font-size: 18px;
                     padding: 10px;
                 }
-                .comment{
-                   p{
-                    display: -webkit-box;
-                    -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    line-height: 20px;
-                   
-                    max-height: $max-height;
-                    font-size: 16px;
-                    padding: 5px 0px 5px 20px;
-                    margin-bottom: 5px;
-                   }
-                }
+                .danhgia_comment {
+                    padding: 0 20px;
+                    position: relative;
+                    p {
+                      display: -webkit-box;
+                      -webkit-line-clamp: 3;
+                      -webkit-box-orient: vertical;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                      line-height: 20px;
+              
+                      max-height: 60px;
+                      font-size: 16px;
+                      padding: 5px 0px 5px 20px;
+                      margin-bottom: 5px;
+                    }
+                    span {
+                      position: absolute;
+                      bottom: -5px;
+                      right: 65px;
+                      cursor: pointer;
+                      transition: all 0.25s;
+                      &:hover {
+                        color: yellow;
+                        font-weight: bold;
+                        transform: scale(1.2);
+                      }
+                    }
+                    span:last-child {
+                      right: 15px;
+                      &:hover {
+                        color: red;
+                      }
+                    }
+                  }
             }
         }
     }

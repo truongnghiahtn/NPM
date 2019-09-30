@@ -17,20 +17,22 @@
     <div class="News-Show" >
         <ng-container *ngFor="let item of newcomment ">
         
-        <div class="show-comment" >
+        <div class="show-comment mt-2" >
             <div class="show-user ">
                 <div class="row">
                 <div  class="user  "><i class="fa fa-user"></i>
                 </div> 
-                <span>{{item.user}}</span>
+                <span *ngIf="info">{{info.hoTen}}</span>
             </div>
-                <div  class=" comment row">
-                   <p class="col-11"> {{item.comment}}</p>
-                   <div *ngIf="item.user===info.taiKhoan">
-                   <button class="col-1" class="btn btn-danger" (click)="xoa(item.id)"> Delete</button>
-                   <button class="btn btn-info" data-toggle="modal" data-target="#modelId" (click)="sua(item.id)">chinh sua </button>
-                </div>
-                </div>
+            <div class="row danhgia_comment">
+                <p class="mt-4 mb-0 col-10">{{item.comment}}</p>
+                <div *ngIf="info &&item.user===info.taiKhoan">
+                <span class="col-1 " data-toggle="modal" data-target="#idol"
+                    (click)="sua(item.id)" >[sửa]</span>
+                <span class="col-1 " (click)="xoa(item.id)">[xóa]</span>
+            </div>
+
+            </div>
             
             </div>
         </div>
