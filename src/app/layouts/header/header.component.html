@@ -1,34 +1,23 @@
-<header class="movie-header ">
+<header class="movie-header">
   <nav class="navbar navbar-expand-lg">
-    <a routerLink="/" class="navbar-brand py-0"
-      ><img src="assets/img/Capture.PNG" alt="" height="80px" 
-    /></a>
-    <button
-      class="navbar-toggler"
-      data-target="#my-nav"
-      data-toggle="collapse"
-      aria-controls="my-nav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <a routerLink="/" class="navbar-brand py-0"><img src="assets/img/Capture.PNG" alt="" height="60px" /></a>
+    <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav"
+      aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div id="my-nav" class="collapse navbar-collapse">
+    <div id="my-nav" class="collapse navbar-collapse justify-content-center">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/">HOME </a>
+          <a class="nav-link" (click)="trangChu(header)">Trang chủ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">MOVIE LAYOUT</a>
+          <a class="nav-link" (click)="lichChieu()">Lịch chiếu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">PAGE SINGLE</a>
+          <a class="nav-link" (click)="cumRap()">Cụm rạp</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">SHOWTIME</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">BOOK TICKET</a>
+          <a class="nav-link" (click)="tinTuc()">Tin tức</a>
         </li>
       </ul>
     </div>
@@ -36,11 +25,6 @@
       <div class="username">
         <i class="fa fa-user-circle"></i>
         <a href="#" routerLink="/dang-nhap">Đăng nhập</a>
-      </div>
-      <div class="site">
-        <i class="fa fa-map-marker-alt"></i>
-        <a href="#">Hồ Chí Minh</a>
-        <i class="fa fa-angle-down"></i>
       </div>
     </div>
   </nav>

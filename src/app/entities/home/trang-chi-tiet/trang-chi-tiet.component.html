@@ -17,7 +17,9 @@
                     <p>{{mangphim.ngayKhoiChieu|date:"dd/MM/yyyy"}}</p>
                     <h1>{{mangphim.tenPhim}}</h1>
                     <p><span>120phut-2D/3D</span></p>
+                    <button type="button" class="btn btn-primary my-4" (click)="buyTicket(target)">Mua vé</button>
                 </div>
+
             </div>
             <div class=" col-6 movie-danhgia">
                 <h1>{{mangphim.danhGia}}</h1>
@@ -30,6 +32,7 @@
                 </div>
             </div>
         </div>
+        <div #target style="height: 70px"></div>
         <div>
             <ul class="nav nav-pills ">
                 <li class="nav-item">

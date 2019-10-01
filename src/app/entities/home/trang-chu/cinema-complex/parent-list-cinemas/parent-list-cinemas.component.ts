@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList, ViewChild, ElementRef } from '@angular/core';
 import { DataService } from 'src/app/shared/services/data.service';
 import { ListCinemasComponent } from '../list-cinemas/list-cinemas.component';
 import { Subscription } from 'rxjs';
+import { SharingDataService } from 'src/app/shared/share/sharing-data.service';
 
 @Component({
   selector: 'app-parent-list-cinemas',
@@ -10,6 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class ParentListCinemasComponent implements OnInit {
   @ViewChildren(ListCinemasComponent) list: QueryList<ListCinemasComponent>;
+  @ViewChild('targetCumRap', { read: ElementRef, static: false }) targetCumRap;
   event: any;
   listHTRap: Array<any> = [];
   listLichChieuHTRap: Array<any> = [];
@@ -19,11 +21,16 @@ export class ParentListCinemasComponent implements OnInit {
   subHeThongRap = new Subscription();
   subLichChieu = new Subscription();
 
-  constructor(private _dataService: DataService) { }
+  constructor(private _dataService: DataService,
+    private sharingData: SharingDataService) { }
 
   ngOnInit() {
     this._layDanhSachHeThongRap();
     this._layThongTinLichChieu();
+  }
+
+  ngAfterViewInit() {
+    this.sharingData.shareDataCumRap(this.targetCumRap.nativeElement);
   }
 
   _layDanhSachHeThongRap() {

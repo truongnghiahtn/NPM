@@ -15,7 +15,7 @@
             <div class="row mx-0 DayOfWeek">
                 <div class="wrapDayOfWeek">
                     <div class="selectDate" [ngClass]="{'active': i === index}"
-                        *ngFor="let item of DayOfWeek; let i = index" (click)="selectDay(item.date, i)">
+                        *ngFor="let item of DayOfWeek | slice:0:6; let i = index" (click)="selectDay(item.date, i)">
                         <p class="day">{{item.day}}</p>
                         <p class="date">{{item.date | date: 'dd/MM'}}</p>
                     </div>

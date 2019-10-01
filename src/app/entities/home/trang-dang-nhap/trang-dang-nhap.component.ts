@@ -15,9 +15,10 @@ export class TrangDangNhapComponent implements OnInit {
     private dataSV: DataService,
     private router: Router,
     private spinner: NgxSpinnerService
-  ) {}
+  ) { }
 
   ngOnInit() {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     this.spinner.show();
 
     setTimeout(() => {
