@@ -32,16 +32,19 @@
         </li>
       </ul>
     </div>
-    <div class="login d-flex">
-      <div class="username">
-        <i class="fa fa-user-circle"></i>
+    <div class="site mr-2" *ngIf="status">
+        <i class="fa fa-user-circle mr-1"></i>
+        <span>xin chào: {{info.hoTen}}</span>
+      </div>
+    <div class="login d-flex mr-2">
+      <div *ngIf="!status" class="username">
+       
         <a href="#" routerLink="/dang-nhap">Đăng nhập</a>
       </div>
-      <div class="site">
-        <i class="fa fa-map-marker-alt"></i>
-        <a href="#">Hồ Chí Minh</a>
-        <i class="fa fa-angle-down"></i>
-      </div>
+      <div *ngIf="status" class="username">
+          <a href="#" routerLink="" (click)="dangxuat()">Đăng xuất</a>
+        </div>
     </div>
+   
   </nav>
 </header>

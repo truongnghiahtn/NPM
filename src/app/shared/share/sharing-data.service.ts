@@ -8,9 +8,11 @@ export class SharingDataService {
 
   private detailMovie = new BehaviorSubject({} as Object);
   private statusChair = new BehaviorSubject({} as Object);
+  private dangnhap = new BehaviorSubject({} as Object);
 
   shareDetailMovie = this.detailMovie.asObservable();
   shareStatusChair = this.statusChair.asObservable();
+  shareLocal=this.dangnhap.asObservable();
 
   constructor() { }
 
@@ -20,6 +22,9 @@ export class SharingDataService {
 
   sharingDataStatusChair(status, ghe){
     this.statusChair.next({status, ghe});
+  }
+  sharingDataHoTen(info){
+    this.dangnhap.next(info);
   }
 
   destroyData(){

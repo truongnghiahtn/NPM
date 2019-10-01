@@ -3,6 +3,7 @@ import { NgForm } from "@angular/forms";
 import { DataService } from "src/app/shared/services/data.service";
 import { Router } from "@angular/router";
 import { NgxSpinnerService } from "ngx-spinner";
+import { SharingDataService } from 'src/app/shared/share/sharing-data.service';
 
 @Component({
   selector: "app-trang-dang-nhap",
@@ -14,7 +15,8 @@ export class TrangDangNhapComponent implements OnInit {
   constructor(
     private dataSV: DataService,
     private router: Router,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private shareInfo:SharingDataService
   ) {}
 
   ngOnInit() {
@@ -33,6 +35,7 @@ export class TrangDangNhapComponent implements OnInit {
         this.router.navigate([""]);
         localStorage.setItem("KhachHang", JSON.stringify(data));
         console.log(data);
+        this.shareInfo.sharingDataHoTen(data);
       },
       err => {
         console.log(err);

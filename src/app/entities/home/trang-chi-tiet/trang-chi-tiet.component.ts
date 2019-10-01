@@ -26,6 +26,7 @@ export class TrangChiTietComponent implements OnInit {
   idfix: any;
   mangsua: any;
   status: boolean;
+  dangnhap:boolean=false;
 
 
   ngOnInit() {
@@ -117,9 +118,17 @@ export class TrangChiTietComponent implements OnInit {
       }
     }
     else {
-      alert("bạn cần phải đăng nhập trước !!!");
-      this.router.navigate(['/dang-nhap'])
+      this.dangnhap=true;
+      
     }
+  }
+  close(){
+    this.dangnhap=false;
+
+  }
+  chuyentrang(){
+    this.dangnhap=false;
+     this.router.navigate(['/dang-nhap'])
   }
   capnhat(ID) {
     const comments = {

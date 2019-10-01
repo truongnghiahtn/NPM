@@ -4,7 +4,7 @@
   -webkit-filter: blur(8px);
 
   /* Full height */
-  height: 1100px;
+  height: 1200px;
   width: 102%;
   position: absolute;
   top: 80px;
@@ -15,14 +15,63 @@
   background-repeat: no-repeat;
   background-size: cover;
   .over-lay {
-    height: 1110px;
+    height: 1200px;
     width: 100%;
     position: absolute;
     top: 0px;
     left: 0;
     z-index: 100;
-    background: linear-gradient(rgba(white, 0.1), rgba(black, 0.7));
+    background: linear-gradient(rgba(white, 0.1), rgba(black, 1));
   }
+
+}
+.over-lay-dangnhap{
+  height: 1200px;
+  width: 100%;
+  top: 0px;
+  left: 0;
+  z-index:1000;
+  position: fixed;
+  background: rgba($color: #000000, $alpha: 0.7);
+  overflow: none;
+
+  .dangnhap{
+    width: 350px;
+    height: 150px;
+    position: fixed;
+    top: 231px;
+    left: 507px;
+    z-index: 1100;
+    background: white;
+    padding-top: 30px;
+    text-align: center;
+    border-radius: 10px;
+    p{
+      margin: 0;
+      font-size: 20px;
+    }
+    i{
+      position: absolute;
+      top:15px;
+      right: 15px;
+      cursor: pointer;
+    }
+    button{
+      border-radius: 20px;
+      background-color: #fff;
+      color: #3b5b99;
+      border: 1.2px solid #3b5b99;
+      width: fit-content;
+      padding: 7px 20px;
+      text-align: center;
+      margin:30px;
+      &:hover{
+        background-color: #3b5b99;
+        color: white;
+      }
+    }
+  }
+  
 }
 .show-movie {
   padding: 100px 0;

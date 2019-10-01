@@ -17,6 +17,7 @@ export class TrangTinTucComponent implements OnInit {
   tentintuc: any;
   status: boolean=false;
   statuslike: boolean;
+  dangnhap:boolean=false;
   loaitintuc: any;
   sumlike: number = 0;
   sublisttintuc = new Subscription()
@@ -68,9 +69,20 @@ export class TrangTinTucComponent implements OnInit {
       this.sumlike--;
     }
   }else{
-    alert("bạn cần phải đăng nhập trước !!!");
-    this.router.navigate(['/dang-nhap'])
+   this.dangnhap=true;
+    // this.router.navigate(['/dang-nhap'])
   }
+
+  }
+  eventdangnhap(dangnhap){
+    this.dangnhap=dangnhap;
+  }
+  close(){
+    this.dangnhap=false;
+  }
+  chuyentrang(){
+    this.dangnhap=false;
+     this.router.navigate(['/dang-nhap'])
   }
   layinfodangnhap() {
     if (localStorage.getItem("KhachHang")) {

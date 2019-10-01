@@ -1,7 +1,17 @@
 <ng-container *ngIf="mangphim">
     <div class="backgroud" [style.background-image]="'url(' +mangphim.hinhAnh  + ')'">
         <div class="over-lay">
+        </div>
 
+    </div>
+    <div *ngIf="dangnhap">
+        <div class="over-lay-dangnhap">
+
+            <div class="dangnhap">
+                <p>Bạn cần phải đăng nhập</p>
+                <i class="fa fa-times" (click)="close()"></i>
+                <button class="btn" (click)="chuyentrang()">Đăng nhập </button>
+            </div>
         </div>
     </div>
     <div class=" container animated fadeIn ">
@@ -139,7 +149,6 @@
                             placeholder="viết bình luận"></textarea>
                     </div>
                     <div>
-
                         <button *ngIf="status" class="btn btn-success" type="submit" data-dismiss="modal"
                             (click)="postcoment()">gửi
                         </button>
