@@ -140,6 +140,15 @@
     }
     .combo {
       padding: 12.5px 0;
+      span {
+        color: #fe7900;
+      }
+      p {
+        transition: all 0.5s;
+        &:hover {
+          color: #fe7900;
+        }
+      }
     }
     p {
       margin-bottom: 0;
