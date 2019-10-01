@@ -3,6 +3,11 @@ button {
     margin: 0 auto
 }
 ::ng-deep .mat-fab.mat-primary, .mat-flat-button.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary {
-    background-color: orange;
+    background-color: #fe7900;
+    opacity: 0.9;
+    transition: all .5s;
+    &:hover{
+      opacity: 1;
+    }
 
 }

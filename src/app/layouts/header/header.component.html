@@ -23,7 +23,7 @@
     </div>
     <div class="site mr-2" *ngIf="status">
         <i class="fa fa-user-circle mr-1"></i>
-        <span>xin chào: {{info.hoTen}}</span>
+        <span>Xin chào: {{info.taiKhoan | titlecase}}</span>
       </div>
     <div class="login d-flex mr-2">
       <div *ngIf="!status" class="username">

@@ -26,13 +26,13 @@
                 <div class="movie-chitiet mt-5">
                     <p>{{mangphim.ngayKhoiChieu|date:"dd/MM/yyyy"}}</p>
                     <h1>{{mangphim.tenPhim}}</h1>
-                    <p><span>120phut-2D/3D</span></p>
-                    <button type="button" class="btn btn-primary my-4" (click)="buyTicket(target)">Mua vé</button>
+                    <p><span>120 phút - 2D/3D</span></p>
+                    <button type="button" class="btn my-4" (click)="buyTicket(target)">Mua vé</button>
                 </div>
 
             </div>
             <div class=" col-6 movie-danhgia">
-                <h1>{{mangphim.danhGia}}</h1>
+                <h1 style="color: wheat">{{mangphim.danhGia}}</h1>
                 <div class="icon-show-movie">
                     <i class="fa fa-star " [ngClass]="{star1:mangphim.danhGia >=1 }"></i>
                     <i class="fa fa-star " [ngClass]="{star2:mangphim.danhGia >=2}"></i>
@@ -70,7 +70,7 @@
                         <div class="danhgia-comment my-2 d-flex justify-content-between " data-toggle="modal"
                             data-target="#idol" (click)="show()" (click)="reset()">
                             <div class="user d-flex justify-content-start"><i class="fa fa-user"></i>
-                                <p>bạn nghĩ gì về bộ phim này ??</p>
+                                <p>Bạn nghĩ gì về bộ phim này ??</p>
                             </div>
                             <div class="Danhgia_icon">
                                 <i class="fa fa-star"></i>
@@ -86,7 +86,7 @@
                                 <div class="danhgia">
                                     <div class="  d-flex justify-content-between">
                                         <div class="user d-flex justify-content-start"><i class="fa fa-user"></i>
-                                            <p *ngIf=" info " class="px-0">{{info.hoTen}}</p>
+                                            <p *ngIf=" info  " class="px-0">{{item.user}}</p>
                                         </div>
                                         <div class="Danhgia_icon">
                                             <i class="fa fa-star " (click)="start1()"

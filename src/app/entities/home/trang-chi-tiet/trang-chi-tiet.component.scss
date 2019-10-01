@@ -7,7 +7,7 @@
   height: 1200px;
   width: 102%;
   position: absolute;
-  top: 80px;
+  top: 60px;
   left: -10px;
 
   /* Center and scale the image nicely */
@@ -21,7 +21,7 @@
     top: 0px;
     left: 0;
     z-index: 100;
-    background: linear-gradient(rgba(white, 0.1), rgba(black, 1));
+    background: linear-gradient(rgba(black, 0.6), rgba(black, 1.5));
   }
 
 }
@@ -42,7 +42,7 @@
     top: 231px;
     left: 507px;
     z-index: 1100;
-    background: white;
+    background: wheat;
     padding-top: 30px;
     text-align: center;
     border-radius: 10px;
@@ -99,6 +99,17 @@
   }
   .movie-chitiet {
     margin-left: 20px;
+    color: wheat;
+    button{
+      background-color: #fe7900;
+      opacity: .9;
+      transition: all .5s;
+      color: #000000;
+      &:hover{
+        opacity: 1;
+        color: white;
+      }
+    }
     h1 {
       font-size: 20px;
     }
@@ -130,7 +141,7 @@
     .nav-link {
       transition: all 0.3s;
       border: none;
-      color: black;
+      color: wheat;
       font-size: 20px;
       &:hover {
         transform: scale(1.3);
@@ -162,10 +173,11 @@
   }
 }
 .danhgia-comment {
-  border: 1px solid orange;
   width: 700xp;
   height: 50px;
   padding: 10px 20px;
+  border-radius: 5px;
+  background-color: white;
   cursor: pointer;
   .Danhgia_icon {
     color: rgba($color: #fe7900, $alpha: 0.5);
@@ -176,10 +188,10 @@
   max-height: 450px;
 
   .danhgia {
-    border: 1px solid #fe7900;
     margin: 10px 0;
     padding: 10px 20px;
-
+    border-radius: 5px;
+    background-color: white;
     .Danhgia_icon {
       i {
         font-size: 12px;
