@@ -6,7 +6,7 @@
 
 .movie-info {
     overflow: hidden;
-    width: 200px;
+    width: 210px;
     height: 360px;
     padding: 0;
 
@@ -103,13 +103,14 @@
             transition: all 2s;
         }
         .movie-trailer {
-            padding-top: 30px;
+            padding-top: 40px;
             p {
                 a {
                     text-decoration: none;
                     font-size: 16px;
                     .fa {
                         color: orange;
+                  
                     }
                     span {
                         color: #ffffff;

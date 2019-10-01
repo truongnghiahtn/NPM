@@ -3,9 +3,9 @@ import { SharingDataService } from 'src/app/shared/share/sharing-data.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent implements OnInit {
   targetLichChieu: any;
@@ -20,8 +20,28 @@ export class HeaderComponent implements OnInit {
     this.sharingData.shareCumRap.subscribe((data) => this.targetCumRap = data);
 
     this.sharingData.shareTinTuc.subscribe((data) => this.targetTinTuc = data);
+    this.layinfodangnhap();
+    this.sharingData.shareLocal.subscribe((data:any) =>{
+        this.layinfodangnhap()
+    })
   }
-
+  info:any;
+  status:boolean=false;
+  layinfodangnhap() {
+    if (localStorage.getItem("KhachHang")) {
+      this.info = JSON.parse(localStorage.getItem("KhachHang"));
+      console.log(this.info)
+      this.status=true;
+    }
+    else{
+      this.status=false;
+    }
+  }
+  dangxuat(){
+    localStorage.removeItem("KhachHang");
+    this.layinfodangnhap();
+    console.log(this.status);
+  }
   trangChu() {
     if (location.href === "http://localhost:4200/") {
       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -40,5 +60,9 @@ export class HeaderComponent implements OnInit {
 
   tinTuc() {
     this.targetTinTuc.scrollIntoView({ behavior: 'smooth' });
+  }
+  test() {
+    console.log(window.location.href);
+    this.sharingData.sharingURL(window.location.href);
   }
 }

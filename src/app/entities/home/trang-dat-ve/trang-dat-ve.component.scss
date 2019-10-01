@@ -1,13 +1,13 @@
 .phongVe {
   width: 100%;
-  margin-top: 147px;
+  margin-top: 60px;
   position: relative;
   z-index: 10;
   .seat__Checkout {
     width: 70%;
     float: left;
     padding-top: 30px;
-    background: bisque;
+    background: wheat;
     .row {
       max-width: 900px;
       margin: auto;
@@ -188,7 +188,7 @@
           top: 0;
           height: 600%;
           width: 157%;
-          background: #78c7d2;
+          background: #fe7900;
           transition: all 0.5s ease-in-out;
           transform: translateX(-65%) translateY(0%) rotate(45deg);
         }

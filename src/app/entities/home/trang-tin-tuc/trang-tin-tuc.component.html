@@ -1,4 +1,15 @@
+<div *ngIf="dangnhap">
+    <div class="over-lay-dangnhap">
+
+        <div class="dangnhap">
+            <p>Bạn cần phải đăng nhập</p>
+            <i class="fa fa-times" (click)="close()"></i>
+            <button class="btn" (click)="chuyentrang()">Đăng nhập </button>
+        </div>
+    </div>
+</div>
 <div class="News">
+
     <div class="News-title">
         <h1>{{DSTintuc.name}}</h1>
         <div class="News-icon text-center">
@@ -15,6 +26,6 @@
         <p>{{DSTintuc.content2}}</p>
     </div>
     <div #event style="height: 60px"></div>
-    <app-comment></app-comment>
+    <app-comment (eventdangnhap)="eventdangnhap($event)"></app-comment>
 
 </div>

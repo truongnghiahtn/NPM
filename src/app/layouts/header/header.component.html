@@ -21,11 +21,19 @@
         </li>
       </ul>
     </div>
-    <div class="login d-flex">
-      <div class="username">
-        <i class="fa fa-user-circle"></i>
-        <a href="#" routerLink="/dang-nhap">Đăng nhập</a>
+    <div class="site mr-2" *ngIf="status">
+        <i class="fa fa-user-circle mr-1"></i>
+        <span>Xin chào: {{info.taiKhoan | titlecase}}</span>
       </div>
+    <div class="login d-flex mr-2">
+      <div *ngIf="!status" class="username">
+       
+        <a routerLink="/dang-nhap" (click)="test()">Đăng nhập</a>
+      </div>
+      <div *ngIf="status" class="username">
+          <a href="#" routerLink="" (click)="dangxuat()">Đăng xuất</a>
+        </div>
     </div>
+   
   </nav>
 </header>

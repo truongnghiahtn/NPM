@@ -1,8 +1,18 @@
-.show-new{
-    border:1px solid white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-width: 100%;
-max-height: 560px;
-overflow: auto;
-
+.show-new {
+  text-align: center;
+  border: 1px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-height: 560px;
+  overflow: auto;
+  .show-table {
+    tr {
+      td {
+        img {
+          width: 70px;
+          height: 70px;
+        }
+      }
+    }
+  }
 }

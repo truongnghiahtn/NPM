@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/shared/services/data.service';
@@ -11,6 +11,7 @@ import { DataService } from 'src/app/shared/services/data.service';
 export class CommentComponent implements OnInit {
   @ViewChild("formcomment", { static: false }) formcomment: NgForm
   @ViewChild("formfix", { static: false }) formfix: NgForm
+  @Output() eventdangnhap = new EventEmitter();
   tentintuc: any;
   info: any;
   mangsua: any;
@@ -18,6 +19,7 @@ export class CommentComponent implements OnInit {
   newcomment: any = [];
   idxoa: any;
   idfix: any;
+  dangnhap:boolean=false;
   constructor(private activaterouter: ActivatedRoute,
     private datadervice: DataService,
     private router:Router) { }
@@ -76,8 +78,9 @@ export class CommentComponent implements OnInit {
     }
   }
   else{
-    alert("bạn cần phải đăng nhập trước !!!");
-    this.router.navigate(['/dang-nhap'])
+    this.dangnhap=true;
+    this.eventdangnhap.emit(this.dangnhap);
+    // this.router.navigate(['/dang-nhap'])
   }
 
 

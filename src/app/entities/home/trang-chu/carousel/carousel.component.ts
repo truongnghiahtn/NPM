@@ -11,7 +11,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   mangPhim: any = [];
   vitri: number = 0;
   phim: any;
-  constructor(private dataSV: DataService, private router: Router) { }
+  constructor(private dataSV: DataService, private router: Router) {}
 
   ngOnInit() {
     this.layDanhSachPhim();
@@ -25,7 +25,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
         result => {
           this.mangPhim = result;
           this.phim = this.mangPhim[2];
-          $(document).ready(function () {
+          $(document).ready(function() {
             $(".carousel").carousel();
           });
         },
@@ -35,15 +35,13 @@ export class CarouselComponent implements OnInit, AfterViewInit {
       );
   }
   ngAfterViewInit() {
-    $('.video-venobox').venobox();
+    $(".video-venobox").venobox();
   }
   onCarousel(index, phim) {
     this.vitri = index;
     this.phim = phim;
   }
   chiTiet() {
-    this.router.navigate(["/chi-tiet-phim/", this.phim.maPhim], {
-      queryParams: { tenPhim: this.phim.tenPhim }
-    });
+    this.router.navigate(["/chi-tiet-phim/", this.phim.maPhim]);
   }
 }

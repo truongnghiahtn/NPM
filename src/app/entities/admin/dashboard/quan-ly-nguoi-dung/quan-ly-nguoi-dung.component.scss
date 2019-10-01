@@ -1,6 +1,24 @@
 .nguoidung {
   max-height: 500px;
   overflow: auto;
+  padding: 20px;
+  .input-group {
+    height: 90%;
+  }
+  .input-group > .form-control:not(:last-child),
+  .input-group > .custom-select:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 100%;
+  }
+  .col-6 {
+    display: flex;
+    .them {
+      margin: auto;
+      margin-top: 0px;
+    }
+  }
+
   .search {
     width: 100%;
     padding: 9px;

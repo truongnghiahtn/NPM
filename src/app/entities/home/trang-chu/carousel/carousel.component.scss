@@ -2,7 +2,7 @@
 .movie-carousel {
   position: relative;
   height: 560px;
-  margin-top: 60px;
+  margin-top: 61px;
   .overlay {
     position: absolute;
     z-index: 3;
@@ -61,6 +61,18 @@
           transform: translateY(-30%);
           opacity: 0;
           visibility: hidden;
+          button {
+            background-color: #fe7900;
+            padding: 10px 20px;
+            margin-top: 15px;
+            color: #fff;
+            font-size: 14px;
+            opacity: 0.9;
+            transition: all .5s;
+            &:hover{
+              opacity: 1;
+            }
+          }
           &.active {
             opacity: 1;
             visibility: visible;
@@ -126,6 +138,7 @@
             transition: 0.4s;
             a {
               display: none;
+              color: #fe7900;
             }
           }
         }
