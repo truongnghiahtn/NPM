@@ -2,6 +2,7 @@
   width: 100%;
   margin-top: 147px;
   position: relative;
+  z-index: 10;
   .seat__Checkout {
     width: 70%;
     float: left;
@@ -72,6 +73,7 @@
   .reset__ticker,
   .success__buyticket,
   .pick__chair,
+  .dangNhap,
   .signIn {
     width: 100%;
     height: 100%;

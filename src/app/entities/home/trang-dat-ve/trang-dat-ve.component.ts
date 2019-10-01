@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DanhSachVeDat } from 'src/app/common/models/danh-sach-ve-dat';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/shared/services/data.service';
 import { SharingDataService } from 'src/app/shared/share/sharing-data.service';
 import { VeVM } from 'src/app/common/models/ve-vm';
@@ -50,7 +50,8 @@ export class TrangDatVeComponent implements OnInit {
 
   constructor(private _activatedRoute: ActivatedRoute,
     private _dataService: DataService,
-    private _sharingData: SharingDataService) { }
+    private _sharingData: SharingDataService,
+    private router: Router) { }
 
   ngOnInit() {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -192,15 +193,23 @@ export class TrangDatVeComponent implements OnInit {
   backPagePick() {
     $(".pick__chair").css("display", "none");
   }
+
   backPageSignIn() {
     $(".signIn").css("display", "none");
+  }
+
+  showEventDangNhap() {
+    $(".dangNhap").css("display", "none");
+  }
+
+  dangNhap() {
+    this.router.navigate(["dang-nhap"]);
   }
 
 
   datVe() {
     // let nguoiDungHienTai = JSON.parse(localStorage.getItem("nguoiDungDangNhap"));
     let nguoiDungHienTai = JSON.parse(localStorage.getItem("KhachHang"));
-    console.log(nguoiDungHienTai);
     if (nguoiDungHienTai) {
       if (this.soGheDaDat > 0) {
         this.danhSachVeDat.taiKhoanNguoiDung = nguoiDungHienTai.taiKhoan;
@@ -226,7 +235,7 @@ export class TrangDatVeComponent implements OnInit {
       }
     }
     else {
-      alert("Vui lòng đăng nhập để đặt vé!");
+      setTimeout(() => $(".dangNhap").css("display", "block"), 500);
       return false;
     }
   }

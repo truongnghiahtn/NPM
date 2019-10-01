@@ -58,4 +58,4 @@ import { QuangCaoComponent } from './quang-cao/quang-cao.component';
   imports: [CommonModule, TrangChuRoutingModule, MaterialModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class TrangChuModule {}
+export class TrangChuModule { }

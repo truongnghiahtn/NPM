@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharingDataService } from 'src/app/shared/share/sharing-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,8 @@ export class HeaderComponent implements OnInit {
   targetLichChieu: any;
   targetCumRap: any;
   targetTinTuc: any;
-  constructor(private sharingData: SharingDataService) { }
+  constructor(private sharingData: SharingDataService,
+    private router: Router) { }
 
   ngOnInit() {
     this.sharingData.shareLichChieu.subscribe((data) => this.targetLichChieu = data);
@@ -21,7 +23,11 @@ export class HeaderComponent implements OnInit {
   }
 
   trangChu() {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    if (location.href === "http://localhost:4200/") {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    } else {
+      this.router.navigate([""]);
+    }
   }
 
   lichChieu() {

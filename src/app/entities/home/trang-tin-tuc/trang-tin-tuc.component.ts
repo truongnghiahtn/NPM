@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/shared/services/data.service';
 import { Subscription } from 'rxjs';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-trang-tin-tuc',
@@ -23,13 +24,24 @@ export class TrangTinTucComponent implements OnInit {
   sublisttintuc = new Subscription()
   constructor(private activaterouter: ActivatedRoute,
     private datadervice: DataService,
-    private router: Router) { }
+    private router: Router,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
     this.layloaitintuc();
     this.getintuc();
     this.layinfodangnhap();
+  }
+
+  comment(target: HTMLElement) {
+    console.log(target);
+    target.scrollIntoView({ behavior: 'smooth' });
   }
 
 

@@ -5,7 +5,7 @@
             <i class="fa fa-thumbs-up" [ngClass]="{like:status}" aria-hidden="true"
                 (click)="like()"><span>({{sumlike}})</span></i>
 
-            <i class="fa fa-comment-alt" aria-hidden="true"></i>
+            <i class="fa fa-comment-alt" aria-hidden="true" (click)="comment(event)"></i>
         </div>
     </div>
     <div class="News-content">
@@ -14,6 +14,7 @@
         <img [src]="DSTintuc.Img2" class="img-fluid">
         <p>{{DSTintuc.content2}}</p>
     </div>
+    <div #event style="height: 60px"></div>
     <app-comment></app-comment>
 
 </div>
