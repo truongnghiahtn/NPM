@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { SharingDataService } from 'src/app/shared/share/sharing-data.service';
 
 @Component({
   selector: 'app-movies',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
-
-  constructor() { }
+  @ViewChild('targetLichChieu', { read: ElementRef, static: false }) targetLichChieu;
+  constructor(private sharingData: SharingDataService) { }
 
   ngOnInit() {
+
+  }
+
+  ngAfterViewInit() {
+    this.sharingData.shareDataLichChieu(this.targetLichChieu.nativeElement);
   }
 
 }

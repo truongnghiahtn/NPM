@@ -9,13 +9,14 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./trang-tin-tuc.component.scss']
 })
 export class TrangTinTucComponent implements OnInit {
+
   DSTintuc: any = [];
   DSlike: any = [];
   DSnewlike: any = [];
   id: any;
   info: any;
   tentintuc: any;
-  status: boolean=false;
+  status: boolean = false;
   statuslike: boolean;
   dangnhap:boolean=false;
   loaitintuc: any;
@@ -23,14 +24,16 @@ export class TrangTinTucComponent implements OnInit {
   sublisttintuc = new Subscription()
   constructor(private activaterouter: ActivatedRoute,
     private datadervice: DataService,
-    private router:Router) { }
+    private router: Router) { }
 
   ngOnInit() {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     this.layloaitintuc();
     this.getintuc();
     this.layinfodangnhap();
-
   }
+
+
   layloaitintuc() {
     this.id = this.activaterouter.snapshot.paramMap.get("id");
     this.activaterouter.queryParams.subscribe((params: any) => {
@@ -60,19 +63,18 @@ export class TrangTinTucComponent implements OnInit {
     })
   }
   like() {
-    if(this.info){
-    this.status = !this.status;
-    if (this.status === true) {
-      this.sumlike++;
+    if (this.info) {
+      this.status = !this.status;
+      if (this.status === true) {
+        this.sumlike++;
+      }
+      else {
+        this.sumlike--;
+      }
+    } else {
+      this.dangnhap=true;
+      // this.router.navigate(['/dang-nhap'])
     }
-    else {
-      this.sumlike--;
-    }
-  }else{
-   this.dangnhap=true;
-    // this.router.navigate(['/dang-nhap'])
-  }
-
   }
   eventdangnhap(dangnhap){
     this.dangnhap=dangnhap;
@@ -96,22 +98,22 @@ export class TrangTinTucComponent implements OnInit {
       this.demlike();
       console.log("helo", this.DSnewlike);
       this.DSnewlike.find(item => {
-        if(this.info){
-        if (item.name === this.info.taiKhoan && item.tentintuc === this.DSTintuc.name) {
-          if (item.trangthai === true) {
-            this.status = true;
-            return true;
-          }
-          if (item.trangthai === false) {
+        if (this.info) {
+          if (item.name === this.info.taiKhoan && item.tentintuc === this.DSTintuc.name) {
+            if (item.trangthai === true) {
+              this.status = true;
+              return true;
+            }
+            if (item.trangthai === false) {
 
+              this.status = false;
+              return true;
+            }
+          }
+          else {
             this.status = false;
-            return true;
           }
         }
-        else {
-          this.status = false;
-        }
-      }
 
       })
     }, (err) => {
@@ -130,41 +132,41 @@ export class TrangTinTucComponent implements OnInit {
     })
   }
   postlike() {
-    if(this.info){
-    const nguoi = {
-      id: "",
-      name: this.info.taiKhoan,
-      trangthai: this.status,
-      tentintuc: this.DSTintuc.name
-    }
-    this.DSnewlike.find(item => {
-      if (item.name === this.info.taiKhoan && item.tentintuc === this.DSTintuc.name) {
-        if (this.status === true) {
-          this.putlike(true, item.id);
-          this.statuslike = false;
-          return true;
-        }
-        if (this.status === false) {
-          this.putlike(false, item.id);
-          this.statuslike = false;
-          return true;
-        }
+    if (this.info) {
+      const nguoi = {
+        id: "",
+        name: this.info.taiKhoan,
+        trangthai: this.status,
+        tentintuc: this.DSTintuc.name
       }
-      else {
-        this.statuslike = true;
-      }
-    })
-    if (this.statuslike) {
-      this.datadervice.post("/api/like", nguoi).subscribe(
-        (data: any) => {
-          console.log(data);
-        },
-        (err) => {
-          console.log(err);
+      this.DSnewlike.find(item => {
+        if (item.name === this.info.taiKhoan && item.tentintuc === this.DSTintuc.name) {
+          if (this.status === true) {
+            this.putlike(true, item.id);
+            this.statuslike = false;
+            return true;
+          }
+          if (this.status === false) {
+            this.putlike(false, item.id);
+            this.statuslike = false;
+            return true;
+          }
         }
-      )
+        else {
+          this.statuslike = true;
+        }
+      })
+      if (this.statuslike) {
+        this.datadervice.post("/api/like", nguoi).subscribe(
+          (data: any) => {
+            console.log(data);
+          },
+          (err) => {
+            console.log(err);
+          }
+        )
+      }
     }
-  }
 
   }
   demlike() {

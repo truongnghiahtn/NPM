@@ -62,12 +62,20 @@
       padding-left: 0 !important;
       padding-right: 0 !important;
       background-color: #fff;
-      overflow-x: scroll;
-      overflow-y: hidden;
       float: left;
       clear: both;
       width: 100%;
       position: relative;
+      &::after {
+        content: "";
+        width: calc(100% - 40px);
+        height: 1px;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        background-color: #eeeeeee0;
+      }
       .wrapDayOfWeek {
         position: absolute;
         display: inline-flex;
@@ -86,7 +94,7 @@
             font-size: 14px;
             font-family: "SF Medium";
             margin: 0;
-            padding-top: 3px;
+            padding-top: 9px;
           }
           .date {
             font-size: 16px;

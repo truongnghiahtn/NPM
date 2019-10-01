@@ -2,7 +2,7 @@
 .movie-carousel {
   position: relative;
   height: 560px;
-  margin-top: 79px;
+  margin-top: 60px;
   .overlay {
     position: absolute;
     z-index: 3;
@@ -101,6 +101,7 @@
       z-index: 6;
       .carousel-item {
         height: 300px;
+        cursor: pointer;
         .item__overlay {
           position: absolute;
           width: 100%;
@@ -123,6 +124,9 @@
             font-size: 50px;
             opacity: 0;
             transition: 0.4s;
+            a {
+              display: none;
+            }
           }
         }
         &.active:hover {
@@ -135,6 +139,9 @@
               cursor: pointer;
               transition: 0.4s;
               color: $color-blue-0;
+              a {
+                display: block;
+              }
             }
           }
         }

@@ -1,9 +1,10 @@
-
 <!-- Nav tabs -->
+<div #targetCumRap style="height: 100px"></div>
 <div class=" listPCinemas">
     <ul class="nav nav-tabs">
         <li class="nav-item" *ngFor="let hethongrap of listHTRap; let i = index" (click)="changeEvent(i)">
-            <a class="nav-link" [ngClass]="{active: i == 0}" data-toggle="tab" [href]='"#"+ hethongrap.maHeThongRap' role="tab" aria-controls="home">
+            <a class="nav-link" [ngClass]="{active: i == 0}" data-toggle="tab" [href]='"#"+ hethongrap.maHeThongRap'
+                role="tab" aria-controls="home">
                 <img class="img-fluid" [src]="hethongrap.logo">
             </a>
         </li>

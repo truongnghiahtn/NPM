@@ -20,6 +20,7 @@ export class TrangDangNhapComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     this.spinner.show();
 
     setTimeout(() => {

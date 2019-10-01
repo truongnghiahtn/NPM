@@ -53,6 +53,7 @@ export class TrangDatVeComponent implements OnInit {
     private _sharingData: SharingDataService) { }
 
   ngOnInit() {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     setTimeout(() => this.load = true, 3000);
     this._getParamsFromUrl();
     this._layChiTietPhim();

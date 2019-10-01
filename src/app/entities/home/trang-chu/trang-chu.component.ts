@@ -7,9 +7,10 @@ import * as $ from "jquery";
   styleUrls: ["./trang-chu.component.scss"]
 })
 export class TrangChuComponent implements OnInit {
-  constructor(private spinner: NgxSpinnerService) {}
+  constructor(private spinner: NgxSpinnerService) { }
   loading: boolean = false;
   ngOnInit() {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     this.spinner.show();
 
     setTimeout(() => {

@@ -30,6 +30,7 @@ export class TrangChiTietComponent implements OnInit {
 
 
   ngOnInit() {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     this.spinner.show();
 
     setTimeout(() => {
@@ -181,6 +182,7 @@ export class TrangChiTietComponent implements OnInit {
 
   }
 
+
   start1() {
     this.danhgia = 1;
   }
@@ -195,5 +197,10 @@ export class TrangChiTietComponent implements OnInit {
   }
   start5() {
     this.danhgia = 5;
+  }
+
+  buyTicket(target: HTMLElement) {
+    console.log(target);
+    target.scrollIntoView({ behavior: 'smooth' });
   }
 }
