@@ -12,6 +12,7 @@ import { SharingDataService } from 'src/app/shared/share/sharing-data.service';
 })
 export class TrangDangNhapComponent implements OnInit {
   @ViewChild("formLogin", { static: false }) formLogin: NgForm;
+  link: any = "";
   constructor(
     private dataSV: DataService,
     private router: Router,
@@ -22,10 +23,12 @@ export class TrangDangNhapComponent implements OnInit {
   ngOnInit() {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     this.spinner.show();
-
     setTimeout(() => {
       this.spinner.hide();
     }, 1000);
+    this.shareInfo.shareURL.subscribe(data => {
+      this.link = data;
+    });
   }
 
   _handleOnSignIn(formLogin) {
@@ -33,7 +36,9 @@ export class TrangDangNhapComponent implements OnInit {
       "http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap";
     this.dataSV.post(uri, formLogin.value).subscribe(
       (data: any) => {
-        this.router.navigate([""]);
+        let URL = this.link.slice(21, this.link.length);
+        console.log(URL);
+        this.router.navigate([URL]);
         localStorage.setItem("KhachHang", JSON.stringify(data));
         console.log(data);
         this.shareInfo.sharingDataHoTen(data);

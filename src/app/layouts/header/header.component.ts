@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { SharingDataService } from 'src/app/shared/share/sharing-data.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent implements OnInit {
   targetLichChieu: any;
@@ -54,5 +54,9 @@ export class HeaderComponent implements OnInit {
 
   tinTuc() {
     this.targetTinTuc.scrollIntoView({ behavior: 'smooth' });
+  }
+  test() {
+    console.log(window.location.href);
+    this.sharingData.sharingURL(window.location.href);
   }
 }

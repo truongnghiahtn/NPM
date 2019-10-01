@@ -1,107 +1,239 @@
-<div class="container">
-    <div class="overlay" ><i class="fa fa-check"></i></div>
-    <div class="row Search-new">
-        <div class="col-7 input-search">
-            <div class="input-group mb-3">
-                <input type="text " class="form-control" [(ngModel)]="search" (keyup)="timkiem()"  placeholder="Search" aria-label="Recipient's username">
-                <div class="input-group-append">
-                    <button class="btn btn-secondary m-0" type="button">Search</button>
-                </div>
-            </div>
+<div class="search-new">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nhập từ khóa"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2"
+              ><i class="fa fa-search"></i
+            ></span>
+          </div>
         </div>
-        <div class="col-5 new-tab">
-            <ul class="nav nav-tabs d-flex justify-content-end" id="myTab" role="tablist">
-                <li class="nav-item" (click)="shownew()">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                        aria-controls="home" aria-selected="true">News</a>
-                </li>
-                <li class="nav-item" (click)="showreview()">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                        aria-controls="profile" aria-selected="false">Review</a>
-                </li>
-                <li class="nav-item" (click)="showpromotion()">
-                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-                        aria-controls="contact" aria-selected="false">Promotion</a>
-                </li>
-            </ul>
-
-        </div>
-        <div>
-            <button class="btn btn-success" data-toggle="modal" data-target="#modelId159"  (click)="resetthem()">Thêm Tin tức</button>
-        </div>
-
+      </div>
+      <div class="col-6 new-tab">
+        <button
+          class="btn btn-success them"
+          data-toggle="modal"
+          data-target="#modelId159"
+          (click)="resetthem()"
+        >
+          <i
+            _ngcontent-uvu-c5=""
+            _ngcontent-arh-c7=""
+            class="fa fa-plus mr-1"
+          ></i>
+          Thêm Tin tức
+        </button>
+        <ul
+          class="nav nav-tabs d-flex justify-content-end"
+          id="myTab"
+          role="tablist"
+        >
+          <li class="nav-item" (click)="shownew()">
+            <a
+              class="nav-link active"
+              id="home-tab"
+              data-toggle="tab"
+              href="#home"
+              role="tab"
+              aria-controls="home"
+              aria-selected="true"
+              >News</a
+            >
+          </li>
+          <li class="nav-item" (click)="showreview()">
+            <a
+              class="nav-link"
+              id="profile-tab"
+              data-toggle="tab"
+              href="#profile"
+              role="tab"
+              aria-controls="profile"
+              aria-selected="false"
+              >Review</a
+            >
+          </li>
+          <li class="nav-item" (click)="showpromotion()">
+            <a
+              class="nav-link"
+              id="contact-tab"
+              data-toggle="tab"
+              href="#contact"
+              role="tab"
+              aria-controls="contact"
+              aria-selected="false"
+              >Promotion</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <app-item-tin-tuc [News]="DSfind" (laythongtin)="laythongtinnews($event)" (xoathongtin)="xoa($event)" (reset)="resetsave($event)"></app-item-tin-tuc>
-        </div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <app-item-tin-tuc [News]="DSfind"  (laythongtin)="laythongtinnews($event)" (xoathongtin)="xoa($event)" (reset)="resetsave($event)"></app-item-tin-tuc>
-        </div>
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-            <app-item-tin-tuc [News]="DSfind"  (laythongtin)="laythongtinnews($event)" (xoathongtin)="xoa($event)" (reset)="resetsave($event)"></app-item-tin-tuc>
-        </div>
+      <div
+        class="tab-pane fade show active"
+        id="home"
+        role="tabpanel"
+        aria-labelledby="home-tab"
+      >
+        <app-item-tin-tuc
+          [News]="DSfind"
+          (laythongtin)="laythongtinnews($event)"
+          (xoathongtin)="xoa($event)"
+          (reset)="resetsave($event)"
+        ></app-item-tin-tuc>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="profile"
+        role="tabpanel"
+        aria-labelledby="profile-tab"
+      >
+        <app-item-tin-tuc
+          [News]="DSfind"
+          (laythongtin)="laythongtinnews($event)"
+          (xoathongtin)="xoa($event)"
+          (reset)="resetsave($event)"
+        ></app-item-tin-tuc>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="contact"
+        role="tabpanel"
+        aria-labelledby="contact-tab"
+      >
+        <app-item-tin-tuc
+          [News]="DSfind"
+          (laythongtin)="laythongtinnews($event)"
+          (xoathongtin)="xoa($event)"
+          (reset)="resetsave($event)"
+        ></app-item-tin-tuc>
+      </div>
     </div>
+  </div>
 </div>
-
-
-
 <!-- Modal -->
-<div class="modal fade" id="modelId159" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Tin Tức</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+<div
+  class="modal fade"
+  id="modelId159"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modelTitleId"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tin Tức</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 ">
+              <form class="row" #formnews="ngForm">
+                <div class="form-group col-12">
+                  <label for="">Tên tin tức</label>
+                  <input type="text" class="form-control" name="name" ngModel />
+                </div>
+                <div class="form-group col-5">
+                  <label for="">nội dung 1 </label>
+                  <textarea
+                    type="email"
+                    class="form-control"
+                    name="content1"
+                    ngModel
+                    placeholder="viết nội dung 1"
+                  ></textarea>
+                </div>
+                <div class="form-group col-7">
+                  <label for="">nội dung 2 </label>
+                  <textarea
+                    type="email"
+                    class="form-control"
+                    name="content2"
+                    ngModel
+                    placeholder="viết nội dung 2"
+                  ></textarea>
+                </div>
+                <div class="form-group col-6">
+                  <label for="">Hình Ảnh 1</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="Img1"
+                    ngModel
+                  />
+                </div>
+                <div class="form-group col-6">
+                  <label for="">Hình ảnh 2</label>
+                  <input type="text" class="form-control" name="Img2" ngModel />
+                </div>
+                <div class="form-group m-0">
+                  <label for="">Loại tin tức: </label>
+                  <input
+                    type="radio"
+                    ngModel
+                    name="loaitintuc"
+                    ngModel
+                    value="promotion"
+                    class="ml-2"
+                  />promotion
+                  <input
+                    type="radio"
+                    ngModel
+                    name="loaitintuc"
+                    ngModel
+                    value="review"
+                    class="ml-2"
+                  />review
+                  <input
+                    type="radio"
+                    ngModel
+                    name="loaitintuc"
+                    ngModel
+                    value="news"
+                    class="ml-2"
+                  />news
+                </div>
+              </form>
             </div>
-            <div class="modal-body">
-                    <div class="container">
-                            <div class="row">
-                              <div class="col-12 ">
-                                <form class="row" #formnews="ngForm">
-                                  <div class="form-group col-12">
-                                    <label for="">Tên tin tức</label>
-                                    <input type="text" class="form-control" name="name"ngModel>
-                                  </div>
-                                  <div class="form-group col-5" >
-                                    <label for="">nội dung 1 </label>        
-                                        <textarea type="email" class="form-control" name="content1" ngModel placeholder="viết nội dung 1"></textarea>
-                                  </div>
-                                  <div class="form-group col-7" >
-                                    <label for="">nội dung 2 </label>        
-                                        <textarea type="email" class="form-control" name="content2" ngModel placeholder="viết nội dung 2"></textarea>
-                                  </div>
-                                  <div class="form-group col-6">
-                                    <label for="">Hình Ảnh 1</label>
-                                    <input type="email"  class="form-control" name="Img1"ngModel >
-                                  </div>
-                                  <div class="form-group col-6">
-                                    <label for="">Hình ảnh 2</label>
-                                    <input type="text" class="form-control" name="Img2"ngModel>
-                                  </div>
-                                  <div class="form-group m-0">
-                                    <label for="">Loại tin tức: </label>
-                                    <input type="radio"  ngModel name="loaitintuc"ngModel value="promotion" class="ml-2">promotion
-                                    <input type="radio" ngModel name="loaitintuc"ngModel value="review" class="ml-2">review
-                                    <input type="radio" ngModel name="loaitintuc"ngModel value="news" class="ml-2">news
-                                  </div>
-                                </form>
-                          
-                              </div>
-                            </div>
-                          </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" *ngIf="!status" (click)="fixnew()">Save</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" *ngIf="status" (click)="postnew()">Post</button>
-            </div>
+          </div>
         </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          *ngIf="!status"
+          (click)="fixnew()"
+        >
+          Save
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          *ngIf="status"
+          (click)="postnew()"
+        >
+          Post
+        </button>
+      </div>
     </div>
+  </div>
 </div>
-
-
-
-
-
