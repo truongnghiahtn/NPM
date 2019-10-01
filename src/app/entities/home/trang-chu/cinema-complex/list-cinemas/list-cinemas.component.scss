@@ -1,24 +1,27 @@
 .cinema__item {
-    padding: 15px;
-    padding-left: 20px;
-    float: left;
-    width: 100%;
-    opacity: 0.5;
-    transition: all .2s;
-    cursor: pointer;
-    span {
-        display: block;
-    }
-    .tenCumRap {
-        font-size: 14px;
-    }
-    .addr {
-        font-size: 12px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-    &.active {
-        opacity: 1;
-    }
+  padding: 15px;
+  padding-left: 20px;
+  float: left;
+  width: 100%;
+  opacity: 0.7;
+  transition: all 0.2s;
+  &:hover {
+    opacity: 1;
+  }
+  cursor: pointer;
+  span {
+    display: block;
+  }
+  .tenCumRap {
+    font-size: 14px;
+  }
+  .addr {
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  &.active {
+    opacity: 1;
+  }
 }

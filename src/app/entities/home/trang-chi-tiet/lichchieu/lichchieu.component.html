@@ -1,9 +1,10 @@
 <div class="container lichChieu">
-    <div class="row">
+    <div class="row" style="width: 90%">
         <ul class="nav nav-tabs">
-            <li class="nav-item" *ngFor="let hethongrap of thongTinHeThongRap">
-                <a class="nav-link" data-toggle="tab" [href]='"#"+ hethongrap.maHeThongRap' role="tab">
-                    <div>
+            <li class="nav-item" *ngFor="let hethongrap of thongTinHeThongRap; let i = index">
+                <a class="nav-link" [ngClass]="{active: i == 0}" data-toggle="tab" [href]='"#"+ hethongrap.maHeThongRap'
+                    role="tab">
+                    <div class="mr-2">
                         <img class="img-fluid" [src]="hethongrap.logo">
                     </div>
                     <div>{{hethongrap.tenHeThongRap}}</div>
@@ -11,11 +12,19 @@
             </li>
         </ul>
         <div class="listTimeOfPhim">
-            <div class="row DayOfWeek"></div>
+            <div class="row mx-0 DayOfWeek">
+                <div class="wrapDayOfWeek">
+                    <div class="selectDate" [ngClass]="{'active': i === index}"
+                        *ngFor="let item of DayOfWeek; let i = index" (click)="selectDay(item.date, i)">
+                        <p class="day">{{item.day}}</p>
+                        <p class="date">{{item.date | date: 'dd/MM'}}</p>
+                    </div>
+                </div>
+            </div>
             <div class="tab-content">
                 <ng-container *ngFor="let item of thongTinLichChieuPhim.heThongRapChieu; let i = index">
-                    <div class="tab-pane" [id]="item.maHeThongRap">
-                        <app-item-lichchieu [thongTinHeThongRap]="item">
+                    <div class="tab-pane" [ngClass]="{active: i == 0}" [id]="item.maHeThongRap">
+                        <app-item-lichchieu [thongTinHeThongRap]="item" [maPhim]="maPhim">
                         </app-item-lichchieu>
                     </div>
                 </ng-container>

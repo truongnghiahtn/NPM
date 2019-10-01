@@ -1,29 +1,33 @@
-<div class="show-new">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>mã tin tức</th>
-                <th> tên tin tức</th>
-                <th> nội dung </th>
-                <th>hình ảnh </th>
-
-
-            </tr>
-        </thead>
-        <tbody class="show-table">
-            <tr *ngFor="let item of News;let i=index">
-                <td>{{item.id}}</td>
-                <td>{{item.name}}</td>
-                <td >{{item.content}}</td>
-                <td><img [src]="item.Img" width="100px" height="80px"></td>
-                <td>
-                    <button class="btn btn-info " data-toggle="modal" data-target="#modelId159"(click)="resetsave()" (click)="laythongtinnews(item.id)" > Sửa</button>
-                    <button class="btn btn-danger" (click)="xoa(item.id)"> Xóa</button>
-                </td>
-
-            </tr>
-        </tbody>
-    </table>
+<div class="show-new ">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Mã</th>
+        <th>Tên tin tức</th>
+        <th>Nội dung</th>
+        <th>Hình ảnh</th>
+        <th>Tùy chọn</th>
+      </tr>
+    </thead>
+    <tbody class="show-table">
+      <tr *ngFor="let item of News; let i = index">
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.content }}</td>
+        <td><img [src]="item.Img" /></td>
+        <td>
+          <button
+            class="btn btn-info "
+            data-toggle="modal"
+            data-target="#modelId159"
+            (click)="resetsave()"
+            (click)="laythongtinnews(item.id)"
+          >
+            Sửa
+          </button>
+          <button class="btn btn-danger" (click)="xoa(item.id)">Xóa</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-       
-           

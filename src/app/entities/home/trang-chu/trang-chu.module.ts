@@ -26,6 +26,7 @@ import { SearchRapComponent } from "./search-movie/search-rap/search-rap.compone
 import { SearchNgayComponent } from "./search-movie/search-ngay/search-ngay.component";
 import { SearchGioComponent } from "./search-movie/search-gio/search-gio.component";
 import { MovieTimerComponent } from "./cinema-complex/movie-timer/movie-timer.component";
+import { QuangCaoComponent } from './quang-cao/quang-cao.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { MovieTimerComponent } from "./cinema-complex/movie-timer/movie-timer.co
     SearchRapComponent,
     SearchNgayComponent,
     SearchGioComponent,
-    MovieTimerComponent
+    MovieTimerComponent,
+    QuangCaoComponent
   ],
   imports: [CommonModule, TrangChuRoutingModule, MaterialModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -1,26 +1,33 @@
+
 .dashboard {
   background-color: #d8e0e4;
-  height: 800px;
+  height: 900px;
+  // overflow-x: hidden;
   .admin-content {
     padding-top: 100px;
-    height: 800px;
+    height: 700px;
     .tab-link {
       background-color: #ffffff;
       padding: 20px;
     }
+    .tab-pane {
+      background: #fff;
+      height: 800px;
+    }
   }
 }
 .show {
-  transform: translateX(0);
-  // transition: all 0.5s;
+  transform: translateX(1);
+  transition: all 0.5s;
 }
 .hidden {
-  transform: translateX(-330px) rotateY(180deg);
+  transform: translateX(-330px);
   transition: all 0.5s;
   position: absolute;
 }
 .show-max {
-  width: 90%;
-  // transition: all 0.5s;
+  width: 95%;
+  transition: all 1s;
   margin: 0 auto;
 }
+

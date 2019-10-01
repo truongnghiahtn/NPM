@@ -34,14 +34,14 @@ export class CarouselComponent implements OnInit, AfterViewInit {
         }
       );
   }
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+    $(".video-venobox").venobox();
+  }
   onCarousel(index, phim) {
     this.vitri = index;
     this.phim = phim;
   }
   chiTiet() {
-    this.router.navigate(["/chi-tiet-phim/", this.phim.maPhim], {
-      queryParams: { tenPhim: this.phim.tenPhim }
-    });
+    this.router.navigate(["/chi-tiet-phim/", this.phim.maPhim]);
   }
 }

@@ -10,10 +10,12 @@ import { NgForm } from '@angular/forms';
 })
 export class QuanLyTinTucComponent implements OnInit {
   @ViewChild("formnews", { static: false }) formnews: NgForm
+  search:string="";
   biendem: number = 1;
   uripost:any;
  getnews:any;
   DSNew: any = [];
+  DSfind:any=[]
   URI:any;
   idfix:any;
   status:boolean;
@@ -26,22 +28,26 @@ export class QuanLyTinTucComponent implements OnInit {
     const uri="/api/new_tin_tuc";
     this.getlistnew(uri);
     this.URI="/api/new_tin_tuc";
+ 
 
   }
   showreview(){
     const uri="/api/new_review";
     this.getlistnew(uri);
     this.URI="/api/new_review";
+ 
   }
   showpromotion(){
     const uri="/api/new_promotion";
     this.getlistnew(uri);
     this.URI="/api/new_promotion";
+  
   }
   getlistnew(uri) {
     this.sublistnew = this.dataService.get(uri).subscribe((data:any) => {
       this.DSNew = data;
       console.log(this.DSNew)
+      this.timkiem();
     }, (err) => {
       console.log(err);
     })
@@ -87,7 +93,6 @@ export class QuanLyTinTucComponent implements OnInit {
     console.log(this.getnews);
   }
   fixnew(){
-   
     const newsfix = {
       content2:this.formnews.value.content2,
       name:this.formnews.value.name,
@@ -134,6 +139,14 @@ export class QuanLyTinTucComponent implements OnInit {
         console.log(err)
       })
     }
-    
   }
+  timkiem(){
+    
+    let keyword = this.search.toLowerCase().trim();
+    this.DSfind= this.DSNew.filter(item=> {
+      return item.name.toLowerCase().trim().indexOf(keyword) !== -1;
+  })
+  console.log(this.DSfind);
+  }
+ 
 }

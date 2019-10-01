@@ -3,6 +3,7 @@ import { NgForm } from "@angular/forms";
 import { DataService } from "src/app/shared/services/data.service";
 import { Router } from "@angular/router";
 import { NgxSpinnerService } from "ngx-spinner";
+import { SharingDataService } from "src/app/shared/share/sharing-data.service";
 
 @Component({
   selector: "app-trang-dang-nhap",
@@ -11,18 +12,22 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class TrangDangNhapComponent implements OnInit {
   @ViewChild("formLogin", { static: false }) formLogin: NgForm;
+  link: any = "";
   constructor(
     private dataSV: DataService,
     private router: Router,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private sharingDataService: SharingDataService
   ) {}
 
   ngOnInit() {
     this.spinner.show();
-
     setTimeout(() => {
       this.spinner.hide();
     }, 1000);
+    this.sharingDataService.shareURL.subscribe(data => {
+      this.link = data;
+    });
   }
 
   _handleOnSignIn(formLogin) {
@@ -30,9 +35,10 @@ export class TrangDangNhapComponent implements OnInit {
       "http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap";
     this.dataSV.post(uri, formLogin.value).subscribe(
       (data: any) => {
-        this.router.navigate([""]);
+        let URL = this.link.slice(21, this.link.length);
+        console.log(URL);
+        this.router.navigate([URL]);
         localStorage.setItem("KhachHang", JSON.stringify(data));
-        console.log(data);
       },
       err => {
         console.log(err);

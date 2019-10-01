@@ -1,28 +1,30 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class SharingDataService {
-
   private detailMovie = new BehaviorSubject({} as Object);
   private statusChair = new BehaviorSubject({} as Object);
+  private URL = new BehaviorSubject({} as Object);
 
   shareDetailMovie = this.detailMovie.asObservable();
   shareStatusChair = this.statusChair.asObservable();
+  shareURL = this.URL.asObservable();
+  constructor() {}
 
-  constructor() { }
-
-  sharingDataDetailMovie(movie){
+  sharingDataDetailMovie(movie) {
     this.detailMovie.next(movie);
   }
 
-  sharingDataStatusChair(status, ghe){
-    this.statusChair.next({status, ghe});
+  sharingDataStatusChair(status, ghe) {
+    this.statusChair.next({ status, ghe });
   }
-
-  destroyData(){
+  destroyData() {
     this.statusChair.next({});
+  }
+  sharingURL(url) {
+    this.URL.next(url);
   }
 }

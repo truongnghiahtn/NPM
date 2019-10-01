@@ -1,21 +1,48 @@
-<div class="modal fade" id="modelId159" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Tin Tức</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+<div
+  class="modal fade"
+  id="modelId159"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="modelTitleId"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tin Tức</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 ">
+              <form class="row" #formnews="ngForm">
+                <div class="form-group col-12">
+                  <label for="">Tên tin tức</label>
+                  <input type="text" class="form-control" name="name" ngModel />
+                </div>
+                <div class="form-group col-5">
+                  <label for="">nội dung 1 </label>
+                  <textarea
+                    type="email"
+                    class="form-control"
+                    name="content1"
+                    ngModel
+                    placeholder="viết nội dung 1"
+                  ></textarea>
+                </div>
+              </form>
             </div>
-            <div class="modal-body">
-                    <div class="container">
-                            <div class="row">
-                              <div class="col-12 ">
-                                <form class="row" #formnews="ngForm">
-                                  <div class="form-group col-12">
-                                    <label for="">Tên tin tức</label>
-                                    <input type="text" class="form-control" name="name"ngModel>
-                                  </div>
-                                  <div class="form-group col-5" >
-                                    <label for="">nội dung 1 </label>        
-                                        <textarea type="email" class="form-control" name="content1" ngModel placeholder="viết nội dung 1"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

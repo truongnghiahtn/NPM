@@ -77,6 +77,16 @@ export class DataService {
       })
     )
   }
+  deletePhim(uri: string): Observable<any> {
+    return this.http.delete(uri, { headers: headers, responseType: 'text' }).pipe(
+      tap(() => {
+        // loading
+      }),
+      catchError(err => {
+        return this.handleErr(err)
+      })
+    )
+  }
 
   handleErr(err) {
     console.log(err);
