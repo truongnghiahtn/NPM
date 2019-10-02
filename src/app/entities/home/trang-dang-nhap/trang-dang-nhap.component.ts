@@ -35,8 +35,9 @@ export class TrangDangNhapComponent implements OnInit {
         localStorage.setItem("KhachHang", JSON.stringify(data));
         console.log(data);
         this.shareInfo.sharingDataHoTen(data);
-
-        this.router.navigate([""]);
+        this.shareInfo.shareURL.subscribe(data => {
+          this.router.navigate([data]);
+        });
       },
       err => {
         console.log(err);
