@@ -66,6 +66,8 @@ export class HeaderComponent implements OnInit {
   }
   test() {
     console.log(window.location.pathname);
+
     this.sharingData.sharingURL(window.location.pathname);
+    this.router.navigate(["dang-nhap"]);
   }
 }
