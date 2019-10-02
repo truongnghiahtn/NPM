@@ -18,11 +18,9 @@ export class TrangDatVeComponent implements OnInit {
   load: boolean = false;
   timeChecked = 0;
   maLichChieu: any;
-  maPhim: any;
 
   phongVe: any;
-  chiTietPhim: any;
-  lichChieu: any;
+  maHeThongRap: any;
   heThongRap: any;
 
   eventGhe: any = [];
@@ -55,9 +53,8 @@ export class TrangDatVeComponent implements OnInit {
 
   ngOnInit() {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-    setTimeout(() => this.load = true, 3000);
+    setTimeout(() => this.load = true, 2000);
     this._getParamsFromUrl();
-    this._layChiTietPhim();
     this._layDanhSachGhe();
     this.subStatusChair = this._sharingData.shareStatusChair.subscribe((data: any) => {
       this.eventGhe = data;
@@ -98,11 +95,6 @@ export class TrangDatVeComponent implements OnInit {
 
   _getParamsFromUrl() {
     this.maLichChieu = this._activatedRoute.snapshot.paramMap.get("id");
-    this._activatedRoute.queryParams.subscribe(
-      (params: any) => {
-        this.maPhim = params.movieId;
-      }
-    )
     this.danhSachVeDat.maLichChieu = parseFloat(this.maLichChieu);
   }
 
@@ -110,7 +102,9 @@ export class TrangDatVeComponent implements OnInit {
     this._dataService.get(`http://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${this.maLichChieu}`).subscribe(
       (data: any) => {
         this.phongVe = data;
-        // console.log(data);
+        console.log(data);
+        this.maHeThongRap = this.phongVe.thongTinPhim.tenCumRap.split(" - ")[0];
+        this._layThongTinHeThongRap(this.maHeThongRap);
       },
       (err: any) => {
         console.log(err);
@@ -118,32 +112,30 @@ export class TrangDatVeComponent implements OnInit {
     )
   }
 
-  _layChiTietPhim() {
-    this._dataService.get(`http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${this.maPhim}`).subscribe(
-      (data: any) => {
-        this.chiTietPhim = data;
-        data.lichChieu.map(item => {
-          if (item.maLichChieu == this.maLichChieu)
-            this.lichChieu = item;
-        })
-        // console.log(this.lichChieu);
-        this._dataService.get(`http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap?maHeThongRap=${this.lichChieu.thongTinRap.maHeThongRap}`).subscribe(
-          (data: any) => {
-            data.map(item => {
-              this.heThongRap = item;
-            })
-            // console.log(this.heThongRap);
-          },
-          (err: any) => {
-            console.log(err);
-          }
-        )
-      },
-      (err: any) => {
-        console.log(err);
-      }
-    )
+  _layThongTinHeThongRap(maHeThongRap) {
+    switch (maHeThongRap) {
+      case "BHD Star Cineplex":
+        maHeThongRap = "BHDStar";
+        break;
+      case "CNS":
+        maHeThongRap = "CineStar";
+        break;
+      case "GLX":
+        maHeThongRap = "Galaxy";
+        break;
+      case "Lotte":
+        maHeThongRap = "LotteCinima";
+        break;
+      default:
+        break;
+    }
+    this._dataService.get(`http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap?maHeThongRap=${maHeThongRap}`).subscribe((data: any) => {
+      data.map(item => {
+        this.heThongRap = item;
+      })
+    })
   }
+
 
   handleEvent(event) {
     if (event.left === 0) {
@@ -215,6 +207,7 @@ export class TrangDatVeComponent implements OnInit {
         this.danhSachVeDat.taiKhoanNguoiDung = nguoiDungHienTai.taiKhoan;
         // console.log(this.danhSachVeDat.taiKhoanNguoiDung);
         // console.log(this.danhSachVeDat);
+        console.log(this.danhSachVeDat);
         const uri = `http://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/DatVe`;
         this._dataService.postDatVe(uri, this.danhSachVeDat).subscribe(
           (data: any) => {

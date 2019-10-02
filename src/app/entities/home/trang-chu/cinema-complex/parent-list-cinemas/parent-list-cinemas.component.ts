@@ -77,19 +77,19 @@ export class ParentListCinemasComponent implements OnInit {
         this.event = this.listDSPhim[0].maCumRap;
         break;
       case 1:
-        this.event = this.listDSPhim[2].maCumRap;
+        this.event = this.listDSPhim[3].maCumRap;
         break;
       case 2:
         this.event = this.listDSPhim[16].maCumRap;
         break;
       case 3:
-        this.event = this.listDSPhim[17].maCumRap;
+        this.event = this.listDSPhim[18].maCumRap;
         break;
       case 4:
-        this.event = this.listDSPhim[22].maCumRap;
+        this.event = this.listDSPhim[23].maCumRap;
         break;
       case 5:
-        this.event = this.listDSPhim[27].maCumRap;
+        this.event = this.listDSPhim[28].maCumRap;
         break;
 
       default:

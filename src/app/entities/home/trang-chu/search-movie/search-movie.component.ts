@@ -16,9 +16,9 @@ export class SearchMovieComponent implements OnInit {
   ngay: any;
   gio: any = 0;
   maLichChieu: number = 0;
-  constructor(private router: Router, private dataSV: DataService) {}
-  ngOnInit() {}
-  ngAfterViewInit() {}
+  constructor(private router: Router, private dataSV: DataService) { }
+  ngOnInit() { }
+  ngAfterViewInit() { }
   chonPhim(event) {
     this.movie = event;
     console.log(event);
@@ -58,9 +58,7 @@ export class SearchMovieComponent implements OnInit {
   }
   datVe() {
     const url = this.router.serializeUrl(
-      this.router.createUrlTree(["/dat-ve/", this.maLichChieu], {
-        queryParams: { movieId: this.movie }
-      })
+      this.router.createUrlTree(["/dat-ve/", this.maLichChieu])
     );
 
     window.open(url, "_blank");

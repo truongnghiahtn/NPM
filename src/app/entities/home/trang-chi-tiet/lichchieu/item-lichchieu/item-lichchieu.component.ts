@@ -9,7 +9,6 @@ import { SharingDataService } from 'src/app/shared/share/sharing-data.service';
 })
 export class ItemLichchieuComponent implements OnInit {
   @Input() thongTinHeThongRap;
-  @Input() maPhim;
   eventSelect: string = "2019-01-01";
   lichChieuPhim: any = [];
   groups: any;
