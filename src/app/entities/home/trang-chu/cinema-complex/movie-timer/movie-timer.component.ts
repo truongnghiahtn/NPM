@@ -17,8 +17,8 @@ export class MovieTimerComponent implements OnInit {
   ngOnInit() {
   }
 
-  DatVe(maPhim, maLichChieu) {
-    const url = this.router.serializeUrl(this.router.createUrlTree(['/dat-ve/', maLichChieu], { queryParams: { movieId: maPhim } }));
+  DatVe(maLichChieu) {
+    const url = this.router.serializeUrl(this.router.createUrlTree(['/dat-ve/', maLichChieu]));
 
     window.open(url, '_blank');
 

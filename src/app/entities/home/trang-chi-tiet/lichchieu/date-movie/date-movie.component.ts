@@ -9,7 +9,6 @@ import { SharingDataService } from 'src/app/shared/share/sharing-data.service';
 })
 export class DateMovieComponent implements OnInit {
   @Input() lichChieu;
-  @Input() maPhim;
   lichChieuPhim: Array<any> = [];
   groups: Array<any> = [];
   img2D: string = "assets/img/2D.png";
@@ -33,7 +32,7 @@ export class DateMovieComponent implements OnInit {
   }
 
   datVe(maLichChieu) {
-    const url = this.router.serializeUrl(this.router.createUrlTree(['/dat-ve/', maLichChieu], { queryParams: { movieId: this.maPhim } }));
+    const url = this.router.serializeUrl(this.router.createUrlTree(['/dat-ve/', maLichChieu]));
 
     window.open(url, '_blank');
   }

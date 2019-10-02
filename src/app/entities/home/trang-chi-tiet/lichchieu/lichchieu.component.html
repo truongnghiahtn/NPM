@@ -24,7 +24,7 @@
             <div class="tab-content">
                 <ng-container *ngFor="let item of thongTinLichChieuPhim.heThongRapChieu; let i = index">
                     <div class="tab-pane" [ngClass]="{active: i == 0}" [id]="item.maHeThongRap">
-                        <app-item-lichchieu [thongTinHeThongRap]="item" [maPhim]="maPhim">
+                        <app-item-lichchieu [thongTinHeThongRap]="item">
                         </app-item-lichchieu>
                     </div>
                 </ng-container>

@@ -10,11 +10,11 @@
                             </div>
                             <div class="info__logo">
                                 <p>
-                                    {{lichChieu.thongTinRap.tenCumRap}}
+                                    {{phongVe.thongTinPhim.tenCumRap}}
                                 </p>
                                 <p>
-                                    Hôm nay - {{lichChieu.ngayChieuGioChieu | date: 'HH:mm'}} -
-                                    {{lichChieu.thongTinRap.tenRap| uppercase}}
+                                    Hôm nay - {{phongVe.thongTinPhim.gioChieu}} -
+                                    {{phongVe.thongTinPhim.tenRap| uppercase}}
                                 </p>
                             </div>
                         </div>
@@ -55,15 +55,15 @@
                     <p class="total">{{tongTien}} đ</p>
                 </div>
                 <div class="row thongtin__phim">
-                    <p class="w-100">{{chiTietPhim.tenPhim}}</p>
+                    <p class="w-100">{{phongVe.thongTinPhim.tenPhim}}</p>
                     <div class="content__Cinema">
                         <div class="addr">
-                            <p>{{lichChieu.thongTinRap.tenCumRap}}</p>
+                            <p>{{phongVe.thongTinPhim.tenCumRap}}</p>
                         </div>
                         <div class="time">
-                            <p>Hôm nay {{lichChieu.ngayChieuGioChieu | date: 'dd/MM/yyyy'}} -
-                                {{lichChieu.ngayChieuGioChieu | date: 'HH:mm'}} -
-                                {{lichChieu.thongTinRap.tenRap | uppercase}}
+                            <p>Hôm nay {{phongVe.thongTinPhim.ngayChieu | date: 'dd/MM/yyyy'}} -
+                                {{phongVe.thongTinPhim.gioChieu}} -
+                                {{phongVe.thongTinPhim.tenRap | uppercase}}
                             </p>
                         </div>
                     </div>

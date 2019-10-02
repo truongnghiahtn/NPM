@@ -1,7 +1,7 @@
 @mixin text($fs, $fw, $color) {
-    font-size: $fs;
-    font-weight: $fw;
-    color: $color;
+  font-size: $fs;
+  font-weight: $fw;
+  color: $color;
 }
 
 //Variable
@@ -49,138 +49,146 @@ $fw-bold-1: 700;
 $fw-bold-2: 500;
 $fw-bold: bold;
 //break points
-$breakpoints: ( "extra-large": 1200px, "large": 992px, "medium": 768px, "small": 576px);
+$breakpoints: (
+  "extra-large": 1200px,
+  "large": 992px,
+  "medium": 768px,
+  "small": 576px
+);
 //End variable
 .comingSoon {
-    background-color: #101010; //change color
+  background-color: #101010; //change color
+  position: relative;
+  overflow: hidden;
+  font-family: "Roboto Condensed", sans-serif;
+  .comingsoon-content {
+    width: 1050px;
+    margin: 0 auto;
+  }
+  .coming__title {
     position: relative;
-    overflow: hidden;
-    .comingsoon-content{
-        width: 1050px;
-        margin: 0 auto
+    @include text($fs-0 + 3, $fw-normal, $color-white-0);
+    margin-bottom: 20px;
+    letter-spacing: 1.2px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+    text-transform: uppercase;
+    &::before {
+      content: "";
+      width: 10%;
+      height: 4px;
+      bottom: 0;
+      position: absolute;
+      background: linear-gradient(to right, #fbbd61, #ec7532);
     }
-    .coming__title {
-        position: relative;
-        @include text($fs-0, $fw-normal, $color-white-0);
-        margin-bottom: 20px;
-        letter-spacing: 1.7px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid #333;
-        text-transform: uppercase;
-        &::before {
-            content: "";
-            width: 10%;
-            height: 4px;
-            bottom: 0;
-            position: absolute;
-            background: linear-gradient(to right, #fbbd61, #ec7532);
-        }
+  }
+  ::ng-deep #myTab {
+    position: relative;
+    padding: 55px 0;
+    padding-bottom: 20px;
+    width: 900px;
+    margin: 0 auto;
+    &::before {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: -250%;
+      display: block;
+      width: 500%;
+      height: 95%;
+      padding: 0;
+      background: rgba(#101010, 0.6);
+      content: "";
     }
-     ::ng-deep #myTab {
-        position: relative;
-        padding: 55px 0;
-        padding-bottom: 20px;
-        width: 900px;
-        margin: 0 auto;
-        &::before {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            left: -250%;
-            display: block;
-            width: 500%;
-            height: 95%;
-            padding: 0;
-            background: rgba(#101010, 0.6);
-            content: "";
+    .owl-stage {
+      transition: all 0.3s ease-in-out !important;
+
+      .carousel__item {
+        margin: 0 15px;
+        opacity: 0.5;
+        transition: all 0.3s ease-in-out;
+
+        cursor: pointer;
+        .nav__img {
+          img {
+            border-radius: $border-radius-1;
+          }
         }
-        .owl-stage {
-            transition: all 0.3s ease-in-out !important;
-            
-            
-            .carousel__item {
-                margin: 0 15px;
-                opacity: 0.35;
-                transition: all 0.3s ease-in-out;
-               
-                cursor: pointer;
-                .nav__img {
-                    img {
-                        border-radius: $border-radius-1;
-                    }
-                }
-                .nav__content {
-                    h5 {
-                        @include text($fs-3, $fw-normal, $color-white-0);
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        margin-top: $mg-2 - 5;
-                        margin-bottom: 0;
-                    }
-                    span {
-                        @include text($fs-2, $fw-normal, $color-white-0);
-                        opacity: 0.5;
-                    }
-                }
-                &:hover {
-                    opacity: 1;
-                }
-                &.opacity {
-                    opacity: 1;
-                }
-            }
+        .nav__content {
+          h5 {
+            height: 38px;
+            @include text($fs-3, $fw-normal, $color-white-0);
+            margin-top: $mg-2 - 5;
+            margin-bottom: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+          span {
+            @include text($fs-2, $fw-normal, $color-white-0);
+            opacity: 0.5;
+          }
         }
+        &:hover {
+          opacity: 1;
+        }
+        &.opacity {
+          opacity: 1;
+        }
+      }
     }
+  }
 }
 
 @media (min-width: 1200px) {
-    .container {
-        max-width: 1170px;
-    }
+  .container {
+    max-width: 1170px;
+  }
 }
 
- ::ng-deep .owl-nav {
-    .owl-next,
-    .owl-prev {
-        position: absolute;
-        right: -65px;
-        top: 45%;
-        width: 40px;
-        height: 40px;
-        z-index: 999;
-        span {
-            font-size: $fs-6 + 10;
-            line-height: 20px;
-            background: -webkit-linear-gradient(#fbbd61, #ec7532);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        &:focus {
-            box-shadow: none;
-            outline: none;
-        }
-        &:hover {
-            background-color: unset !important;
-        }
-        transition: all 300ms ease-in-out;
+::ng-deep .owl-nav {
+  .owl-next,
+  .owl-prev {
+    position: absolute;
+    right: -65px;
+    top: 45%;
+    width: 40px;
+    height: 40px;
+    z-index: 999;
+    span {
+      font-size: $fs-6 + 10;
+      line-height: 20px;
+      background: -webkit-linear-gradient(#fbbd61, #ec7532);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .owl-prev {
-        right: unset;
-        left: -65px;
-        &:hover {
-            left: -60px;
-            opacity: 0.6;
-        }
+    &:focus {
+      box-shadow: none;
+      outline: none;
     }
-    .owl-next {
-        &:hover {
-            right: -60px;
-            opacity: 0.6;
-        }
+    &:hover {
+      background-color: unset !important;
     }
+    transition: all 300ms ease-in-out;
+  }
+  .owl-prev {
+    right: unset;
+    left: -65px;
+    &:hover {
+      left: -60px;
+      opacity: 0.6;
+    }
+  }
+  .owl-next {
+    &:hover {
+      right: -60px;
+      opacity: 0.6;
+    }
+  }
 }
 
 .active {
-    opacity: 1 !important;
+  opacity: 1 !important;
 }
