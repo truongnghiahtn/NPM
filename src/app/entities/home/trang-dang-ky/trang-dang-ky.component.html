@@ -12,164 +12,90 @@
         <!--Card content-->
         <mdb-card-body class="px-lg-5 pt-0">
           <!-- Form -->
-          <form
-            class="text-center"
-            style="color: #757575;"
-            #formSignUp="ngForm"
-            (submit)="_handleOnSubmit(formSignUp)"
-          >
+          <form class="text-center" style="color: #757575;" #formSignUp="ngForm"
+            (submit)="_handleOnSubmit(formSignUp.value)">
             <div class="form-row">
-              <div class="col">
-                <!-- First name -->
-                <div class="md-form">
-                  <input
-                    type="text"
-                    id="materialRegisterFormFirstName"
-                    class="form-control"
-                    mdbInput
-                    #firstname="ngModel"
-                    required
-                    name="firstname"
-                    ngModel
-                  />
-                  <label for="materialRegisterFormFirstName">First name</label>
-                  <p
-                    class="alert alert-danger"
-                    *ngIf="
-                      firstname?.errors?.required &&
-                      (firstname.dirty ||
-                        firstname.touched ||
-                        formSignUp.submitted)
-                    "
-                  >
-                    Vui lòng nhập họ
-                  </p>
-                </div>
-              </div>
               <div class="col">
                 <!-- Last name -->
                 <div class="md-form">
-                  <input
-                    type="email"
-                    id="materialRegisterFormLastName"
-                    class="form-control"
-                    mdbInput
-                    #lastname="ngModel"
-                    required
-                    name="lastname"
-                    ngModel
-                  />
-                  <label for="materialRegisterFormLastName">Last name</label>
-                  <p
-                    class="alert alert-danger"
-                    *ngIf="
-                      lastname?.errors?.required &&
-                      (lastname.dirty ||
-                        lastname.touched ||
-                        formSignUp.submitted)
-                    "
-                  >
-                    Vui lòng nhập tên
-                  </p>
+                  <input type="text" id="materialRegisterFormLastName" class="form-control" mdbInput #hoTen="ngModel"
+                    required name="hoTen" ngModel />
+                  <label for="materialRegisterFormLastName">Họ tên</label>
+                  <small style="color: #ec2727 !important" id="materialRegisterFormLastName"
+                    class="form-text text-muted mb-4" *ngIf="
+                    hoTen?.errors?.required &&
+                  (hoTen.dirty ||
+                  hoTen.touched ||
+                    formSignUp.submitted)
+                ">
+                    * Vui lòng nhập họ tên
+                  </small>
                 </div>
               </div>
             </div>
 
             <!-- E-mail -->
             <div class="md-form mt-0">
-              <input
-                type="email"
-                id="materialRegisterFormEmail"
-                class="form-control"
-                mdbInput
-                #taiKhoan="ngModel"
-                required
-                name="taiKhoan"
-                ngModel
-              />
-              <label for="materialRegisterFormEmail">Tài khoản</label>
-              <p
-                class="alert alert-danger"
-                *ngIf="
-                  taiKhoan?.errors?.required &&
-                  (taiKhoan.dirty || taiKhoan.touched || formSignUp.submitted)
-                "
-              >
-                Vui lòng nhập tài khoản
-              </p>
+              <input type="text" id="materialRegisterFormTaiKhoan" class="form-control" mdbInput #taiKhoan="ngModel"
+                required name="taiKhoan" ngModel />
+              <label for="materialRegisterFormTaiKhoan">Tài khoản</label>
+              <small style="color: #ec2727 !important" id="materialRegisterFormTaiKhoan"
+                class="form-text text-muted mb-4" *ngIf="
+              taiKhoan?.errors?.required &&
+              (taiKhoan.dirty || taiKhoan.touched || formSignUp.submitted)
+            ">
+                * Vui lòng nhập tài khoản
+              </small>
             </div>
 
             <!-- Password -->
             <div class="md-form">
-              <input
-                type="password"
-                id="materialRegisterFormPassword"
-                class="form-control"
-                aria-describedby="materialRegisterFormPasswordHelpBlock"
-                mdbInput
-                #matKhau="ngModel"
-                required
-                minlength="8"
-                maxlength="16"
-                name="matKhau"
-                ngModel
-              />
-              <label for="materialRegisterFormPassword">Password</label>
-              <p
-                class="alert alert-danger"
-                *ngIf="
+              <input type="password" id="materialRegisterFormPassword" class="form-control"
+                aria-describedby="materialRegisterFormPassword" mdbInput #matKhau="ngModel" required minlength="8"
+                maxlength="16" name="matKhau" ngModel />
+              <label for="materialRegisterFormPassword">Mật khẩu</label>
+              <small style="color: #ec2727 !important" id="materialRegisterFormPassword"
+                class="form-text text-muted mb-4" *ngIf="
                   matKhau?.errors?.required &&
                   (matKhau.dirty || matKhau.touched)
-                "
-              >
-                Vui lòng nhập mật khẩu
-              </p>
-              <p
-                class="alert alert-danger"
-                *ngIf="matKhau?.errors?.minlength || matKhau?.errors?.maxlength"
-              >
-                Mật khẩu phải có từ 8-16 kí tự
-              </p>
-              <small
-                id="materialRegisterFormPasswordHelpBlock"
-                class="form-text text-muted mb-4"
-              >
-                At least 8 characters and 1 digit
+                ">
+                * Vui lòng nhập mật khẩu
+              </small>
+              <small *ngIf="matKhau?.errors?.minlength || matKhau?.errors?.maxlength" id="materialRegisterFormPassword"
+                class="form-text text-muted mb-4">
+                * Mật khẩu phải có từ 8-16 kí tự
               </small>
             </div>
 
             <!-- Phone number -->
             <div class="md-form">
-              <input
-                type="text"
-                id="materialRegisterFormPhone"
-                class="form-control"
-                aria-describedby="materialRegisterFormPhoneHelpBlock"
-                mdbInput
-              />
-              <label for="materialRegisterFormPhone">Phone number</label>
-              <small
-                id="materialRegisterFormPhoneHelpBlock"
-                class="form-text text-muted mb-4"
-              >
-                Optional - for two-step authentication
+              <input type="email" class="form-control" name="email" mdbInput ngModel #email="ngModel" required />
+              <label for="materialRegisterFormEmail">Email</label>
+              <small *ngIf="
+              email?.errors?.required &&
+              (email.dirty || email.touched)
+            " style="color: #ec2727 !important" id="materialRegisterFormEmail" class="form-text text-muted mb-4">
+                * Vui lòng nhập Email
               </small>
             </div>
+            <div class="md-form">
+              <input type="text" class="form-control" name="soDt" mdbInput ngModel #soDt="ngModel" required />
+              <label for="materialRegisterFormSoDT">Số điện thoại</label>
+              <small *ngIf="
+              soDt?.errors?.required &&
+              (soDt.dirty || soDt.touched)
+            " style="color: #ec2727 !important" id="materialRegisterFormSoDT" class="form-text text-muted mb-4">
+                * Vui lòng nhập số điện thoại
+              </small>
+            </div>
+
 
             <!-- Newsletter -->
             <mdb-checkbox>Subscribe to our newsletter</mdb-checkbox>
 
             <!-- Sign up button -->
-            <button
-              mdbBtn
-              color="info"
-              outline="true"
-              rounded="true"
-              block="true"
-              class="my-4 waves-effect z-depth-0"
-              mdbWavesEffect
-              type="submit"
-            >
+            <button mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0"
+              mdbWavesEffect type="submit">
               Sign in
             </button>
 
