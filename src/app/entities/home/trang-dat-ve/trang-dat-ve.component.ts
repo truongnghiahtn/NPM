@@ -22,6 +22,7 @@ export class TrangDatVeComponent implements OnInit {
   phongVe: any;
   maHeThongRap: any;
   heThongRap: any;
+  gioChieu: any;
 
   eventGhe: any = [];
 
@@ -105,6 +106,30 @@ export class TrangDatVeComponent implements OnInit {
         console.log(data);
         this.maHeThongRap = this.phongVe.thongTinPhim.tenCumRap.split(" - ")[0];
         this._layThongTinHeThongRap(this.maHeThongRap);
+        this.gioChieu = this.phongVe.thongTinPhim.gioChieu;
+        switch (this.gioChieu) {
+          case "10:01":
+            this.phongVe.thongTinPhim.gioChieu = "10:10";
+            break;
+          case "12:01":
+            this.phongVe.thongTinPhim.gioChieu = "12:10";
+            break;
+          case "02:01":
+            this.phongVe.thongTinPhim.gioChieu = "14:10";
+            break;
+          case "04:01":
+            this.phongVe.thongTinPhim.gioChieu = "16:10";
+            break;
+          case "06:01":
+            this.phongVe.thongTinPhim.gioChieu = "18:10";
+            break;
+          case "08:01":
+            this.phongVe.thongTinPhim.gioChieu = "20:10";
+            break;
+
+          default:
+            break;
+        }
       },
       (err: any) => {
         console.log(err);

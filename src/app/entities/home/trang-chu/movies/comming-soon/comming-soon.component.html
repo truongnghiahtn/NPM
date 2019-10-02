@@ -7,13 +7,14 @@
                     <app-comming-soonitem [phim]="item"></app-comming-soonitem>
                 </ng-container>
                 <div class="owl-carousel owl-theme documentation" id="myTab">
-                    <div class="carousel__item tablink" [ngClass]="{'active': item.maPhim === mp}" *ngFor="let item of DanhSachPhimSapChieu; let i = index" (click)="show(item.maPhim)">
+                    <div class="carousel__item tablink" [ngClass]="{'active': item.maPhim === mp}"
+                        *ngFor="let item of DanhSachPhimSapChieu; let i = index" (click)="show(item.maPhim)">
                         <a class="nav__img">
                             <img class="myImg" [src]="item.hinhAnhMoTa">
                         </a>
                         <div class="nav__content text-center">
                             <h5>{{item.tenPhim}}</h5>
-                            <span>{{item.ngayKhoiChieu}}</span>
+                            <span>{{item.thoiLuong}} - {{item.ngayKhoiChieu | date: 'dd/MM'}}</span>
                         </div>
                     </div>
                 </div>

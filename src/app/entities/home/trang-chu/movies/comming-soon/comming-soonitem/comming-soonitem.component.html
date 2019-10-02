@@ -12,7 +12,8 @@
                     <i class="fa fa-star movie__star"></i>
                     <i class="fa fa-star movie__star"></i>
                     <i class="fa fa-calendar-alt px-2"></i>
-                    <span>{{phim.ngayKhoiChieu}}</span>
+                    <span>{{phim.ngayKhoiChieu | date: 'dd/MM/yyyy'}} - {{phim.thoiLuong}} - {{phim.danhGia}}
+                        IMDb</span>
                 </div>
                 <p>{{phim.moTa}}</p>
                 <a href="#">MORE INFO<i class="fa fa-angle-right pl-1"></i></a>
@@ -20,7 +21,7 @@
             <div class="coming__detail__video col-sm-5 col-12 ml-auto">
                 <a class="video-venobox" data-autoplay="true" data-vbtype="video" [href]="phim.trailer">
                     <i class="fa fa-play"></i>
-                    <img class="img-fluid" [src]="phim.hinhAnhVideo" alt="#">
+                    <img class="img-fluid" [src]="phim.hinhAnhVideo" alt="#" style="width: 420px; height: 240px">
                 </a>
             </div>
         </div>

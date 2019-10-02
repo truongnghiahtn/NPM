@@ -27,7 +27,7 @@ export class QuanLyPhimComponent implements OnInit {
     { maNhom: "GP10" }
   ];
   default: any = "GP01";
-  constructor(private dataService: DataService, private datePide: DatePipe) {}
+  constructor(private dataService: DataService, private datePide: DatePipe) { }
   ngOnInit() {
     this.default = "GP01";
     console.log(this.danhSachNhom);
