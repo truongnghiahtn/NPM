@@ -32,6 +32,16 @@
 }
 .login {
   color: gray;
+  button{
+    background-color: #fe7900;
+    opacity: 0.9;
+    padding: 7px 14px;
+    color: white;
+    transition: all .1s;
+    &:hover{
+      opacity: 1;
+    }
+  }
   .username,
   .site {
     a {

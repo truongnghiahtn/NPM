@@ -28,10 +28,10 @@
     <div class="login d-flex mr-2">
       <div *ngIf="!status" class="username">
 
-        <button (click)="test()">Đăng nhập</button>
+        <button class="btn" (click)="test()">Đăng nhập</button>
       </div>
       <div *ngIf="status" class="username">
-        <a (click)="dangxuat()">Đăng xuất</a>
+        <button class="btn" (click)="dangxuat()">Đăng xuất</button>
       </div>
     </div>
 

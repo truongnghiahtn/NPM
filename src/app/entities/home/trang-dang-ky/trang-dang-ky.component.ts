@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./trang-dang-ky.component.scss"]
 })
 export class TrangDangKyComponent implements OnInit {
+  dangnhap:any;
   @ViewChild("formSignUp", { static: false }) formSignUp: NgForm;
   constructor(
     private router: Router,
@@ -35,8 +36,9 @@ export class TrangDangKyComponent implements OnInit {
       })
       .subscribe(
         data => {
-          console.log(data);
-          this.router.navigate([""])
+          
+          // this.router.navigate([""])
+          this.dangnhap=true;
         },
         err => {
           console.log(err);
@@ -46,5 +48,13 @@ export class TrangDangKyComponent implements OnInit {
   @HostListener("window:beforeunload", ["$event"])
   canDeactivate($event): boolean {
     return this.formSignUp.submitted || !this.formSignUp.dirty;
+  }
+  close(){
+    this.dangnhap=false;
+
+  }
+  chuyentrang(){
+    this.dangnhap=false;
+     this.router.navigate([""]);
   }
 }

@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit {
   dangxuat() {
     localStorage.removeItem("KhachHang");
     this.layinfodangnhap();
-    console.log(this.status);
+    this.router.navigate(["dang-nhap"]);
   }
   trangChu() {
     if (location.href === "http://localhost:4200/") {

@@ -1,3 +1,14 @@
+<div *ngIf="dangnhap">
+  <div class="over-lay-dangnhap">
+
+      <div class="dangnhap">
+          <p>Đăng kí thành công</p>
+          <p>bạn muốn về trang chủ</p>
+          <i class="fa fa-times" (click)="close()"></i>
+          <button class="btn" (click)="chuyentrang()"> Đồng ý </button>
+      </div>
+  </div>
+</div>
 <div class="container animated fadeIn delay-1s dangky">
   <div class="row">
     <div class="col-8 mx-auto mt-5">
