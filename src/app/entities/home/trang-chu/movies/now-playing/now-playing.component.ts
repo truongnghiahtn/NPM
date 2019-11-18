@@ -9,81 +9,77 @@ import { Phim } from 'src/app/common/models/phim';
   templateUrl: './now-playing.component.html',
   styleUrls: ['./now-playing.component.scss']
 })
-export class NowPlayingComponent implements OnInit  {
-status:boolean;
-biendem:number;
-biendem1:number=1;
-subListMovie=new Subscription();
-DSphimDangChieu1:any=[];
-constructor( private dataService:DataService) { }
-    
-    ngOnInit() {
-      this.getListMovie();
-    
+export class NowPlayingComponent implements OnInit {
+  status: boolean;
+  biendem: number;
+  biendem1: number = 1;
+  subListMovie = new Subscription();
+  DSphimDangChieu1: any = [];
+  constructor(private dataService: DataService) { }
+
+  ngOnInit() {
+    this.getListMovie();
+
+  }
+  // ngAfterViewInit(){
+  //   setInterval(() => {
+  //   this.next(); 
+  // }, 10000);
+  // }
+  next() {
+    if (this.biendem1 === this.biendem) {
+      this.biendem1 = 1
     }
-    // ngAfterViewInit(){
-    //   setInterval(() => {
-    //   this.next(); 
-    // }, 10000);
-    // }
-  next(){
-    if(this.biendem1===this.biendem)
-    {
-      this.biendem1=1
-    }
-    else{
+    else {
       this.biendem1++
     }
-    this.status=true;
+    this.status = true;
   }
-  pre(){
-    if(this.biendem1===1)
-    {
-      this.biendem1=this.biendem;
+  pre() {
+    if (this.biendem1 === 1) {
+      this.biendem1 = this.biendem;
     }
-    else{
+    else {
       this.biendem1--;
     }
-    this.status=false;
+    this.status = false;
   }
-  catlayout(){
-    if(this.DSphimDangChieu1.length>8){
-      this.biendem= parseInt(`${this.DSphimDangChieu1.length/8}`)+1;
+  catlayout() {
+    if (this.DSphimDangChieu1.length > 8) {
+      this.biendem = parseInt(`${this.DSphimDangChieu1.length / 8}`) + 1;
     }
 
   }
-  getListMovie(){
-    this.subListMovie= this.dataService.get('http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP10').subscribe((data:Phim[])=>{
- 
-      this.DSphimDangChieu1=data;
-      console.log(data);
+  getListMovie() {
+    this.subListMovie = this.dataService.get('http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP10').subscribe((data: Phim[]) => {
 
-    this.catphim();
-      if(this.DSphimDangChieu1.length>8){
-        if(this.DSphimDangChieu1.length % 8 ===0){
-          this.biendem= parseInt(`${this.DSphimDangChieu1.length/8}`);
+      this.DSphimDangChieu1 = data;
+
+      this.catphim();
+      if (this.DSphimDangChieu1.length > 8) {
+        if (this.DSphimDangChieu1.length % 8 === 0) {
+          this.biendem = parseInt(`${this.DSphimDangChieu1.length / 8}`);
 
         }
-        else{
-        this.biendem= parseInt(`${this.DSphimDangChieu1.length/8}`)+1;
-    
+        else {
+          this.biendem = parseInt(`${this.DSphimDangChieu1.length / 8}`) + 1;
+
         }
       }
     })
-    
+
   }
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.subListMovie.unsubscribe();
-      }
-    catphim(){
-     var i=15;
-     for(let j=0;j<4;j++)
-     {
-       this.DSphimDangChieu1.splice(i,1);
-       i--;
-     }
-    //  this.DSphimDangChieu1.splice(0,1)
+  }
+  catphim() {
+    var i = 15;
+    for (let j = 0; j < 4; j++) {
+      this.DSphimDangChieu1.splice(i, 1);
+      i--;
     }
-    
-      
+    //  this.DSphimDangChieu1.splice(0,1)
+  }
+
+
 }

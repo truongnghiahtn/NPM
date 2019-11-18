@@ -3,11 +3,13 @@
         <img class="img" [src]="img2D" alt="">
 
         <div>
-            <a *ngFor="let item of movieTimer" (click)="DatVe(item.maLichChieu)">
-                <ng-container *ngIf="item.maPhim === event">
-                    {{item.ngayChieuGioChieu | date: 'HH:mm'}}
-                </ng-container>
-            </a>
+            <ng-container *ngFor="let item of movieTimer">
+                <a *ngFor="let lichChieu of item.lstLichChieuTheoPhim" (click)="DatVe(lichChieu.maLichChieu)">
+                    <ng-contaner *ngIf="item.maPhim === event">
+                        {{lichChieu.ngayChieuGioChieu | date: 'HH:mm'}}
+                    </ng-contaner>
+                </a>
+            </ng-container>
         </div>
     </div>
 </div>

@@ -11,7 +11,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   mangPhim: any = [];
   vitri: number = 0;
   phim: any;
-  constructor(private dataSV: DataService, private router: Router) {}
+  constructor(private dataSV: DataService, private router: Router) { }
 
   ngOnInit() {
     this.layDanhSachPhim();
@@ -19,13 +19,13 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   layDanhSachPhim() {
     this.dataSV
       .get(
-        "http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP10"
+        "http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01"
       )
       .subscribe(
         result => {
           this.mangPhim = result;
           this.phim = this.mangPhim[2];
-          $(document).ready(function() {
+          $(document).ready(function () {
             $(".carousel").carousel();
           });
         },

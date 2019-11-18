@@ -25,14 +25,15 @@ export class ListMoviesComponent implements OnInit {
   ArrayMaPhim = [];
 
   subLichChieu = new Subscription();
-  constructor(private _dataService: DataService) {}
+  constructor(private _dataService: DataService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   ngOnChanges(): void {
-    this.movies.danhSachPhim = this.movies.danhSachPhim.filter(item => {
+    this.movies.danhSachPhim = this.movies.danhSachPhim.map(item => {
       this.ArrayMaPhim.push(item.maPhim);
-      return item.ngayChieuGioChieu.includes("2019-01-01T");
+      item.lstLichChieuTheoPhim = item.lstLichChieuTheoPhim.filter(lichChieu => lichChieu.ngayChieuGioChieu.includes("2019-01-01T"))
+      return item
     });
 
     this.maPhim = [...new Set(this.ArrayMaPhim)];
@@ -44,24 +45,6 @@ export class ListMoviesComponent implements OnInit {
           .get(uri)
           .subscribe((data: any) => {
             this.moviesInDay.push(data);
-            this.moviesInDay.map(item => {
-              item.heThongRapChieu.map(item => {
-                item.cumRapChieu.map(item => {
-                  if (item.maCumRap === this.movies.maCumRap) {
-                    item.lichChieuPhim.map(a => {
-                      this.movies.danhSachPhim.map(item => {
-                        if (
-                          item.maRap === a.maRap &&
-                          item.ngayChieuGioChieu === a.ngayChieuGioChieu
-                        ) {
-                          item["maLichChieu"] = a.maLichChieu;
-                        }
-                      });
-                    });
-                  }
-                });
-              });
-            });
           });
       });
     }
